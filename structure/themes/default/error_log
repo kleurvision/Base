@@ -1,0 +1,3 @@
+[14-May-2013 11:06:58] PHP Fatal error:  Call to a member function get_header() on a non-object in /home/clickity/public_html/structure/theme/index.php on line 5
+[24-Jun-2013 03:11:17] PHP Fatal error:  Call to a member function get_header() on a non-object in /home/clickity/public_html/structure/theme/index.php on line 5
+[26-Jun-2013 04:14:01] PHP Fatal error:  Call to a member function get_header() on a non-object in /home/clickity/public_html/structure/theme/index.php on line 5

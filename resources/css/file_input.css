@@ -1,0 +1,43 @@
+/* File input stylesheet
+Version 1.0
+Prepared by Kleurvision
+-----------------------
+This stylesheet creates a universal custom File Input style
+-----------------------
+Grip it and rip it
+*/
+
+.file_input_wrapper{
+	position: relative;
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+.file_input{
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+	width: 100%!important;
+}
+
+.file_input_skin{
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;	
+}
+
+.file_input_skin .global_input_wrapper{
+	width:130px;
+	float: left;
+}
+
+.file_input_skin .btn{
+	float: right;
+}
