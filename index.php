@@ -1,6 +1,6 @@
 <? /* Welcome to the show
 ------------------------------
-** Title: ClientCare - Designed and coded in Canada by Kleurvision Inc.
+** Title: Webninja - Designed and coded in Canada by Kleurvision Inc.
 ** Version: 2.0
 ** Authoring Date: December 2012
 ** Description: ClientCare is a light CRM for small, medium, and large businesses

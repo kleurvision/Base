@@ -1,6 +1,6 @@
 <? /* Bolt it on
 ------------------------------
-** Webninja bootstrap file
+** ClientCare bootstrap file
 ------------------------------
 ** Here we go */
 
