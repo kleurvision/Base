@@ -19,16 +19,10 @@ define( 'ADMIN', 'structure/admin' );
 
 
 // Define the config file
-if (file_exists(PATH . 'config.php')) {
-
-	/** The config file resides in main directory */
-	require_once(PATH . 'config.php');
-
-} elseif (file_exists(dirname(PATH).'/config.php')) {
+if (file_exists(dirname(PATH).'/config/config.php')) {
 
 	/** The config file resides one level above the main directory */
-	require_once(dirname(PATH).'/config.php');
-
+	require_once(dirname(PATH).'/config/config.php');
 };
 
 // URL -  Edit root URL
