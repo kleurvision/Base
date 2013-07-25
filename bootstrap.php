@@ -1,6 +1,7 @@
 <? /* Bolt it on
 ------------------------------
 ** Webninja bootstrap file
+** July 2013
 ------------------------------
 ** Here we go */
 
