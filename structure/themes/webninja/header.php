@@ -53,7 +53,7 @@
 	</head>
 
   <body>
-  <? // print_r($_GET);?>
+  <? print_r($_GET);?>
 	<div id="wrap">
 	  	<div id="pageHeader">
 	  		<div class="container">

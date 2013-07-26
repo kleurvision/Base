@@ -45,6 +45,12 @@
 	</footer>
 </div>
 
+<? 
+	global $db;
+	$user = new User($db);
+	$hud = $user->load_hud();
+	echo $hud;
+?>
 	
  	<!-- Le javascript
     ================================================== -->
@@ -60,13 +66,6 @@
 	 	app_foot();
 	?>    
     
-
-    <? 
-    	global $db;
-    	$user = new User($db);
-    	$hud = $user->load_hud();
-    	echo $hud;
-    ?>
 
 	
   </body>

@@ -1,0 +1,86 @@
+@import "compass"
+@import "compass/reset"
+@import "susy"
+
+// Grid
+/////////////////////////////////////////////////////////
+
+$total-columns: 12
+$column-width: 6em
+$gutter-width: 2em
+$grid-padding: 2em
+
+$container-style: static
+
+.container
+	@include container
+
+// Variables
+/////////////////////////////////////////////////////////
+
+$darkestblue:	#365c80
+$darkblue:		#76a3c4
+$mediumblue:	#86bfe0
+$lightblue: 	#96e2ff
+$ligthestblue:	#daeefb
+
+// Mixins
+/////////////////////////////////////////////////////////
+
+@mixin trans
+	+transition-property()
+	+transition-duration(.5s)
+
+// Globals
+/////////////////////////////////////////////////////////
+body
+	font-size: 100%
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif 
+	font-weight: 300	
+	background: url(../images/bg.jpg)
+	-webkit-font-smoothing: antialiased
+	font-smoothing: antialiased
+	//-webkit-text-stroke: 1px
+	text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px
+	display: none
+
+h1,h2,h3
+	margin-top: 0px
+	margin-bottom: 0px
+	font-weight: bold
+
+h1 
+	font-size: 1.5em
+	padding: 1.45833em 0 
+h2 
+	font-size: 1.33333em 
+	padding: 1.25em 0 
+h3 
+	font-size: 1.16667em 
+	padding: 1.51786em 0 
+
+p
+	line-height: 1.25
+
+
+.container
+	margin: 0 auto
+	//width: 75%
+#page
+	margin-top: 100px
+	padding-bottom: 80px
+	+pie-clearfix
+
+// Fonts
+/////////////////////////////////////////////////////////
+
+//+font-face("Architects Daughter", font-files("/themes/enbridge/assets/fonts/ArchitectsDaughter.ttf"))
+/*@font-face
+	font-family: 'ArchitectsDaughter'
+	src: url('../fonts/ArchitectsDaughter.eot')
+	src: url('../fonts/ArchitectsDaughter.eot?#iefix') format('embedded-opentype')	
+	src: url('../fonts/ArchitectsDaughter.svg#ArchitectsDaughter') format('svg')
+	src: url('../fonts/ArchitectsDaughter.woff') format('woff')
+	src: url('../fonts/ArchitectsDaughter.ttf') format('truetype')
+	font-weight: normal
+	font-style: normal*/

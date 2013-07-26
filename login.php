@@ -63,6 +63,7 @@
     <div class="container">
 
       <? $user->login_form(); ?>
+      <? $user->register_user(); ?>
 
     </div> <!-- /container -->
 

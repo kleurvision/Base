@@ -28,9 +28,8 @@ function is_homepage(){
 function app_head(){
 	
 	// Check site options
-	$app_url = URL;
 	global $db;
-	$opts = $db->get_row("SELECT * FROM app_options WHERE app_url = '$app_url'");
+	$opts = $db->get_row("SELECT footer_stick FROM app_options");
 		
 	// Set footer stick CSS
 	if($opts->footer_stick == true){
@@ -48,13 +47,13 @@ function app_head(){
 	global $user;
 	if(isset($user)){	
 		if($user->get_role() == 'super'){
-			echo '<link href="'.URL.'/structure/admin/css/admin.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'structure/admin/css/admin.css'.'" rel="stylesheet">'. "\r\n";
 			echo' <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'/resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'/resources/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'resources/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script>jQuery(document).ready(function() {jQuery("body").css("margin-top: 62px")})</script>';
 		} elseif ($user->get_role() == 'user'){
-			echo '<link href="'.URL.'/structure/admin/css/admin.css'.'" rel="stylesheet">'. "\r\n";	
+			echo '<link href="'.URL.'structure/admin/css/admin.css'.'" rel="stylesheet">'. "\r\n";	
 		}
 	}
 	
