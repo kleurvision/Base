@@ -66,9 +66,52 @@
   					<div class="row">
   						<div class="col-lg-8">
   							<h1>Get a simple website tailored to your business</h1>
-  							<button type="button" class="btn btn-default btn-large">Get Started</button>
+  							<a data-toggle="modal" href="#contact-modal" class="btn btn-default btn-large">Get Started</a>
   						</div>
   					</div>
   				</div>
   			</div>
+  			<div class="modal fade" id="contact-modal">
+  				<div class="modal-dialog">
+  					<div class="modal-content">
+  						<div class="modal-header">
+  							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  							<h4 class="modal-title">Get Started</h4>
+  						</div>
+  						<div class="modal-body">
+  							<form>
+  								<fieldset>
+  									<div class="row">
+  										<div class="col-lg-6">
+  											<div class="form-group">
+  												<label for="exampleInputEmail">First Name</label>
+  												<input type="text" class="form-control" id="exampleInputEmail">
+  											</div>
+  											<div class="form-group">
+  												<label for="exampleInputPassword">Last Name</label>
+  												<input type="password" class="form-control" id="exampleInputPassword">
+  											</div>
+  										</div>
+  										<div class="col-lg-6">
+  											<div class="form-group">
+  												<label for="exampleInputEmail">Email</label>
+  												<input type="text" class="form-control" id="exampleInputEmail">
+  											</div>
+  											<div class="form-group">
+  												<label for="exampleInputPassword">Phone</label>
+  												<input type="password" class="form-control" id="exampleInputPassword">
+  											</div>
+  										</div>	
+  										<div class="col-lg-12">
+  											<label for="exampleInputPassword">Message</label>
+  											<textarea class="form-control" rows="3"></textarea>
+  											<button type="submit" class="btn btn-default contact-submit pull-right">Submit</button>
+  										</div>
+  									</div>
+  								</fieldset>
+  							</form>
+  						</div>
+  					</div><!-- /.modal-content -->
+  				</div><!-- /.modal-dialog -->
+  			</div><!-- /.modal -->  			
   		<? } ?>
