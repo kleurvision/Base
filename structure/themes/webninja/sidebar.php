@@ -6,7 +6,6 @@
 <div class="span4">
 	<div class="sidebar">
 	<h2>Services</h2>
-Click to Learn the details about the services we offer: 
 		<div class="row-fluid">
 				<h3>DESIGN</h3>
 				<p>Our business is rooted deeply in graphic design. It is our Mantra to make sure that you look good when portraying your self to your adoring fans.</p>

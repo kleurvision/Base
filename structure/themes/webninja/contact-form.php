@@ -13,4 +13,5 @@ $form->addElement(new Element_Textbox("Your phone number", "phone", array("place
 $form->addElement(new Element_Textarea("Whats up?", "description", array("class"=>"input-block-level")));
 $form->addElement(new Element_Button("And Go!"));
 $form->render();
+
 ?>
