@@ -53,13 +53,34 @@
 			  			</a>
 		  			</div>
 		  			<div class="col-6 col-lg-3 pull-right">
-		  				<a href="" class="login btn btn-default btn-large pull-right">
-		  					Login
-		  				</a>
+		  				<a data-toggle="modal" href="#login-modal" class="login btn btn-default btn-large pull-right">Login</a>
 		  			</div>
 	  			</div>
   			</div>
   		</div>
+  		<div class="modal fade" id="login-modal">
+  			<div class="modal-dialog">
+  				<div class="modal-content">
+  					<div class="modal-header">
+  						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  						<h4 class="modal-title">Login</h4>
+  					</div>
+  					<div class="modal-body">
+  						<form>
+  							<fieldset>
+								<div class="form-group">
+									<input type="text" class="form-control" id="exampleInputEmail" placeholder="username">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" id="exampleInputPassword" placeholder="password">
+									<button type="submit" class="btn btn-default btn-block contact-submit pull-right">Submit</button>
+								</div>
+  							</fieldset>
+  						</form>
+  					</div>
+  				</div><!-- /.modal-content -->
+  			</div><!-- /.modal-dialog -->
+  		</div><!-- /.modal -->  		
   		<? if(is_homepage()){?>
   			<div class="jumbotron">
   				<div class="container">
@@ -89,7 +110,7 @@
   											</div>
   											<div class="form-group">
   												<label for="exampleInputPassword">Last Name</label>
-  												<input type="password" class="form-control" id="exampleInputPassword">
+  												<input type="text" class="form-control" id="exampleInputPassword">
   											</div>
   										</div>
   										<div class="col-lg-6">

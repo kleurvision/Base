@@ -110,15 +110,8 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 	$navs = $db->get_results("SELECT navigation FROM app_nav ORDER BY id DESC LIMIT 1");
 	if($navs){
 	
-		if($collapse == 'true'){ ?>
-		<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar collapsed" type="button">
-        	<span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-		<? } ;
 		$navs = json_decode($navs[0]->navigation, true);
-		echo '<ul id="'.$div.'" class="nav nav-pills '.$class.'">';
+		echo '<ul id="'.$div.'" class="nav navbar-nav '.$class.'">';
 		if($startCap == 1){
 			echo '<li class="startCap"></li>';
 		}
@@ -136,7 +129,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 			}
 			
 			if($child_pages){
-				echo '<li class="nav-parent">';
+				echo '<li class="dropdown">';
 			} else {
 				echo '<li>';
 			}
@@ -145,14 +138,14 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 				if($child_pages && $parentLinks == 'true'){
 					echo'<a href="'.URL.$page->pagename.'">'.$page->pagetitle.'</a>';
 				} else if($child_pages && $parentLinks == 'false'){
-					echo'<a>'.$page->pagetitle.'</a>';
+					echo'<a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$page->pagetitle.'</a>';
 				} else {
 					echo'<a href="'.URL.$page->pagename.'">'.$page->pagetitle.'</a>';
 				}
 			};
 			
 			if($child_pages){
-				echo '<ul class="sub-nav">';
+				echo '<ul class="dropdown-menu">';
 				foreach($child_pages as $child){
 					$childUrls = $db->get_row("SELECT pagename, pagetitle FROM app_pages WHERE id = ".$child['id']);
 

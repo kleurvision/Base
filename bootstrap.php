@@ -35,7 +35,7 @@ $theme = $db->get_var("SELECT app_theme FROM app_options WHERE app_url = '$app_u
 if(isset($theme)){
 	define( 'THEME', 'structure/themes/'.$theme);
 } else {
-	define( 'THEME', 'structure/themes/webninja' );	
+	define( 'THEME', 'structure/themes/ichi' );	
 }
 
 // Define parent URL

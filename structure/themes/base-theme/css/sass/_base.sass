@@ -1,0 +1,111 @@
+// Colors + Fonts
+/////////////////////////////////////////////////////////
+
+// Backgrounds
+$primary-bg:		#ffffff
+$header-bg:			#d2d2d2
+$content-bg:		#ffffff
+$footer-bg:			#e1e1e1
+$slider-bg:			#e1e1e1
+$action-banner-bg:	#d2d2d2
+
+// Actions
+$link-color:		#ff9f80
+$button-color:		#ff9f80
+
+// Typography
+$heading-color:		#444651
+$body-color:		#444651
+$footer-color:		#444651
+$body-font:			'Open Sans'
+$heading-font:		'Open Sans'
+$paragraph-font:	'Lora'
+
+
+// Fonts
+////////////////////////////////////////////////////////
+
+//Open Sans
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600)
+
+//Oswald
+//@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300)
+
+//Droid Serif
+//@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700)
+
+//Lora
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700)
+
+//Social Icons
+@font-face 
+	font-family: "Mono Social Icons Font"
+	src: url('../fonts/MonoSocialIconsFont-1.10.eot')
+	src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype')
+	src: url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff')
+	src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype')
+	src: url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg')
+	src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype')
+	font-weight: normal
+	font-style: normal
+
+.symbol, a.symbol:before
+	font-family: "Mono Social Icons Font"
+	-webkit-text-rendering: optimizeLegibility
+	-moz-text-rendering: optimizeLegibility
+	-ms-text-rendering: optimizeLegibility
+	-o-text-rendering: optimizeLegibility
+	text-rendering: optimizeLegibility
+	-webkit-font-smoothing: antialiased
+	-moz-font-smoothing: antialiased	
+
+// Typography
+////////////////////////////////////////////////////////
+body
+	font-family: $body-font
+	font-size: 14px
+	line-height: 25px
+	color: $body-color
+
+h1,h2,h3,h4
+	font-family: $heading-font
+	font-weight: 600
+	letter-spacing: 3px
+	color: $heading-color
+	text-transform: uppercase
+
+p
+	font-family: $paragraph-font
+	font-size: 14px
+	line-height: 25px
+	color: $body-color
+	margin-bottom: 20px
+
+a
+	color: $link-color
+	&:hover
+		color: darken( $link-color, 15% )
+		text-decoration: none
+
+
+// Actions
+///////////////////////////////////////////////////////
+
+// Button
+.btn-default
+	background-color: $button-color
+	border-color: $button-color
+	border-radius: 0px
+	&:hover
+		background-color: lighten( $button-color, 10% )
+		border-color: lighten( $button-color, 10% )
+
+// Mixins
+///////////////////////////////////////////////////////
+
+@mixin opacity()
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"
+	filter: alpha(opacity=90)
+	-moz-opacity: 0.9
+	-khtml-opacity: 0.9
+	opacity: 0.9
