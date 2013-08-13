@@ -23,28 +23,5 @@ echo $page->get_header();
 		</div>
 	</div>
 </section>
-<section id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<h2>Contact us to get started</h2>
-				<p>Fill out the adjacent form and we’ll be in touch with you within 2 business days to begin the process of setting up your new website.</p>
-			</div>			
-			<div class="col-lg-6">
-				<!-- BEGIN Podio web form -->
-				<script src="https://podio.com/webforms/5088208/398552.js"></script>
-				<script type="text/javascript">
-				  _podioWebForm.render("398552")
-				</script>
-				  <div class="podio-webform-container">
-				  </div>
-				<!-- END Podio web form -->
-
-
-			</div>
-		</div>
-	</div>
-</section>
-
 
 <? echo $page->get_footer();?>
