@@ -552,5 +552,13 @@ function social_share(){ ?>
 function social_links(){
 	
 }
+
+
+function update_vhosts(){
+	$vh_location = '/etc/apache2/sites-available/default';
+	$vh_content  = file_get_contents($vh_location);
+	
+	print_r($vh_content);
+}
 	
 	?>
