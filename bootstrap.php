@@ -36,9 +36,14 @@ define( 'URL', $app_url);
 
 // Check to see if there is a site asssociated to the URL
 if(isset($_GET['site'])){	
-	// Define site path
-	define( 'SITE', APP.'/sites/'.$_GET['site']);
+	
 	$site = $db->get_results("SELECT * FROM app_options WHERE site_name = '".$_GET['site']."'");
+
+	// Define site path
+	if(isset($site->id)){
+		define( 'SITE', dirname(PATH).'/sites/'.$site->id);
+	};
+
 };
 
 // Define stucture THEME path

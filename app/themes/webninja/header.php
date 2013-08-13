@@ -3,6 +3,9 @@
 ** ClientCare main header file
 ------------------------------
 ** Here we go */
+
+print_r($_GET);
+
 ?>
 
 <!DOCTYPE html>
