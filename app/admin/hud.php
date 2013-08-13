@@ -6,10 +6,10 @@ global $user;
 
 <div id="hud_toolbar_wrapper">
 	<div id="hud_toolbar">
-		<div class="left">
-			<div id="hud_logo" onclick="hud_extend();" >Elements&trade;</div>
+		<div class="pull-left">
+			<div id="hud_logo" onclick="hud_extend();" >Webninja&trade;</div>
 		</div>
-		<div class="right">
+		<div class="pull-right">
 			
 			<div class="btn-group" id="hud_tools">
 				<button class="btn btn-mini trigger" href="#editnavModalAdmin" data-toggle="modal">
