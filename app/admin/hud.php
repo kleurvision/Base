@@ -23,7 +23,12 @@ global $user;
 				</button>
 				<button class="btn btn-mini" href="#newheroModalAdmin" data-toggle="modal">
 					<i class="icon-picture"></i> Add Hero
-				</button>				
+				</button>
+				<button class="btn btn-mini">
+					<a href="<?= URL.'logout';?>">
+						<i class="icon-off"></i> Logout
+					</a>
+				</button>
 				<button class="btn btn-mini btn-danger">
 					<i class="icon-remove"></i> Delete Page
 				</button>

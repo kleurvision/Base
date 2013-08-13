@@ -21,7 +21,7 @@
 	    <!-- Le styles -->
    	    <? app_head('1');?>
    	    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
-   	    <link href="<? get_theme_path('css');?>/bootstrap-glyphicons.css" rel="stylesheet">
+   	    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	    <link href="<? get_theme_path('css');?>/css/screen.css" rel="stylesheet">
 	   	
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
