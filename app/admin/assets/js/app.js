@@ -26,3 +26,10 @@ function hud_extend(){
 		$('.trigger').addClass('open');
 	}
 }
+
+$(function() {
+	$(window).resize(function() {
+	    $('#sidebar').height($(window).height() - $('#branding').offset().top);
+	});
+	$(window).resize();
+});
