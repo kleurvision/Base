@@ -45,7 +45,7 @@ function app_head(){
 	if(isset($user)){	
 		if($user->get_role() == 'super'){
 			// Load in system CSS - bootstrap
-			echo '<link href="'.URL.'resources/css/bootstrap.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'resources/css/bootstrap.min.css'.'" rel="stylesheet">'. "\r\n";
 			echo '<link href="'.URL.'resources/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/css/admin.css'.'" rel="stylesheet">'. "\r\n";
 			echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
