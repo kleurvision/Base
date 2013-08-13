@@ -6,10 +6,10 @@ global $user;
 
 <div id="hud_toolbar_wrapper">
 	<div id="hud_toolbar">
-		<div class="left">
-			<div id="hud_logo" onclick="hud_extend();" >Elements&trade;</div>
+		<div class="pull-left">
+			<div id="hud_logo" onclick="hud_extend();" >Webninja&trade;</div>
 		</div>
-		<div class="right">
+		<div class="pull-right">
 			
 			<div class="btn-group" id="hud_tools">
 				<button class="btn btn-mini trigger" href="#editnavModalAdmin" data-toggle="modal">
@@ -23,7 +23,12 @@ global $user;
 				</button>
 				<button class="btn btn-mini" href="#newheroModalAdmin" data-toggle="modal">
 					<i class="icon-picture"></i> Add Hero
-				</button>				
+				</button>
+				<button class="btn btn-mini">
+					<a href="<?= URL.'logout';?>">
+						<i class="icon-off"></i> Logout
+					</a>
+				</button>
 				<button class="btn btn-mini btn-danger">
 					<i class="icon-remove"></i> Delete Page
 				</button>
