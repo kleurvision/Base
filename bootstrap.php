@@ -9,14 +9,16 @@
 session_start();
 
 // Define stucture APP path
-define( 'APP', 'structure/app' );
+define( 'APP', 'app' );
 
 // Define stucture LIBRARY path
-define( 'LIBRARY', 'resources/library' );
+define( 'SYSTEM', 'system' );
 
+// Define stucture LIBRARY path
+define( 'LIBRARY', SYSTEM.'/library' );
 
 // Define stucture ADMIN path
-define( 'ADMIN', 'structure/admin' );
+define( 'ADMIN', APP.'/admin' );
 
 
 // Define the config file
@@ -29,23 +31,30 @@ if (file_exists(dirname(PATH).'/config/config.php')) {
 // URL -  Edit root URL
 $app_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
 
+// Define parent URL
+define( 'URL', $app_url);
+
+// Check to see if there is a site asssociated to the URL
+if(isset($_GET['site'])){	
+	// Define site path
+	define( 'SITE', APP.'/sites/'.$_GET['site']);
+	$site = $db->get_results("SELECT * FROM app_options WHERE site_name = '".$_GET['site']."'");
+};
+
 // Define stucture THEME path
 $theme = $db->get_var("SELECT app_theme FROM app_options WHERE app_url = '$app_url'");
 
 if(isset($theme)){
-	define( 'THEME', 'structure/themes/'.$theme);
+	define( 'THEME', APP.'/themes/'.$theme);
 } else {
-	define( 'THEME', 'structure/themes/webninja' );	
+	define( 'THEME', APP.'/themes/webninja' );	
 }
 
-// Define parent URL
-define( 'URL', $app_url);
-
 // Load in the classes
-require_once(APP . '/app_classes.php' );
+require_once(SYSTEM . '/system_classes.php' );
 
 // Setup the page class
-$page 			= new Page($db);
+$page = new Page($db);
 
 // Check to see if there is a page asssociated to the URL
 if(isset($_GET['pagename'])){
@@ -59,10 +68,10 @@ $user = new User($db);
 $user->login_submit();
 
 // Load in the functions
-require_once(APP . '/app_functions.php' );
+require_once(SYSTEM . '/system_functions.php' );
 
 // Load in the helpers
-require_once(APP . '/app_helpers.php' );
+require_once(SYSTEM . '/system_helpers.php' );
 
 // Kickstart the views/theme delivery
 // Check to see if there is a page asssociated to the URL

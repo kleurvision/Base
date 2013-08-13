@@ -4,7 +4,6 @@
 ** Version: 1.0
 ** Authoring Date: April 2013
 ** Description: Elements is a dynamic CMS for small business websites
-** Client: Keane Hollett Group
 ------------------------------
 ** Here we go */
 

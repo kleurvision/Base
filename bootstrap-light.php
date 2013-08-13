@@ -11,16 +11,16 @@ session_start();
 define( 'PATH', dirname(__FILE__) . '/' );
 
 // Define stucture APP path
-define( 'APP', 'structure/app' );
+define( 'APP', 'app' );
 
 // Define stucture LIBRARY path
-define( 'LIBRARY', 'resources/library' );
+define( 'SYSTEM', 'system' );
 
-// Define stucture THEME path
-define( 'THEME', 'structure/theme' );
+// Define stucture LIBRARY path
+define( 'LIBRARY', SYSTEM.'/library' );
 
 // Define stucture ADMIN path
-define( 'ADMIN', 'structure/admin' );
+define( 'ADMIN', APP.'/admin' );
 
 
 // Define the config file
@@ -38,7 +38,7 @@ $app_url = $db->get_var("SELECT app_url FROM app_options");
 define( 'URL', $app_url);
 
 // Load in the classes
-require_once(APP . '/app_classes.php' );
+require_once(SYSTEM . '/SYSTEM_classes.php' );
 
 // Setup the page class
 $page 			= new Page($db);
@@ -55,7 +55,7 @@ $user = new User($db);
 $user->login_submit();
 
 // Load in the functions
-require_once(APP . '/app_functions.php' );
+require_once(SYSTEM . '/system_functions.php' );
 
 // Load in the helpers
-require_once(APP . '/app_helpers.php' );
+require_once(SYSTEM . '/system_helpers.php' );

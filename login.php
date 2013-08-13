@@ -1,4 +1,4 @@
-<? require_once('bootstrap-light.php');?>
+<? include('bootstrap-light.php');?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
