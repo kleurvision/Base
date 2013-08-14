@@ -28,8 +28,18 @@ function hud_extend(){
 }
 
 $(function() {
+	
+	// fullheight sidebar
 	$(window).resize(function() {
-	    $('#sidebar').height($(window).height() - $('#branding').offset().top);
+		maxHeight = $(window).height() - $('#branding').height();
+		 $('#sidebar').height(maxHeight);	
 	});
 	$(window).resize();
+
+	// tool tips
+	$('body').tooltip({
+	   selector: "[data-toggle=tooltip]",
+	   placement: "bottom"
+	 })
+
 });

@@ -14,6 +14,7 @@
 	</title>
 	<!-- Bootstrap and core CSS -->
 	<link href="/app/admin/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/app/admin/assets/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="/app/admin/assets/css/dashboard.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,3 +33,30 @@
   <!-- Place anything custom after this. -->
 </head>
 	<body>
+		<div class="navbar hidden-lg">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="" class="navbar-brand"><h4>WebNinja</h4></a>
+			<div class="nav-collapse collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="../getting-started">Getting started</a>
+					</li>
+					<li>
+						<a href="../css">CSS</a>
+					</li>
+					<li class="active">
+						<a href="../components">Components</a>
+					</li>
+					<li>
+						<a href="../javascript">JavaScript</a>
+					</li>
+					<li>
+						<a href="../customize">Customize</a>
+					</li>
+				</ul>
+			</div>
+		</div>
