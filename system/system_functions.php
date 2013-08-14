@@ -554,9 +554,17 @@ function social_links(){
 }
 
 
-function update_vhosts(){
-	$vh_location = '/etc/apache2/sites-available/default';
+function update_vhosts($newhostdir = 'test'){
+	$vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 	$vh_content  = file_get_contents($vh_location);
+	
+	$vh_content	 .= "
+#Domain Definition for ".$newhostdir."\n\n
+<VirtualHost *:80>\n
+
+</VirtualHost>\n\n
+
+"; 
 	
 	print_r($vh_content);
 }
