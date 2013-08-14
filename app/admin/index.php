@@ -41,7 +41,7 @@ include 'header.php';
 						</ul>
 					</div>
 				</div>
-				<table class="table table-hover sites-table">
+				<table class="table sites-table">
 					<thead>
 						<tr>
 							<th>#</th>
