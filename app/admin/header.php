@@ -14,7 +14,7 @@
 	</title>
 	<!-- Bootstrap and core CSS -->
 	<link href="/app/admin/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/app/admin/assets/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link href="/app/admin/assets/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/app/admin/assets/css/dashboard.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

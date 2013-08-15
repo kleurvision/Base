@@ -39,28 +39,33 @@ function app_head(){
 	}
 */
 	
-	echo '<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>' . "\r\n";
+	echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>' . "\r\n";
 
 	global $user;
 	if(isset($user)){	
 		if($user->get_role() == 'super'){
 			// Load in Hud CSS
 			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.modals.min.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.tooltip.min.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
 			// Load in Hud Scripts
-			echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
+			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
 			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud CSS
 			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.modals.min.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.tooltip.min.css'.'" rel="stylesheet">'. "\r\n";
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
 			// Load in Hud Scripts
-			echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
+			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
 			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
 		}
 	}
 	
