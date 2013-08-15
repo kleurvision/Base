@@ -43,6 +43,13 @@ $(function() {
 	  });
 	});
 
+	$('#hud_menu_button').click(function() {
+	  $('#hud_menu').slideToggle('fast', function() {
+	    // Animation complete.
+	  });
+	});
+	
+
 	// tool tips
 	$('#hud_toolbar_wrapper').tooltip({
 	   selector: "[data-toggle=tooltip]",

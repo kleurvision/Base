@@ -131,6 +131,18 @@ i
 						box-shadow: 0 0px 0px 0px black inset
 						-moz-box-shadow: 0 0px 0px 0px black inset
 						-webkit-box-shadow: 0 0px 0px 0px black inset
+						span
+							display: none
+#hud_menu_button
+	display: none
+	padding: 13px 18px 13px 18px
+	color: lighten($grey, 15%)
+	background: lighten($darkestgrey, 5%)
+	+box-shadow-inset
+	&:hover
+		text-decoration: none
+		background: lighten($darkestgrey, 15%)
+		color: $white
 
 #hud_edit_menu, #hud_new_menu
 	display: none
@@ -382,8 +394,62 @@ i
 	width: 770px
 
 
+
 // Responsive
-@media only screen and (min-width: 990px)
-	#hud-menu-button
+
+@media only screen and (max-width: 990px)
+	#hud_menu_button
+		display: block !important
+	
+	#hud_menu
 		display: none
+		position: absolute
+		right: 0px
+		height: auto
+
+	#hud_tools
+		ul
+			position: absolute
+			right: 0px
+			width: 200px
+			li
+				display: block
+				float: none
+				position: relative
+				list-style-type: none
+				margin-right: 0px
+				a
+					display: block
+					box-shadow: 0 0px 0px 0px black inset
+					-moz-box-shadow: 0 0px 0px 0px black inset
+					-webkit-box-shadow: 0 0px 0px 0px black inset
+					border-bottom: 1px solid lighten($darkestgrey, 15%)
+				ul
+					list-style-type: none
+					position: relative
+					left: 0px
+					box-shadow: 0 0px 0px 0px black 
+					-moz-box-shadow: 0 0px 0px 0px black 
+					-webkit-box-shadow: 0 0px 0px 0px black 
+					li
+						float: none
+						width: 200px
+						margin-right: 0px
+						border-bottom: 0px
+						&:last-child
+							border-bottom: none
+						a 
+							display: block
+							background: $darkestgrey
+							padding-left: 20px
+							box-shadow: 0 0px 0px 0px black inset
+							-moz-box-shadow: 0 0px 0px 0px black inset
+							-webkit-box-shadow: 0 0px 0px 0px black inset
+							span
+								display: block !important
+
+@media only screen and (min-width: 990px)
+	#hud_menu
+		display: block !important
+
 	

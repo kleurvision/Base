@@ -10,7 +10,7 @@ global $user;
 			<div id="hud_logo" onclick="hud_extend();" ><img src="<?= ADMIN; ?>/assets/img/icon@2x.png" /></div>
 		</div>
 		<div class="pull-right" id="hud_tools">
-			<div id="hud-menu-button">Menu</div>
+			<div id="hud_menu_button"><i class="icon-reorder"></i></div>
 			<ul id="hud_menu">
 				<li>
 					<a href="#" id="hud_edit_trigger"><i class="icon-pencil"></i>&nbsp;&nbsp;Edit</a>
@@ -26,8 +26,8 @@ global $user;
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
 				</li>
-				<li><a href="<?= URL;?>/app/admin" data-toggle="tooltip" title="Dashboard"><i class="icon-home"></i></a></li>
-				<li><a href="<?= URL.'logout';?>" data-toggle="tooltip" title="Logout"><i class="icon-off"></i></a></li>
+				<li><a href="<?= URL;?>/app/admin" data-toggle="tooltip" title="Dashboard"><i class="icon-home"></i><span>&nbsp;&nbsp;Dashboard</span></a></li>
+				<li><a href="<?= URL.'logout';?>" data-toggle="tooltip" title="Logout"><i class="icon-off"></i><span>&nbsp;&nbsp;Logout</span></a></li>
 			</ul>
 		</div>
 	</div>
