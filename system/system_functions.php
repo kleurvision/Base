@@ -221,25 +221,30 @@ function get_layout(){
 
 // Create modal boxes
 function app_modal($modifier='default'){ ?>
-	<div id="<?=$modifier;?>Modal" class="modal hide fade">
-		<? // Check for modal modifier
-		if($modifier == 'default'){
-    		include (THEME.'/modal.php');
-    	} else {
-	    	include (THEME.'/modal-'.$modifier.'.php');
-    	} ?>
+	<div id="<?=$modifier;?>Modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<? // Check for modal modifier
+				if($modifier == 'default'){
+		    		include (THEME.'/modal.php');
+		    	} else {
+			    	include (THEME.'/modal-'.$modifier.'.php');
+		    	} ?>
+    		</div>
+		</div>
 	</div>
 <? }
 
 // Create admin boxes
 function admin_modal($modifier='default'){ ?>
-	<div id="<?=$modifier;?>ModalAdmin" class="modal hide fade <?= $modifier;?>">
-		<? // Check for modal modifier
-		if($modifier == 'default'){
-    		include (ADMIN.'/modals/modal.php');
-    	} else {
-	    	include (ADMIN.'/modals/modal-'.$modifier.'.php');
-    	} ?>
+	<div id="<?=$modifier;?>ModalAdmin" class="modal fade <?= $modifier;?>">
+			<div class="modal-content">		
+				<? // Check for modal modifier
+				if($modifier == 'default'){
+		    		include (ADMIN.'/modals/modal.php');
+		    	} else {
+			    	include (ADMIN.'/modals/modal-'.$modifier.'.php');
+		    	} ?>
 	</div>
 <? }
 
