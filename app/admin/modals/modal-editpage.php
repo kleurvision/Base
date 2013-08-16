@@ -4,12 +4,12 @@ Save as modal-*modal-template-name*.php to extend
 ------------------------------
 ** Here we go */
 ?>
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Edit Page</h3>
+<div class="hud-modal-header">
+    <button type="button" class="hud-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="hud-modal-title">Edit Page</h4>
 </div>
 
-<div class="modal-body">
+<div class="hud-modal-body">
 <?
 global $db;
 $page = new Page($db);

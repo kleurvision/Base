@@ -1,6 +1,11 @@
 // Imports
 @import 'hud-reset'
 @import 'hud-grid'
+@import 'hud-tooltip'
+@import 'hud-modal'
+@import 'hud-form'
+@import 'hud-button'
+@import 'hud-closer'
 
 // Variables
 /////////////////////////////////////////
@@ -22,7 +27,9 @@ html
 
 body
 	position: relative
-
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+	line-height: 1.5em
+	color: $darkgrey
 *
 	-webkit-box-sizing: border-box
 	-moz-box-sizing: border-box
@@ -34,6 +41,57 @@ body
 
 .pull-right
 	float: right
+
+// Buttons
+///////////////////////////////////////////
+
+.hud-btn-default
+	background: $lightgrey
+	border: none
+	color: $grey
+	font-size: 12px
+	font-weight: 500
+	letter-spacing: 1px
+	&:hover
+		background: darken($lightgrey, 5%)
+		color: $grey
+
+// Typography
+///////////////////////////////////////////
+p
+	margin: 0 0 10px
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+
+h1, h2, h3, h4, h5, h6,
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+	font-weight: 500
+	line-height: 1.1
+
+h1, h2, h3
+	margin-top: 20px
+	margin-bottom: 10px
+
+h4, h5, h6
+	margin-top: 10px
+	margin-bottom: 10px
+
+h1, .h1
+	font-size: 38px
+
+h2, .h2
+	font-size: 32px
+
+h3, .h3
+	font-size: 24px
+
+h4, .h4
+	font-size: 18px
+
+h5, .h5
+	font-size: 14px
+
+h6, .h6
+	font-size: 12px	
 
 a
 	text-decoration: none
@@ -161,6 +219,9 @@ i
 	padding: 10px
 	color: #fff
 
+// Edit Nav
+///////////////////////////////////////////////
+
 .dd
 	position: relative
 	display: block
@@ -245,8 +306,8 @@ i
 	margin: 5px 0
 	padding: 0
 	min-height: 30px
-	background: #f2fbff
-	border: 1px dashed #b6bcbf
+	background: lighten($green, 30%)
+	border: 1px dashed lighten($green, 5%)
 	box-sizing: border-box
 	-moz-box-sizing: border-box
 
@@ -254,8 +315,8 @@ i
 	margin: 5px 0
 	padding: 0
 	min-height: 30px
-	background: #f2fbff
-	border: 1px dashed #b6bcbf
+	background: lighten($green, 30%)
+	border: 1px dashed lighten($green, 5%)
 	box-sizing: border-box
 	-moz-box-sizing: border-box
 	border: 1px dashed #bbb
@@ -347,7 +408,7 @@ i
 	box-sizing: border-box
 	-moz-box-sizing: border-box
 	&:hover
-		color: #2ea8e5
+		color: $green
 		background: #fff
 
 .dd-dragel > .dd3-item > .dd3-content
@@ -388,226 +449,12 @@ i
 	&:hover
 		background: #ddd
 
-// Modal
-////////////////////////////////////////////
-
-.hud-modal-open
-	overflow: hidden
-
-.hud-modal
-	display: none
-	overflow: auto
-	overflow-y: scroll
-	position: fixed
-	top: 100px
-	right: 0
-	bottom: 0
-	left: 0
-	z-index: 1040
-	width: 75%
-	&.fade .hud-modal-dialog
-		-webkit-transform: translate(0, -25%)
-		-ms-transform: translate(0, -25%)
-		transform: translate(0, -25%)
-		-webkit-transition: -webkit-transform 0.3s ease-out
-		-moz-transition: -moz-transform 0.3s ease-out
-		-o-transition: -o-transform 0.3s ease-out
-		transition: transform 0.3s ease-out
-	&.in .hud-modal-dialog
-		-webkit-transform: translate(0, 0)
-		-ms-transform: translate(0, 0)
-		transform: translate(0, 0)
-
-.hud-modal-dialog
-	margin-left: auto
-	margin-right: auto
-	width: auto
-	padding: 10px
-	z-index: 1050
-
-.hud-modal-content
-	position: relative
-	background-color: #ffffff
-	border: 1px solid #999999
-	border: 1px solid rgba(0, 0, 0, 0.2)
-	//border-radius: 6px
-	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5)
-	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5)
-	background-clip: padding-box
-	outline: none
-
-.hud-modal-backdrop
-	position: fixed
-	top: 0
-	right: 0
-	bottom: 0
-	left: 0
-	z-index: 1030
-	background-color: #000000
-	&.fade
-		opacity: 0
-		filter: alpha(opacity = 0)
-	&.in
-		opacity: 0.5
-		filter: alpha(opacity = 50)
-
-.hud-modal-header
-	padding: 15px
-	border-bottom: 1px solid #e5e5e5
-	min-height: 16.428571429px
-	.close
-		margin-top: -2px
-
-.hud-modal-title
-	margin: 0
-	line-height: 1.428571429
-
-.hud-modal-body
-	position: relative
-	padding: 20px
-
-.hud-modal-footer
-	margin-top: 15px
-	padding: 19px 20px 20px
-	text-align: right
-	border-top: 1px solid #e5e5e5
-	&:before
-		content: " "
-		display: table
-	&:after
-		content: " "
-		display: table
-		clear: both
-	.btn + .btn
-		margin-left: 5px
-		margin-bottom: 0
-	.btn-group .btn + .btn
-		margin-left: -1px
-	.btn-block + .btn-block
-		margin-left: 0
-
-@media screen and (min-width: 768px)
-	.hud-modal-dialog
-		left: 50%
-		right: auto
-		width: 600px
-		padding-top: 30px
-		padding-bottom: 30px
-	.hud-modal-content
-		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5)
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5)
-
-
-
-//.modal.editnav
-	width: 800px
-	margin-left: -400px
-	.modal-body
-		width: 770px
-
-//#editpageModalAdmin, #newpageModalAdmin
-	width: 800px
-	margin-left: -400px
-
-//#editpageModalAdmin .modal-body, #newpageModalAdmin .modal-body
-	width: 770px
-
-
-
-// Tool Tips
-//////////////////////////////////////////////////
-
-.hud-tooltip
-	position: absolute
-	z-index: 1030
-	display: block
-	visibility: visible
-	font-size: 12px
-	line-height: 1.4
-	opacity: 0
-	filter: alpha(opacity = 0)
-	&.in
-		opacity: 0.9
-		filter: alpha(opacity = 90)
-	&.top
-		margin-top: -3px
-		padding: 5px 0
-	&.right
-		margin-left: 3px
-		padding: 0 5px
-	&.bottom
-		margin-top: 3px
-		padding: 5px 0
-	&.left
-		margin-left: -3px
-		padding: 0 5px
-
-.hud-tooltip-inner
-	max-width: 200px
-	padding: 3px 8px
-	color: #ffffff
-	text-align: center
-	text-decoration: none
-	background-color: #000000
-	border-radius: 4px
-
-.hud-tooltip-arrow
-	position: absolute
-	width: 0
-	height: 0
-	border-color: transparent
-	border-style: solid
-
-.hud-tooltip
-	&.top .hud-tooltip-arrow
-		bottom: 0
-		left: 50%
-		margin-left: -5px
-		border-width: 5px 5px 0
-		border-top-color: #000000
-	&.top-left .hud-tooltip-arrow
-		bottom: 0
-		left: 5px
-		border-width: 5px 5px 0
-		border-top-color: #000000
-	&.top-right .hud-tooltip-arrow
-		bottom: 0
-		right: 5px
-		border-width: 5px 5px 0
-		border-top-color: #000000
-	&.right .hud-tooltip-arrow
-		top: 50%
-		left: 0
-		margin-top: -5px
-		border-width: 5px 5px 5px 0
-		border-right-color: #000000
-	&.left .hud-tooltip-arrow
-		top: 50%
-		right: 0
-		margin-top: -5px
-		border-width: 5px 0 5px 5px
-		border-left-color: #000000
-	&.bottom .hud-tooltip-arrow
-		top: 0
-		left: 50%
-		margin-left: -5px
-		border-width: 0 5px 5px
-		border-bottom-color: #000000
-	&.bottom-left .hud-tooltip-arrow
-		top: 0
-		left: 5px
-		border-width: 0 5px 5px
-		border-bottom-color: #000000
-	&.bottom-right .hud-tooltip-arrow
-		top: 0
-		right: 5px
-		border-width: 0 5px 5px
-		border-bottom-color: #000000
-
-
 // Responsive
 
 @media only screen and (max-width: 990px)
+	.hud-modal
+		width: 100%
+
 	#hud_menu_button
 		display: block !important
 	
@@ -663,5 +510,4 @@ i
 		display: block !important
 		span
 			display: none !important
-
 	

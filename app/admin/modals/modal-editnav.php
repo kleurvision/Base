@@ -5,13 +5,13 @@ Save as modal-*modal-template-name*.php to extend
 ** Here we go */
 ?>
 <div class="hud-modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Edit Nav</h3>
+    <button type="button" class="hud-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="hud-modal-title">Edit Nav</h4>
 </div>
 
 <div class="hud-modal-body">
 	<div class="hud-row">
-		<div class="hud-col-7">
+		<div class="hud-col-12 hud-col-lg-7">
 			<? global $db;
 			 
 			 	$navigation = $db->get_results("SELECT navigation FROM app_nav ORDER BY id DESC LIMIT 1");
@@ -91,19 +91,19 @@ Save as modal-*modal-template-name*.php to extend
 			}
 			?>
 		</div>
-		<div class="hud-col-5">
+		<div class="hud-col-12 hud-col-lg-5">
 			<? $allPages = $db->get_results("SELECT id, pagetitle FROM app_pages ORDER BY pagetitle ASC");
 				if($allPages){?>
-					<form>
+					<form role="form">
 						<fieldset>
 							<legend>Add Page</legend>
 							<div class="input-append">
-								<select id="pagesToAdd">
+								<select class="hud-form-control" id="pagesToAdd">
 									<? foreach($allPages as $pages){
 										echo '<option value="'.$pages->id.'" >' .  $pages->pagetitle . '</option>';
 									} ?>
 								</select>
-								<a onclick="addItem()" class="btn btn-primary">Add <i class="icon-plus icon-white"></i></a>
+								<a onclick="addItem()" class="hud-btn hud-btn-default">Add <i class="icon-plus icon-white"></i></a>
 							</div>
 						</fieldset>
 					</form>
@@ -112,10 +112,10 @@ Save as modal-*modal-template-name*.php to extend
 	</div>
 	<div class="hud-row">
 		<div class="hud-col-12">
-			<form class="form-inline" method="post" id="edit-page" action="<?= URL.'/'.ADMIN.'/actions/edit-nav.php';?>"> 
+			<form role="form" class="form-inline" method="post" id="edit-page" action="<?= URL.'/'.ADMIN.'/actions/edit-nav.php';?>"> 
 				<textarea style="display:none" name="nav-order" id="nestable-output"></textarea>	 
 				<div class="form-actions">
-					<input type="submit" class="btn btn-primary" name="" value="Save">
+					<input type="submit" class="hud-btn hud-btn-default" name="" value="Save">
 				</div>
 			</form>
 		</div>
