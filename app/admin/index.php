@@ -7,15 +7,7 @@ include 'header.php';
 		<div id="branding">
 			<img src="assets/img/logo@2x.png"/>
 		</div>
-		<div id="sidebar">
-			<nav>
-				<ul class="list-unstyled" id="main-nav">
-					<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
-					<li><a href=""><i class="icon-user"></i>Users</a></li>
-					<li><a href=""><i class="icon-download"></i>App Store</a></li>
-				</ul>
-			</nav>
-		</div>
+		<? include 'inc/sidebar.php'; ?>
 	</div>
 	<div class="col-12 col-lg-9">
 		<div class="row" id="header">
