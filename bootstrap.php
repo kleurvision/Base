@@ -59,7 +59,7 @@ $site 	= $db->get_row("SELECT * FROM app_options WHERE app_url = '$app_url'");
 		if(isset($theme)){
 			define( 'THEME', APP.'/themes/'.$theme);
 		} else {
-			define( 'THEME', APP.'/themes/webninja' );	
+			define( 'THEME', APP.'/themes/blank' );	
 		}
 		
 	} else {

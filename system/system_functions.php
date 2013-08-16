@@ -45,8 +45,6 @@ function app_head(){
 	if(isset($user)){	
 		if($user->get_role() == 'super'){
 			// Load in Hud CSS
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.modals.min.css'.'" rel="stylesheet">'. "\r\n";
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.tooltip.min.css'.'" rel="stylesheet">'. "\r\n";
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
@@ -54,17 +52,20 @@ function app_head(){
 			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
 			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud CSS
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.modals.min.css'.'" rel="stylesheet">'. "\r\n";
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.tooltip.min.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
 			// Load in Hud Scripts
 			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
 			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
 		}
 	}
@@ -221,9 +222,9 @@ function get_layout(){
 
 // Create modal boxes
 function app_modal($modifier='default'){ ?>
-	<div id="<?=$modifier;?>Modal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
+	<div id="<?=$modifier;?>Modal" class="hud-modal fade">
+		<div class="hud-modal-dialog">
+			<div class="hud-modal-content">
 				<? // Check for modal modifier
 				if($modifier == 'default'){
 		    		include (THEME.'/modal.php');
@@ -237,8 +238,8 @@ function app_modal($modifier='default'){ ?>
 
 // Create admin boxes
 function admin_modal($modifier='default'){ ?>
-	<div id="<?=$modifier;?>ModalAdmin" class="modal fade <?= $modifier;?>">
-			<div class="modal-content">		
+	<div id="<?=$modifier;?>ModalAdmin" class="hud-modal fade <?= $modifier;?>">
+			<div class="hud-modal-content">		
 				<? // Check for modal modifier
 				if($modifier == 'default'){
 		    		include (ADMIN.'/modals/modal.php');

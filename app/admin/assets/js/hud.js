@@ -52,7 +52,7 @@ $(function() {
 
 	// tool tips
 	$('#hud_toolbar_wrapper').tooltip({
-	   selector: "[data-toggle=tooltip]",
+	   selector: "[data-toggle=hud-tooltip]",
 	   placement: "bottom"
 	 })
 

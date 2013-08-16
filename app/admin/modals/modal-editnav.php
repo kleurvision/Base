@@ -4,14 +4,14 @@ Save as modal-*modal-template-name*.php to extend
 ------------------------------
 ** Here we go */
 ?>
-<div class="modal-header">
+<div class="hud-modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h3>Edit Nav</h3>
 </div>
 
-<div class="modal-body">
-	<div class="row-fluid">
-		<div class="span7">
+<div class="hud-modal-body">
+	<div class="hud-row">
+		<div class="hud-col-7">
 			<? global $db;
 			 
 			 	$navigation = $db->get_results("SELECT navigation FROM app_nav ORDER BY id DESC LIMIT 1");
@@ -91,7 +91,7 @@ Save as modal-*modal-template-name*.php to extend
 			}
 			?>
 		</div>
-		<div class="span5">
+		<div class="hud-col-5">
 			<? $allPages = $db->get_results("SELECT id, pagetitle FROM app_pages ORDER BY pagetitle ASC");
 				if($allPages){?>
 					<form>
@@ -110,8 +110,8 @@ Save as modal-*modal-template-name*.php to extend
 			<? }?>
 		</div>
 	</div>
-	<div class="row-fluid">
-		<div class="span12">
+	<div class="hud-row">
+		<div class="hud-col-12">
 			<form class="form-inline" method="post" id="edit-page" action="<?= URL.'/'.ADMIN.'/actions/edit-nav.php';?>"> 
 				<textarea style="display:none" name="nav-order" id="nestable-output"></textarea>	 
 				<div class="form-actions">
