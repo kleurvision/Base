@@ -7,7 +7,7 @@ class Page {
 
 	function page_map($pagename = false){  
 		if($pagename){  
-			$pageload = $this->db->get_row("SELECT * FROM app_pages WHERE pagename = '$pagename'");
+			$pageload = $this->db->get_row("SELECT * FROM site_".SITE_ID."_pages WHERE pagename = '$pagename'");
 			if($pageload){
 				return $pageload;
 			} else {
@@ -19,7 +19,7 @@ class Page {
 	}
 	
 	function page_info($pageID){
-		$pageInfo = $this->db->get_row("SELECT * FROM app_pages WHERE id= '$pageID'");
+		$pageInfo = $this->db->get_row("SELECT * FROM site_".SITE_ID."_pages WHERE id= '$pageID'");
 		if($pageInfo){
 			return $pageInfo;
 		}

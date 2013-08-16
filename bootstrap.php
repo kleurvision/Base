@@ -34,7 +34,7 @@ $app_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
 // Define parent URL
 define( 'URL', $app_url);
 
-// Check to see if there is a site asssociated to the URL
+/* // Check to see if there is a site asssociated to the URL
 if(isset($_GET['site'])){	
 	
 	$site = $db->get_results("SELECT * FROM app_options WHERE site_name = '".$_GET['site']."'");
@@ -45,15 +45,28 @@ if(isset($_GET['site'])){
 	};
 
 };
+*/
 
-// Define stucture THEME path
-$theme = $db->get_var("SELECT app_theme FROM app_options WHERE app_url = '$app_url'");
-
-if(isset($theme)){
-	define( 'THEME', APP.'/themes/'.$theme);
-} else {
-	define( 'THEME', APP.'/themes/webninja' );	
-}
+// Define SITE stucture and THEME path
+$site 	= $db->get_row("SELECT * FROM app_options WHERE app_url = '$app_url'");
+	
+	if(isset($site)){
+		define('SITE_ID', $site->id);
+		
+		// Set site theme
+		$theme 	= $site->app_theme;
+		
+		if(isset($theme)){
+			define( 'THEME', APP.'/themes/'.$theme);
+		} else {
+			define( 'THEME', APP.'/themes/webninja' );	
+		}
+		
+	} else {
+	
+		echo 'No site';
+	
+	}
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );
