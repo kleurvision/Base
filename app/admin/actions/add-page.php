@@ -1,12 +1,12 @@
-<? require('../../../bootstrap-light.php');
+<? require('../bootstrap-admin.php');
 	
-	$title = $_POST['page-title'];
-	$content = $db->escape($_POST['page-content']);
-	$pageName = to_permalink($title);
+	$title 		= $_POST['page-title'];
+	$site_id	= $_POST['site_id'];
+	$content 	= $db->escape($_POST['page-content']);
+	$pageName 	= to_permalink($title);
 	
-	$createPage = $db->query("INSERT INTO app_pages (pagename, pagetitle, pagecontent) VALUES ('$pageName','$title','$content')");
-	
+	$createPage = $db->query("INSERT INTO site_".$site_id."_pages (pagename, pagetitle, pagecontent) VALUES ('$pageName','$title','$content')");	
 	if($createPage) {
-		 header('Location:'.URL.'/'.$pageName);
+		 header('Location:'.URL.$pageName);
 	}
 ?>

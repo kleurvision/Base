@@ -76,7 +76,7 @@
 					 
 					<? 
 						$h = 0;
-						$heros = $db->get_results("SELECT * FROM app_hero");
+						$heros = $db->get_results("SELECT * FROM site_".SITE_ID."_hero ");
 						if($heros):
 							foreach($heros as $hero){?>
 								<div class="item <? if($h == 0){echo 'active';}?>">

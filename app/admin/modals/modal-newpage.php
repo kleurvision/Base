@@ -1,6 +1,5 @@
-<? /* Default admin modal template
+<? /* Add new page modal
 ------------------------------
-Save as modal-*modal-template-name*.php to extend
 ------------------------------
 ** Here we go */
 ?>
@@ -14,13 +13,16 @@ Save as modal-*modal-template-name*.php to extend
 
 $form = new Form("add-page");
 $form->configure(array(
-    "prevent" => array("bootstrap", "jQuery"),
-    "view" => new View_Vertical,
-    "action" => URL.'/'.ADMIN."/actions/add-page.php",
+    "prevent" 	=> array("bootstrap", "jQuery"),
+    "view" 		=> new View_Vertical,
+    "action"	=> URL.''.ADMIN."/actions/add-page.php",
 ));
 $form->addElement(new Element_Hidden("form", "add-page"));
-$form->addElement(new Element_Textbox("Title:", "page-title"));
+$form->addElement(new Element_Hidden("site_id", SITE_ID));
+$form->addElement(new Element_Textbox("Page Title", "page-title"));
 $form->addElement(new Element_TinyMCE("", "page-content"));
 $form->addElement(new Element_Button("Add Page"));
 $form->render();
 ?>
+
+</div>
