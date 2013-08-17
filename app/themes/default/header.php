@@ -21,9 +21,10 @@
 		 }?>
 	    <!-- Le styles -->
    	    <? app_head('1');?>
+	    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	    <link href="<? get_theme_path('css');?>/style.css" rel="stylesheet">
 	    <link href="<? get_theme_path('css');?>/jquery.fancybox.css" rel="stylesheet">
-	    <link href="<? URL;?>/resources/css/bootstrap.css" rel="stylesheet">
+	    
 	    
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	    <!--[if lt IE 9]>
@@ -76,7 +77,7 @@
 					 
 					<? 
 						$h = 0;
-						$heros = $db->get_results("SELECT * FROM app_hero");
+						$heros = $db->get_results("SELECT * FROM site_".SITE_ID."_hero ");
 						if($heros):
 							foreach($heros as $hero){?>
 								<div class="item <? if($h == 0){echo 'active';}?>">

@@ -7,7 +7,10 @@ ini_set('display_errors', '1');
 require('bootstrap-admin.php');
 
 // Load in the functions
-require_once(dirname(ROOT) . '/config/update_vhosts_function.php' );
+// require_once(dirname(ROOT) . '/config/update_vhosts_function.php' );
+
+// Temporarily load admin functions from within admin folder
+require('functions/functions.php');
 
 // Update VHOSTS File
 if(isset($_POST['new_site_url'])){
@@ -28,11 +31,18 @@ if(isset($_POST['new_site_url'])){
 		// Get new site ID
 		$site_id = mysql_insert_id();
 		
-		// If new site is registered without issue, create the database table for it's pages
+		// If new site is registered without issue, create the databases
 		if($add_site){
 			
+			// Add pages table
 			$db->query("CREATE TABLE site_".$site_id."_pages (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, pagename VARCHAR(50) DEFAULT NULL, pagetitle VARCHAR(100) DEFAULT NULL, pagecontent LONGTEXT, pageauthor INTEGER(11) DEFAULT NULL, pagemeta_title VARCHAR(100) NOT NULL, pagemeta_desc VARCHAR(255) DEFAULT NULL, pagemeta_keywords VARCHAR(255) DEFAULT NULL, pagetemplate VARCHAR(100) DEFAULT NULL, pageparent INTEGER(11) DEFAULT NULL, pagedate INTEGER(11) DEFAULT NULL, pagepriority INTEGER(11) DEFAULT NULL, pagechangefreq VARCHAR(100) DEFAULT NULL); ");			
-			// If the pages db is created without issue, fire the VHOST update...
+			// Add settings table
+			$db->query("CREATE TABLE site_".$site_id."_settings (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, navigation LONGTEXT);");
+			
+			// Add hero table
+			$db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroimg LONGTEXT);"); 
+			
+			// If the tables are created without issue, fire the VHOST update...
 			update_vhosts($_POST['new_site_url']);
 		}
 			
