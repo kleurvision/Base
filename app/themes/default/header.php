@@ -21,9 +21,10 @@
 		 }?>
 	    <!-- Le styles -->
    	    <? app_head('1');?>
+	    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	    <link href="<? get_theme_path('css');?>/style.css" rel="stylesheet">
 	    <link href="<? get_theme_path('css');?>/jquery.fancybox.css" rel="stylesheet">
-	    <link href="<? URL;?>/resources/css/bootstrap.css" rel="stylesheet">
+	    
 	    
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	    <!--[if lt IE 9]>
