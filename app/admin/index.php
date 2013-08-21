@@ -1,7 +1,6 @@
 <? 
 include 'header.php';
 ?>
-
 <section id="page">
 	<div class="col-3 visible-lg">
 		<div id="branding">
@@ -33,39 +32,10 @@ include 'header.php';
 						</ul>
 					</div>
 				</div>
-				<table class="table sites-table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Site Name</th>
-							<th>Site URL</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Jim's Plumbing</td>
-							<td><a href="#">http://sitename.com</a></td>
-							<td>						
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Jim's Plumbing</td>
-							<td><a href="#">http://sitename.com</a></td>
-							<td>						
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
-								</ul>
-							</td>
-						</tr>						
-					</tbody>
-				</table>
+				
+				<? get_sites(); ?>
+
+
 			</div>
 		</div>
 	</div>

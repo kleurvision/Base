@@ -1,3 +1,6 @@
+<? // Load the primary 
+require('bootstrap-admin.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

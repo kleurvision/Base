@@ -51,67 +51,7 @@ include 'header.php';
 					</div>
 				</div>
 				<br/>
-				<table class="table sites-table">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Role</th>
-							<th>Email</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><a href="#">Tommy Hammer</a></td>
-							<td>Administrator</td>
-							<td><a href="#">tommy@hammertime.com</a></td>
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">Tommy Hammer</a></td>
-							<td>Administrator</td>
-							<td><a href="#">tommy@hammertime.com</a></td>
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">Tommy Hammer</a></td>
-							<td>Administrator</td>
-							<td><a href="#">tommy@hammertime.com</a></td>
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">Tommy Hammer</a></td>
-							<td>Administrator</td>
-							<td><a href="#">tommy@hammertime.com</a></td>							
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">Tommy Hammer</a></td>
-							<td>Administrator</td>
-							<td><a href="#">tommy@hammertime.com</a></td>							
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>																	
-					</tbody>
-				</table>
+				<? get_users();?>
 
 			</div>
 		</div>		

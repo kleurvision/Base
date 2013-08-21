@@ -40,67 +40,7 @@ include 'header.php';
 					</div>
 				</div>
 				<br/>
-				<table class="table sites-table">
-					<thead>
-						<tr>
-							<th>URL</th>
-							<th>Customer</th>
-							<th>Theme</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><a href="#">http://tommyhammer.com</a></td>
-							<td>Tommy Hammer</td>
-							<td>default</td>
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">http://tommyhammer.com</a></td>
-							<td>Tommy Hammer</td>
-							<td>default</td>
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">http://tommyhammer.com</a></td>
-							<td>Tommy Hammer</td>
-							<td>default</td>
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">http://tommyhammer.com</a></td>
-							<td>Tommy Hammer</td>
-							<td>default</td>							
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="#">http://tommyhammer.com</a></td>
-							<td>Tommy Hammer</td>
-							<td>default</td>							
-							<td>
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" >Edit</a></li>
-								</ul>
-							</td>
-						</tr>																	
-					</tbody>
-				</table>
+				<? get_all_sites();?>
 
 			</div>
 		</div>		
