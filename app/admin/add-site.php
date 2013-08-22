@@ -37,7 +37,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 		
 		// If new site is registered without issue, create the databases
 		if($add_site){
-			
+						
 			// Add pages table
 			$db->query("CREATE TABLE site_".$site_id."_pages (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, pagename VARCHAR(50) DEFAULT NULL, pagetitle VARCHAR(100) DEFAULT NULL, pagecontent LONGTEXT, pageauthor INTEGER(11) DEFAULT NULL, pagemeta_title VARCHAR(100) NOT NULL, pagemeta_desc VARCHAR(255) DEFAULT NULL, pagemeta_keywords VARCHAR(255) DEFAULT NULL, pagetemplate VARCHAR(100) DEFAULT NULL, pageparent INTEGER(11) DEFAULT NULL, pagedate INTEGER(11) DEFAULT NULL, pagepriority INTEGER(11) DEFAULT NULL, pagechangefreq VARCHAR(100) DEFAULT NULL); ");			
 			// Add settings table
@@ -52,7 +52,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 			// If the tables are created without issue, fire the VHOST update and redirect to admin panel
 			update_vhosts($_POST['new_site_url']);
 			
-		} else{
+		} else {
 			
 			echo 'Could not add site to database';
 			
