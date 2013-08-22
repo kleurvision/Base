@@ -9,7 +9,7 @@ function update_vhosts($newhostdir){
 
 /* Configuration - Path to VHOSTS file on live system */
 // $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
-$vh_location = '/etc/apache2/sites-enabled/';
+$vh_location = '/etc/apache2/sites-enabled';
 
 /* Write the VHOSTS update */
 $vh_content	= "
