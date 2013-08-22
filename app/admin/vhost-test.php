@@ -35,8 +35,13 @@ if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
 
 fclose($fp);
 
+echo $vh_content;
+echo '<br/>---- TO ----<br/>';
+echo $vh_location;
+
+
 $url_encode = md5($newhostdir);
 
 /* Redirect on complete */
-header("location:/app/admin?msg=success&url=".$url_encode);
-exit;
+// header("location:/app/admin?msg=success&url=".$url_encode);
+// exit;
