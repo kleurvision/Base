@@ -109,6 +109,7 @@ function app_foot(){
 	}
 }
 
+
 // Top level navigation
 function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $endCap = '', $home = 'true', $parentLinks = 'false'){
 	if($class != ''){
