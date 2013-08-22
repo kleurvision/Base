@@ -24,7 +24,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	
 	// Lookup the URL in the app_options database to confirm registration
 	global $db;
-	$check_site = $db->get_var("SELECT count(*) FROM app_options WHERE app_url = '$newhostdir'");
+	$check_site = $db->get_var("SELECT count(*) FROM app_sites WHERE app_sites = '$newhostdir'");
 	
 	// If the site does not exist...
 	if($check_site == 0){
