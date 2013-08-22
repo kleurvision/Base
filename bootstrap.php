@@ -39,7 +39,7 @@ if(isset($_GET['site'])){
 // Define parent URL
 define( 'URL', $site_url);
 
-if($sitename != ''){
+if(isset($sitename)){
 
 	// When looking through preview
 	$site = $db->get_row("SELECT * FROM app_sites WHERE site_name = '$sitename'");
