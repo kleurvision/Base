@@ -54,7 +54,7 @@ exit;
 
 // Make necessary directory for new site and copy in files
 function make_site_dir($site_id){
-
+	echo 'balls';
 	// Desired folder structure
 	$path_to_site = '/var/www/webninja.me/htdocs/sites/'.$site_id;
 	
