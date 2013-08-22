@@ -31,49 +31,54 @@ if (file_exists(dirname(PATH).'/config/config.php')) {
 // URL -  Edit root URL
 $site_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
 
+// Sitename
+if(isset($_GET['site'])){
+	$sitename = $_GET['site'];
+}
+
 // Define parent URL
 define( 'URL', $site_url);
 
-/* // Check to see if there is a site asssociated to the URL
-if(isset($_GET['site'])){	
+if($sitename != ''){
+
+	// When looking through preview
+	$site = $db->get_row("SELECT * FROM app_sites WHERE site_name = '$sitename'");
+} else {
+
+	// When loading URL
+	$site = $db->get_row("SELECT * FROM app_sites WHERE site_url = '$site_url'");
+}
 	
-	$site = $db->get_results("SELECT * FROM app_options WHERE site_name = '".$_GET['site']."'");
-
-	// Define site path
-	if(isset($site->id)){
-		define( 'SITE', dirname(PATH).'/sites/'.$site->id);
-	};
-
-};
-*/
-
-print_r($_GET);
-
-// Define SITE stucture and THEME path
-$site 	= $db->get_row("SELECT * FROM app_sites WHERE site_url = '$site_url'");
+if(isset($site)){
 	
-	if(isset($site)){
-		define('SITE_ID', $site->id);
+	// Define SITE ID
+	define('SITE_ID', $site->id);
+	
+	// Set site theme
+	$theme 	= $site->site_theme;
+	
+	if($theme != ''){
 		
-		// Set site theme
-		$theme 	= $site->site_theme;
-		
-		if(isset($theme)){
-			define( 'THEME', APP.'/themes/'.$theme);
-		} else {
-			define( 'THEME', APP.'/themes/blank' );	
-		}
-		
-		// Define the Site folder
-		define('SITE', APP.'/sites/'.SITE_ID);
-		
-		// echo SITE;
-		
+		// If theme is set...
+		define( 'THEME', APP.'/themes/'.$theme);
+	
 	} else {
-	
-		echo 'No site';
-	
+		
+		// Use setup them
+		define( 'THEME', APP.'/themes/setup' );	
 	}
+	
+	// Define the Site folder
+	define('SITE', APP.'/sites/'.SITE_ID);
+	
+	// echo SITE;
+	
+} else {
+
+	echo 'No site';
+
+}
+
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );
