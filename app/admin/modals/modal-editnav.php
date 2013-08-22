@@ -89,7 +89,7 @@
 			}
 			?>
 		</div>
-	</div>
+
 		<div class="hud-col-12 hud-col-lg-5">
 			<? $allPages = $db->get_results("SELECT id, pagetitle FROM site_".SITE_ID."_pages ORDER BY pagetitle ASC");
 				if($allPages){?>
@@ -108,7 +108,7 @@
 					</form>
 			<? } ?>
 		</div>
-		<div class="hud-col-12">
+		<div class="hud-col-12 ">
 			<form role="form" class="form-inline" method="post" id="edit-page" action="<?= URL.ADMIN.'/actions/edit-nav.php';?>"> 
 				<textarea style="display:none" name="nav-order" id="nestable-output"></textarea>	 
 				<div class="form-actions">

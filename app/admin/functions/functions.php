@@ -106,7 +106,7 @@ function get_sites(){
 					<td>						
 						<ul class="list-inline pull-right">
 							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+							<li><a href="<?= $site->app_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 						</ul>
 					</td>
 				</tr>

@@ -54,7 +54,7 @@ function app_head(){
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud CSS
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
@@ -66,7 +66,7 @@ function app_head(){
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		}
 	}
 	
