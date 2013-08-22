@@ -40,7 +40,10 @@ foreach ($files as $file) {
 	}
 }
 
+
+
 								
+/*
 $form = new Form("edit-page");
 $form->configure(array(
     "prevent" => array("bootstrap", "jQuery"),
@@ -66,5 +69,41 @@ $form->addElement(new Element_Textbox("Meta Description:", "edit-meta-desc", arr
 $form->addElement(new Element_Textbox("Meta Keywords:", "edit-keywords", array("value" => "$pagekeywords")));
 
 $form->addElement(new Element_Button("Save"));
-$form->render();
+$form->render(); 
+*/ 
 ?>
+	<form id="edit-page" method="post" action="<?= URL.'/'.ADMIN.'/actions/edit-page.php'?>"?>
+		<label>Display Title:</label>
+		<input type="text" value="<?= $pagetitle;?>" name="edit-title">
+		
+		<label>SEO Title:</label>
+		<input type="text" value="<?= $pagemeta_title;?>" name="edit-meta-title">
+		
+		<label>Page URL:</label>
+		<input type="text" value="<?= $pageslug;?>" name="edit-pagename">
+		
+		<textarea name="edit-content" rows="5" ><?= $pageContent;?></textarea>
+		
+		<label>Template:</label>
+		<select name="template">
+			<? foreach($template as $option){?>
+			  <option value="<?= $option;?>" <? if($pageTemplate == $option){echo "selected";}?>><?= $option;?></option>
+			<? } ?>
+		</select> 
+		
+		<label>Author:</label>
+		<input type="text" value="<?= $pageauthor;?>" name="edit-author">
+		
+		<label>Meta Description:</label>
+		<input type="text" value="<?= $pagemeta_desc;?>" name="edit-meta-desc">
+		
+		<label>Meta Keywords:</label>
+		<input type="text" value="<?= $pagekeywords;?>" name="edit-keywords">
+		
+		<div class="form-actions">
+			<input type="hidden" value="edit-page" name="form">
+			<input type="hidden" value="<?= $pageID;?>" name="pageID">
+			<input class="btn btn-primary" type="submit" name="" value="Save">
+		</div>
+	</form>
+</div>

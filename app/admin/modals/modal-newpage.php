@@ -11,7 +11,7 @@ Save as modal-*modal-template-name*.php to extend
 
 <div class="modal-body">
 <? 
-
+/*
 $form = new Form("add-page");
 $form->configure(array(
     "prevent" => array("bootstrap", "jQuery"),
@@ -23,4 +23,15 @@ $form->addElement(new Element_Textbox("Title:", "page-title"));
 $form->addElement(new Element_TinyMCE("", "page-content"));
 $form->addElement(new Element_Button("Add Page"));
 $form->render();
+*/
 ?>
+
+	<form id="add-page" method="post" action="<?= URL.'/'.ADMIN.'/actions/add-page.php' ?>"?>
+		<label>Title:</label>
+		<input type="text" value="" name="page-title">
+		<textarea name="page-content" rows="5" ></textarea>
+		<div class="form-actions">
+			<input class="btn btn-primary" type="submit" name="Add Page" value="Add Page">
+		</div>
+	</form>
+</div>
