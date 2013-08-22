@@ -36,11 +36,8 @@ if (file_exists(dirname(ROOT).'/config/config.php')) {
 	echo 'Config not found at '.ROOT.'/config/config.php<br/>';
 };
 
-// URL -  Edit root URL
-$app_url = $db->get_var("SELECT site_url FROM app_sites");
-
 // Define parent URL
-define( 'URL', $app_url);
+define( 'URL', 'http://webninja.me/app/admin');
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );

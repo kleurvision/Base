@@ -38,5 +38,5 @@ fclose($fp);
 $url_encode = md5($newhostdir);
 
 /* Redirect on complete */
-header("location:".URL."/app/admin?msg=success&url=".$url_encode);
+header("location:/app/admin?msg=success&url=".$url_encode);
 exit;
