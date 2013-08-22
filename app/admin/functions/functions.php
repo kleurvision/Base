@@ -8,7 +8,8 @@ Y: 2013
 function update_vhosts($newhostdir){
 
 /* Configuration - Path to VHOSTS file on live system */
-$vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
+// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
+$vh_location = '/etc/apache2/sites-enabled/';
 
 /* Write the VHOSTS update */
 $vh_content	= "
@@ -18,7 +19,7 @@ $vh_content	= "
 
 <VirtualHost *:80>
 
-	DocumentRoot /Volumes/MacintoshHD/Sites/webninja/htdocs
+	DocumentRoot /var/www/webninja.me/htdocs
 	ServerName ".$newhostdir."
 		
 </VirtualHost>
@@ -29,7 +30,7 @@ $vh_content	= "
 "; 
 	
 /* Open, Lock, and Write to the VHOSTS file */
-$fp = fopen($vh_location, 'a');
+$fp = fopen($vh_location.'/'.$newhostdir, 'x+');
 
 if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
     // ftruncate($fp, 0);      	// truncate file
