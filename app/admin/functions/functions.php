@@ -6,7 +6,7 @@ Y: 2013
 */
 
 function update_vhosts($newhostdir){
-
+echo 'balls';
 /* Configuration - Path to VHOSTS file on live system */
 // $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 //$vh_location = '/etc/apache2/sites-enabled';
