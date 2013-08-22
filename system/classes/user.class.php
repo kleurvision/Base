@@ -125,6 +125,7 @@ class User {
 		// Check registraiont POST submission
 		if(isset($_POST['reg_form_submit'])){
 						
+			$role = 1;
 			$email		= stripslashes($_POST['reg_user']);
 			if($email == ''){
 				$err_msg['no_email'] = 'Please enter an email address';
@@ -157,7 +158,7 @@ class User {
 				
 			} else {
 			
-				$create_user = $this->db->query("INSERT INTO app_users (email, password) VALUES ('$email', '$password')");
+				$create_user = $this->db->query("INSERT INTO app_users (email, password, role) VALUES ('$email', '$password', $role)");
 				
 				if($create_user){ ?>
 					<div class="alert alert-success">
@@ -229,6 +230,7 @@ class User {
 				};		
 			} else {
 				// No HUD access
+				echo "balls";
 			}
 		};
 	}
