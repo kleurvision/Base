@@ -52,6 +52,10 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 			// If the tables are created without issue, fire the VHOST update and redirect to admin panel
 			update_vhosts($_POST['new_site_url']);
 			
+		} else{
+			
+			echo 'Could not add site to database';
+			
 		}
 			
 	} else {
