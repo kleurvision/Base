@@ -50,11 +50,29 @@ exit;
 
 }
 
-// Super admin / ninja site table
+// Make necessary directory for new site and copy in files
+function make_site_dir($site_id){
 
+	// Desired folder structure
+	$path_to_site = '../sites/'.$site_id;
+	
+	// To create the nested structure, the $recursive parameter 
+	// to mkdir() must be specified.
+	$check = mkdir($path_to_site, 0700);
+	
+	// Create config file
+	$site_index_master 	= '../themes/setup/index.php';
+	$new_site_index		= $path_to_site.'/index.php';
+	
+	if (!copy($site_index_master, $new_site_index)) {
+	    echo "failed to copy $site_index_master...\n";
+	}
+}
+
+// Super admin / ninja site table
 function get_all_sites(){
 	global $db;
-	$sites = $db->get_results("SELECT id, app_url, site_name, app_theme FROM app_options");
+	$sites = $db->get_results("SELECT id, site_url, site_name, site_theme FROM app_sites");
 ?>
 
 	<table class="table sites-table">
@@ -70,9 +88,9 @@ function get_all_sites(){
 			<? foreach ($sites as $site) { ?>
 				<tr>
 					<td><?= $site->id;?></td>
-					<td><a href="<?= $site->app_url;?>"><?= $site->app_url;?></a></td>
+					<td><a href="<?= $site->site_url;?>"><?= $site->site_url;?></a></td>
 					<td>Tommy Hammer</td>
-					<td><?= $site->app_theme;?></td>							
+					<td><?= $site->site_theme;?></td>							
 					<td>
 						<ul class="list-inline pull-right">
 							<li><a class="btn btn-default btn-sm" href="">Edit</a></li>
@@ -87,7 +105,7 @@ function get_all_sites(){
 // Get sites and list as table
 function get_sites(){
 	global $db;
-	$sites = $db->get_results("SELECT id, app_url, site_name FROM app_options");
+	$sites = $db->get_results("SELECT id, site_url, site_name FROM app_sites");
 ?>
 <table class="table sites-table">
 		<thead>
@@ -102,7 +120,7 @@ function get_sites(){
 				<tr>
 					<td><?= $site->id;?></td>
 					<td><?= $site->site_name;?></td>
-					<td><a href="<?= $site->app_url;?>"><?= $site->app_url;?></a></td>
+					<td><a href="<?= $site->site_url;?>"><?= $site->site_url;?></a></td>
 					<td>						
 						<ul class="list-inline pull-right">
 							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>

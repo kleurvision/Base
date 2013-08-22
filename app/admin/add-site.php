@@ -9,14 +9,18 @@ require('bootstrap-admin.php');
 // Load in the functions
 // require_once(dirname(ROOT) . '/config/update_vhosts_function.php' );
 
-// Temporarily load admin functions from within admin folder
-require('functions/functions.php');
-
 // Update VHOSTS File
-if(isset($_POST['new_site_url'])){
+if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
+	
+	// Set the new site name (sanitize special characters and make lowercase
+	$site_name = strtolower($_POST['new_site_name']);
+	$sitename = str_replace(' ', '_', $site_name);
 	
 	// Set the new site URL 
 	$newhostdir = 'http://'.$_POST['new_site_url'].'/';
+	
+	// Set the activation date
+	$sitedate = date('Y-m-d');
 	
 	// Lookup the URL in the app_options database to confirm registration
 	global $db;
@@ -26,7 +30,7 @@ if(isset($_POST['new_site_url'])){
 	if($check_site == 0){
 		
 		// Add new site to app_options DB
-		$add_site = $db->query("INSERT INTO app_options (app_url) VALUES ('$newhostdir')");
+		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, activation_date) VALUES ('$newhostdir', '$sitename', '$sitedate')");
 		
 		// Get new site ID
 		$site_id = mysql_insert_id();
@@ -42,8 +46,12 @@ if(isset($_POST['new_site_url'])){
 			// Add hero table
 			$db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroimg LONGTEXT);"); 
 			
-			// If the tables are created without issue, fire the VHOST update...
+			// Make Directory
+			make_site_dir($site_id);
+			
+			// If the tables are created without issue, fire the VHOST update and redirect to admin panel
 			update_vhosts($_POST['new_site_url']);
+			
 		}
 			
 	} else {
@@ -55,7 +63,8 @@ if(isset($_POST['new_site_url'])){
 } else { ?>
 
 <form action="" method="post">
-	<input type="text" name="new_site_url" placeholder="URL" />
+	<input type="text" name="new_site_name" placeholder="Name (no special characters)" />
+	<input type="text" name="new_site_url" placeholder="URL (no http://)" />
 	<input type="submit" value="Enter URL"/>
 </form>
 

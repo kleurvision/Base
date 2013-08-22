@@ -48,7 +48,7 @@ class Page {
 		if($pagename != ''){
 			$metaData = $this->db->get_row("SELECT pagetitle, pagemeta_title, pagemeta_desc, pagemeta_keywords FROM site_".SITE_ID."_pages WHERE pagename = '$pagename'");
 		} else {
-			$metaData = $this->db->get_row("SELECT * FROM app_options WHERE id = 1");
+			$metaData = $this->db->get_row("SELECT * FROM app_sites WHERE id = 1");
 		}
 		
 		if(isset($metaData->pagemeta_title)){

@@ -65,5 +65,5 @@ require_once(SYSTEM . '/system_functions.php' );
 // Load in the helpers
 require_once(SYSTEM . '/system_helpers.php' );
 
-// Load in the functions admin functions ??
+// Load in the functions admin functions
 require_once(ADMIN . '/functions/functions.php' );

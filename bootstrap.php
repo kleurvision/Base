@@ -29,10 +29,10 @@ if (file_exists(dirname(PATH).'/config/config.php')) {
 };
 
 // URL -  Edit root URL
-$app_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
+$site_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
 
 // Define parent URL
-define( 'URL', $app_url);
+define( 'URL', $site_url);
 
 /* // Check to see if there is a site asssociated to the URL
 if(isset($_GET['site'])){	
@@ -47,20 +47,27 @@ if(isset($_GET['site'])){
 };
 */
 
+print_r($_GET);
+
 // Define SITE stucture and THEME path
-$site 	= $db->get_row("SELECT * FROM app_options WHERE app_url = '$app_url'");
+$site 	= $db->get_row("SELECT * FROM app_sites WHERE site_url = '$site_url'");
 	
 	if(isset($site)){
 		define('SITE_ID', $site->id);
 		
 		// Set site theme
-		$theme 	= $site->app_theme;
+		$theme 	= $site->site_theme;
 		
 		if(isset($theme)){
 			define( 'THEME', APP.'/themes/'.$theme);
 		} else {
 			define( 'THEME', APP.'/themes/blank' );	
 		}
+		
+		// Define the Site folder
+		define('SITE', APP.'/sites/'.SITE_ID);
+		
+		// echo SITE;
 		
 	} else {
 	
@@ -87,9 +94,6 @@ $user->login_submit();
 
 // Load in the functions
 require_once(SYSTEM . '/system_functions.php' );
-
-// Load in the helpers
-require_once(SYSTEM . '/system_helpers.php' );
 
 // Kickstart the views/theme delivery
 // Check to see if there is a page asssociated to the URL
