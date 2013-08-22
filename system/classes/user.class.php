@@ -96,19 +96,18 @@ class User {
 		// Load login form
 		if(!isset($this->user_id)){ ?>
 		<fieldset id="user_login_fields">
-			<form id="login_form" action="" method="post">
-				<div class="form_row">
+			<legend>Login</legend>
+			<form role="form" id="login_form" action="" method="post">
 					<div class="form-group">
-						
-							<input class="form-control" id="exampleInputEmail" type="text" name="login_user" placeholder="email">
-						
+						<input class="form-control" id="exampleInputEmail" type="text" name="login_user" placeholder="email">
 					</div>
 					<div class="form-group">
 						<input class="form-control" id="exampleInputPassword" type="password" name="login_password" placeholder="password">
-						<input class="btn btn-default btn-block contact-submit pull-right" type="submit" name="login_form_submit" value="Login"/>
 					</div>
-					<a href="">Forgot Password?</a>
-				</div>
+					<div class="form-group">
+						<input class="btn btn-primary form-control pull-right" type="submit" name="login_form_submit" value="Login"/>
+					</div>
+					<a href="" >Forgot Password?</a>
 			</form> 
 		</fieldset>
 		<? } else {
@@ -126,6 +125,7 @@ class User {
 		// Check registraiont POST submission
 		if(isset($_POST['reg_form_submit'])){
 						
+			$role = 1;
 			$email		= stripslashes($_POST['reg_user']);
 			if($email == ''){
 				$err_msg['no_email'] = 'Please enter an email address';
@@ -158,7 +158,7 @@ class User {
 				
 			} else {
 			
-				$create_user = $this->db->query("INSERT INTO app_users (email, password) VALUES ('$email', '$password')");
+				$create_user = $this->db->query("INSERT INTO app_users (email, password, role) VALUES ('$email', '$password', $role)");
 				
 				if($create_user){ ?>
 					<div class="alert alert-success">
@@ -179,26 +179,19 @@ class User {
 		if(!isset($this->user_id)){?>
 		<fieldset id="user_register_form">
 			<legend>Register User</legend>
-			<form id="registration_form" action="" method="post">
-				<div class="form_row">
-					<div class="global_input_wrapper">
-						<div class="global_input_skin">
-							<input type="text" name="reg_user" placeholder="email">
-						</div>
-					</div>
-					<div class="global_input_wrapper">
-						<div class="global_input_skin">
-							<input type="password" name="reg_password" placeholder="password">
-						</div>
-					</div>
-					<div class="global_input_wrapper">
-						<div class="global_input_skin">
-							<input type="password" name="reg_password_confirm" placeholder="confirm password">
-						</div>
-					</div>
-					<div class="global_form_button">
-						<input class="btn btn-primary" type="submit" name="reg_form_submit" value="Register"/>
-					</div>
+			<form role="form" id="registration_form" action="" method="post">
+				<div class="form-group">
+					<input class="form-control" type="text" name="reg_user" placeholder="email">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="password" name="reg_password" placeholder="password">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="password" name="reg_password_confirm" placeholder="confirm password">
+				</div>
+				<div clas-"form-group">
+					<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Register"/>
+				</div>
 				</div>
 			</form> 
 		</fieldset>
@@ -237,6 +230,7 @@ class User {
 				};		
 			} else {
 				// No HUD access
+				echo "balls";
 			}
 		};
 	}

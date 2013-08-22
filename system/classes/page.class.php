@@ -7,7 +7,7 @@ class Page {
 
 	function page_map($pagename = false){  
 		if($pagename){  
-			$pageload = $this->db->get_row("SELECT * FROM app_pages WHERE pagename = '$pagename'");
+			$pageload = $this->db->get_row("SELECT * FROM site_".SITE_ID."_pages WHERE pagename = '$pagename'");
 			if($pageload){
 				return $pageload;
 			} else {
@@ -19,7 +19,7 @@ class Page {
 	}
 	
 	function page_info($pageID){
-		$pageInfo = $this->db->get_row("SELECT * FROM app_pages WHERE id= '$pageID'");
+		$pageInfo = $this->db->get_row("SELECT * FROM site_".SITE_ID."_pages WHERE id= '$pageID'");
 		if($pageInfo){
 			return $pageInfo;
 		}
@@ -46,7 +46,7 @@ class Page {
 	function load_metadata($pagename = ''){
 		
 		if($pagename != ''){
-			$metaData = $this->db->get_row("SELECT pagetitle, pagemeta_title, pagemeta_desc, pagemeta_keywords FROM app_pages WHERE pagename = '$pagename'");
+			$metaData = $this->db->get_row("SELECT pagetitle, pagemeta_title, pagemeta_desc, pagemeta_keywords FROM site_".SITE_ID."_pages WHERE pagename = '$pagename'");
 		} else {
 			$metaData = $this->db->get_row("SELECT * FROM app_options WHERE id = 1");
 		}
@@ -98,7 +98,7 @@ class Page {
  
  
  function page_array(){  
-			$pagesArray = $this->db->get_results("SELECT id, pagetitle FROM app_pages WHERE pageparent IS NULL");
+			$pagesArray = $this->db->get_results("SELECT id, pagetitle FROM site_".SITE_ID."_pages WHERE pageparent IS NULL");
 			if($pagesArray){
 				return  $pagesArray;
 			}
@@ -108,7 +108,7 @@ class Page {
  	$breadcrumb  = $this->page_map($pagename);
  	$parentID = $breadcrumb->pageparent;
  	if(isset($parentID)){
-	 	$parent = $this->db->get_results("SELECT pagetitle, pagename FROM app_pages WHERE id = $parentID");
+	 	$parent = $this->db->get_results("SELECT pagetitle, pagename FROM site_".SITE_ID."_pages WHERE id = $parentID");
  	};
  	echo '<ul class="breadcrumb">'. "\r\n";
     echo '<li><a href="'.URL.'">Home</a> <span class="divider">//</span></li>'."\r\n";

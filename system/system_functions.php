@@ -45,8 +45,6 @@ function app_head(){
 	if(isset($user)){	
 		if($user->get_role() == 'super'){
 			// Load in Hud CSS
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.modals.min.css'.'" rel="stylesheet">'. "\r\n";
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.tooltip.min.css'.'" rel="stylesheet">'. "\r\n";
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
@@ -54,18 +52,21 @@ function app_head(){
 			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
 			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud CSS
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.modals.min.css'.'" rel="stylesheet">'. "\r\n";
-			echo '<link href="'.URL.'app/admin/assets/css/bootstrap.tooltip.min.css'.'" rel="stylesheet">'. "\r\n";
+			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
 			// Load in Hud Scripts
 			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
 			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		}
 	}
 	
@@ -118,7 +119,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 	}
 	global $db;
 	//$pages = $db->get_results("SELECT id, pageparent, pagename, pagetitle FROM app_pages");
-	$navs = $db->get_results("SELECT navigation FROM app_nav ORDER BY id DESC LIMIT 1");
+	$navs = $db->get_results("SELECT navigation FROM site_".SITE_ID."_settings");
 	if($navs){
 	
 		$navs = json_decode($navs[0]->navigation, true);
@@ -131,7 +132,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 		}
 		foreach($navs as $nav){
 			
-			$page = $db->get_row("SELECT id, pageparent, pagename, pagetitle FROM app_pages WHERE id =". $nav['id']);
+			$page = $db->get_row("SELECT id, pageparent, pagename, pagetitle FROM site_".SITE_ID."_pages WHERE id =". $nav['id']);
 			// Check to see if the page has children
 			if(isset($nav['children'])){
 				$child_pages = $nav['children'];
@@ -158,7 +159,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 			if($child_pages){
 				echo '<ul class="dropdown-menu">';
 				foreach($child_pages as $child){
-					$childUrls = $db->get_row("SELECT pagename, pagetitle FROM app_pages WHERE id = ".$child['id']);
+					$childUrls = $db->get_row("SELECT pagename, pagetitle FROM site_".SITE_ID."_pages WHERE id = ".$child['id']);
 
 					echo '<li class="nav-child"><a href="'.URL.$childUrls->pagename.'">'.$childUrls->pagetitle.'</a></li>';
 				}
@@ -175,71 +176,32 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 	}
 }
 
-/*	if($nav){
-		echo '<ul class="nav nav-pills '.$class.'">';
-		foreach($pages as $page){
-			
-			// Check to see if the page has children
-			$child_pages = $db->get_results("SELECT pagename, pagetitle FROM app_pages WHERE pageparent = '".$page->id."'");
-			
-			if($child_pages){
-				echo '<li class="nav-parent">';
-			} else {
-				echo '<li>';
-			}
-			
-			if($page->pageparent == ''){
-				echo'<a href="'.URL.'/'.$page->pagename.'">'.$page->pagetitle.'</a>';
-			};
-			
-			if($child_pages){
-				echo '<ul class="sub-nav">';
-				foreach($child_pages as $child){
-					echo '<li class="nav-child"><a href="'.URL.'/'.$child->pagename.'">'.$child->pagetitle.'</a></li>';
-				}
-				echo '</ul>';
-			}
-			
-			echo '</li>';
-		}
-		echo '</ul>';
-	}
-*/
-
-/*
-// Define page layout type
-function get_layout(){
-	$options = new Options;
-	$opt	 = $options->app_options();
-	if($opt->layout == 'fixed'){
-		echo 'container';
-	} else {
-		echo 'container-'.$opt->layout;
-	}
-}
-*/
-
 // Create modal boxes
 function app_modal($modifier='default'){ ?>
-	<div id="<?=$modifier;?>Modal" class="modal hide fade">
-		<? // Check for modal modifier
-		if($modifier == 'default'){
-    		include (THEME.'/modal.php');
-    	} else {
-	    	include (THEME.'/modal-'.$modifier.'.php');
-    	} ?>
+	<div id="<?=$modifier;?>Modal" class="hud-modal fade">
+		<div class="hud-modal-dialog">
+			<div class="hud-modal-content">
+				<? // Check for modal modifier
+				if($modifier == 'default'){
+		    		include (THEME.'/modal.php');
+		    	} else {
+			    	include (THEME.'/modal-'.$modifier.'.php');
+		    	} ?>
+    		</div>
+		</div>
 	</div>
 <? }
 
 // Create admin boxes
 function admin_modal($modifier='default'){ ?>
-	<div id="<?=$modifier;?>ModalAdmin" class="modal hide fade <?= $modifier;?>">
-		<? // Check for modal modifier
-		if($modifier == 'default'){
-    		include (ADMIN.'/modals/modal.php');
-    	} else {
-	    	include (ADMIN.'/modals/modal-'.$modifier.'.php');
-    	} ?>
+	<div id="<?=$modifier;?>ModalAdmin" class="hud-modal fade <?= $modifier;?>">
+			<div class="hud-modal-content">		
+				<? // Check for modal modifier
+				if($modifier == 'default'){
+		    		include (ADMIN.'/modals/modal.php');
+		    	} else {
+			    	include (ADMIN.'/modals/modal-'.$modifier.'.php');
+		    	} ?>
 	</div>
 <? }
 
@@ -299,7 +261,7 @@ function theme_path($type){
 // Load page info
 function site_info($option = ''){
 		global $db;
-		$default = $db->get_row("SELECT * FROM app_options WHERE id = 1");
+		$default = $db->get_row("SELECT * FROM app_options WHERE id = ".SITE_ID."");
 		if(isset($option)){
 			if($option == 'title'){
 				echo $default->app_name;
@@ -362,7 +324,7 @@ function db_query($args){
 	} elseif($args['type'] == 'page'){
 		// Define page name from URL
 		$pagename = $_GET['pagename'];
-		$query = $db->get_row("SELECT * FROM app_pages WHERE pagename = '$pagename'");
+		$query = $db->get_row("SELECT * FROM site_".SITE_ID."_pages WHERE pagename = '$pagename'");
 	}
 	return $query; 
 }
@@ -556,22 +518,6 @@ function social_share(){ ?>
 
 function social_links(){
 	
-}
-
-
-function update_vhosts($newhostdir = 'test'){
-	$vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
-	$vh_content  = file_get_contents($vh_location);
-	
-	$vh_content	 .= "
-#Domain Definition for ".$newhostdir."\n\n
-<VirtualHost *:80>\n
-
-</VirtualHost>\n\n
-
-"; 
-	
-	print_r($vh_content);
 }
 	
 	?>

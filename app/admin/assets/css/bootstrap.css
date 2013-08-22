@@ -3069,7 +3069,7 @@ button.close {
   border-bottom-color: #ffffff;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 990px) {
   .navbar-brand {
     float: left;
     max-width: none;

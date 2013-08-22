@@ -1,0 +1,421 @@
+.hud-btn
+	display: inline-block
+	padding: 6px 12px
+	margin-bottom: 0
+	font-size: 14px
+	font-weight: bold
+	line-height: 1.428571429
+	text-align: center
+	vertical-align: middle
+	cursor: pointer
+	border: 1px solid transparent
+	border-radius: 4px
+	white-space: nowrap
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	-o-user-select: none
+	user-select: none
+	&:focus
+		outline: thin dotted #333
+		outline: 5px auto -webkit-focus-ring-color
+		outline-offset: -2px
+	&:hover, &:focus
+		color: #333333
+		text-decoration: none
+	&:active, &.active
+		outline: 0
+		-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+	&.disabled, &[disabled]
+		cursor: default
+		pointer-events: none
+		opacity: 0.65
+		filter: alpha(opacity = 65)
+		-webkit-box-shadow: none
+		box-shadow: none
+
+fieldset[disabled] .hud-btn
+	cursor: default
+	pointer-events: none
+	opacity: 0.65
+	filter: alpha(opacity = 65)
+	-webkit-box-shadow: none
+	box-shadow: none
+
+.hud-btn-default
+	color: #333333
+	background-color: #ffffff
+	border-color: #cccccc
+	&:hover, &:focus, &:active, &.active
+		color: #333333
+		background-color: #ebebeb
+		border-color: #adadad
+	&.disabled, &[disabled]
+		background-color: #ffffff
+		border-color: #cccccc
+
+fieldset[disabled] .hud-btn-default
+	background-color: #ffffff
+	border-color: #cccccc
+
+.hud-btn-default
+	&.disabled:hover, &[disabled]:hover
+		background-color: #ffffff
+		border-color: #cccccc
+
+fieldset[disabled] .hud-btn-default:hover
+	background-color: #ffffff
+	border-color: #cccccc
+
+.hud-btn-default
+	&.disabled:focus, &[disabled]:focus
+		background-color: #ffffff
+		border-color: #cccccc
+
+fieldset[disabled] .hud-btn-default:focus
+	background-color: #ffffff
+	border-color: #cccccc
+
+.hud-btn-default
+	&.disabled:active, &[disabled]:active
+		background-color: #ffffff
+		border-color: #cccccc
+
+fieldset[disabled] .hud-btn-default:active
+	background-color: #ffffff
+	border-color: #cccccc
+
+.hud-btn-default
+	&.disabled.active, &[disabled].active
+		background-color: #ffffff
+		border-color: #cccccc
+
+fieldset[disabled] .hud-btn-default.active
+	background-color: #ffffff
+	border-color: #cccccc
+
+.hud-btn-primary
+	color: #ffffff
+	background-color: #428bca
+	border-color: #357ebd
+	&:hover, &:focus, &:active, &.active
+		color: #ffffff
+		background-color: #3276b1
+		border-color: #285e8e
+	&.disabled, &[disabled]
+		background-color: #428bca
+		border-color: #357ebd
+
+fieldset[disabled] .hud-btn-primary
+	background-color: #428bca
+	border-color: #357ebd
+
+.hud-btn-primary
+	&.disabled:hover, &[disabled]:hover
+		background-color: #428bca
+		border-color: #357ebd
+
+fieldset[disabled] .hud-btn-primary:hover
+	background-color: #428bca
+	border-color: #357ebd
+
+.hud-btn-primary
+	&.disabled:focus, &[disabled]:focus
+		background-color: #428bca
+		border-color: #357ebd
+
+fieldset[disabled] .hud-btn-primary:focus
+	background-color: #428bca
+	border-color: #357ebd
+
+.hud-btn-primary
+	&.disabled:active, &[disabled]:active
+		background-color: #428bca
+		border-color: #357ebd
+
+fieldset[disabled] .hud-btn-primary:active
+	background-color: #428bca
+	border-color: #357ebd
+
+.hud-btn-primary
+	&.disabled.active, &[disabled].active
+		background-color: #428bca
+		border-color: #357ebd
+
+fieldset[disabled] .hud-btn-primary.active
+	background-color: #428bca
+	border-color: #357ebd
+
+.hud-btn-warning
+	color: #ffffff
+	background-color: #f0ad4e
+	border-color: #eea236
+	&:hover, &:focus, &:active, &.active
+		color: #ffffff
+		background-color: #ed9c28
+		border-color: #d58512
+	&.disabled, &[disabled]
+		background-color: #f0ad4e
+		border-color: #eea236
+
+fieldset[disabled] .hud-btn-warning
+	background-color: #f0ad4e
+	border-color: #eea236
+
+.hud-btn-warning
+	&.disabled:hover, &[disabled]:hover
+		background-color: #f0ad4e
+		border-color: #eea236
+
+fieldset[disabled] .hud-btn-warning:hover
+	background-color: #f0ad4e
+	border-color: #eea236
+
+.hud-btn-warning
+	&.disabled:focus, &[disabled]:focus
+		background-color: #f0ad4e
+		border-color: #eea236
+
+fieldset[disabled] .hud-btn-warning:focus
+	background-color: #f0ad4e
+	border-color: #eea236
+
+.hud-btn-warning
+	&.disabled:active, &[disabled]:active
+		background-color: #f0ad4e
+		border-color: #eea236
+
+fieldset[disabled] .hud-btn-warning:active
+	background-color: #f0ad4e
+	border-color: #eea236
+
+.hud-btn-warning
+	&.disabled.active, &[disabled].active
+		background-color: #f0ad4e
+		border-color: #eea236
+
+fieldset[disabled] .hud-btn-warning.active
+	background-color: #f0ad4e
+	border-color: #eea236
+
+.hud-btn-danger
+	color: #ffffff
+	background-color: #d9534f
+	border-color: #d43f3a
+	&:hover, &:focus, &:active, &.active
+		color: #ffffff
+		background-color: #d2322d
+		border-color: #ac2925
+	&.disabled, &[disabled]
+		background-color: #d9534f
+		border-color: #d43f3a
+
+fieldset[disabled] .hud-btn-danger
+	background-color: #d9534f
+	border-color: #d43f3a
+
+.hud-btn-danger
+	&.disabled:hover, &[disabled]:hover
+		background-color: #d9534f
+		border-color: #d43f3a
+
+fieldset[disabled] .hud-btn-danger:hover
+	background-color: #d9534f
+	border-color: #d43f3a
+
+.hud-btn-danger
+	&.disabled:focus, &[disabled]:focus
+		background-color: #d9534f
+		border-color: #d43f3a
+
+fieldset[disabled] .hud-btn-danger:focus
+	background-color: #d9534f
+	border-color: #d43f3a
+
+.hud-btn-danger
+	&.disabled:active, &[disabled]:active
+		background-color: #d9534f
+		border-color: #d43f3a
+
+fieldset[disabled] .hud-btn-danger:active
+	background-color: #d9534f
+	border-color: #d43f3a
+
+.hud-btn-danger
+	&.disabled.active, &[disabled].active
+		background-color: #d9534f
+		border-color: #d43f3a
+
+fieldset[disabled] .hud-btn-danger.active
+	background-color: #d9534f
+	border-color: #d43f3a
+
+.hud-btn-success
+	color: #ffffff
+	background-color: #5cb85c
+	border-color: #4cae4c
+	&:hover, &:focus, &:active, &.active
+		color: #ffffff
+		background-color: #47a447
+		border-color: #398439
+	&.disabled, &[disabled]
+		background-color: #5cb85c
+		border-color: #4cae4c
+
+fieldset[disabled] .hud-btn-success
+	background-color: #5cb85c
+	border-color: #4cae4c
+
+.hud-btn-success
+	&.disabled:hover, &[disabled]:hover
+		background-color: #5cb85c
+		border-color: #4cae4c
+
+fieldset[disabled] .hud-btn-success:hover
+	background-color: #5cb85c
+	border-color: #4cae4c
+
+.hud-btn-success
+	&.disabled:focus, &[disabled]:focus
+		background-color: #5cb85c
+		border-color: #4cae4c
+
+fieldset[disabled] .hud-btn-success:focus
+	background-color: #5cb85c
+	border-color: #4cae4c
+
+.hud-btn-success
+	&.disabled:active, &[disabled]:active
+		background-color: #5cb85c
+		border-color: #4cae4c
+
+fieldset[disabled] .hud-btn-success:active
+	background-color: #5cb85c
+	border-color: #4cae4c
+
+.hud-btn-success
+	&.disabled.active, &[disabled].active
+		background-color: #5cb85c
+		border-color: #4cae4c
+
+fieldset[disabled] .hud-btn-success.active
+	background-color: #5cb85c
+	border-color: #4cae4c
+
+.hud-btn-info
+	color: #ffffff
+	background-color: #5bc0de
+	border-color: #46b8da
+	&:hover, &:focus, &:active, &.active
+		color: #ffffff
+		background-color: #39b3d7
+		border-color: #269abc
+	&.disabled, &[disabled]
+		background-color: #5bc0de
+		border-color: #46b8da
+
+fieldset[disabled] .hud-btn-info
+	background-color: #5bc0de
+	border-color: #46b8da
+
+.hud-btn-info
+	&.disabled:hover, &[disabled]:hover
+		background-color: #5bc0de
+		border-color: #46b8da
+
+fieldset[disabled] .hud-btn-info:hover
+	background-color: #5bc0de
+	border-color: #46b8da
+
+.hud-btn-info
+	&.disabled:focus, &[disabled]:focus
+		background-color: #5bc0de
+		border-color: #46b8da
+
+fieldset[disabled] .hud-btn-info:focus
+	background-color: #5bc0de
+	border-color: #46b8da
+
+.hud-btn-info
+	&.disabled:active, &[disabled]:active
+		background-color: #5bc0de
+		border-color: #46b8da
+
+fieldset[disabled] .hud-btn-info:active
+	background-color: #5bc0de
+	border-color: #46b8da
+
+.hud-btn-info
+	&.disabled.active, &[disabled].active
+		background-color: #5bc0de
+		border-color: #46b8da
+
+fieldset[disabled] .hud-btn-info.active
+	background-color: #5bc0de
+	border-color: #46b8da
+
+.hud-btn-link
+	color: #428bca
+	font-weight: normal
+	cursor: pointer
+	border-radius: 0
+	background-color: transparent
+	-webkit-box-shadow: none
+	box-shadow: none
+	&:active, &[disabled]
+		background-color: transparent
+		-webkit-box-shadow: none
+		box-shadow: none
+
+fieldset[disabled] .hud-btn-link
+	background-color: transparent
+	-webkit-box-shadow: none
+	box-shadow: none
+
+.hud-btn-link
+	border-color: transparent
+	&:hover, &:focus, &:active
+		border-color: transparent
+	&:hover, &:focus
+		color: #2a6496
+		text-decoration: underline
+		background-color: transparent
+	&[disabled]:hover
+		color: #999999
+		text-decoration: none
+
+fieldset[disabled] .hud-btn-link:hover, .hud-btn-link[disabled]:focus, fieldset[disabled] .hud-btn-link:focus
+	color: #999999
+	text-decoration: none
+
+.hud-btn-lg
+	padding: 10px 16px
+	font-size: 18px
+	line-height: 1.33
+	border-radius: 6px
+
+.hud-btn-sm
+	padding: 5px 10px
+	font-size: 12px
+	line-height: 1.5
+	border-radius: 3px
+
+.hud-btn-xs
+	padding: 5px 10px
+	font-size: 12px
+	line-height: 1.5
+	border-radius: 3px
+	padding: 3px 5px
+
+.hud-btn-block
+	display: block
+	width: 100%
+	padding-left: 0
+	padding-right: 0
+	+ .hud-btn-block
+		margin-top: 5px
+
+input
+	&[type="submit"].hud-btn-block, &[type="reset"].hud-btn-block, &[type="button"].hud-btn-block
+		width: 100%

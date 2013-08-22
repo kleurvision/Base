@@ -26,8 +26,8 @@ global $user;
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
 				</li>
-				<li><a href="<?= URL;?>/app/admin" data-toggle="tooltip" title="Dashboard"><i class="icon-home"></i><span>&nbsp;&nbsp;Dashboard</span></a></li>
-				<li><a href="<?= URL.'logout';?>" data-toggle="tooltip" title="Logout"><i class="icon-off"></i><span>&nbsp;&nbsp;Logout</span></a></li>
+				<li><a href="<?= URL;?>/app/admin" data-toggle="hud-tooltip" title="Dashboard"><i class="icon-home"></i><span>&nbsp;&nbsp;Dashboard</span></a></li>
+				<li><a href="<?= URL.'logout';?>" data-toggle="hud-tooltip" title="Logout"><i class="icon-off"></i><span>&nbsp;&nbsp;Logout</span></a></li>
 			</ul>
 		</div>
 	</div>

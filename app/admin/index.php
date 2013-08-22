@@ -1,21 +1,12 @@
 <? 
 include 'header.php';
 ?>
-
 <section id="page">
 	<div class="col-3 visible-lg">
 		<div id="branding">
 			<img src="assets/img/logo@2x.png"/>
 		</div>
-		<div id="sidebar">
-			<nav>
-				<ul class="list-unstyled" id="main-nav">
-					<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
-					<li><a href=""><i class="icon-user"></i>Users</a></li>
-					<li><a href=""><i class="icon-download"></i>App Store</a></li>
-				</ul>
-			</nav>
-		</div>
+		<? include 'inc/sidebar.php'; ?>
 	</div>
 	<div class="col-12 col-lg-9">
 		<div class="row" id="header">
@@ -41,39 +32,10 @@ include 'header.php';
 						</ul>
 					</div>
 				</div>
-				<table class="table sites-table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Site Name</th>
-							<th>Site URL</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Jim's Plumbing</td>
-							<td><a href="#">http://sitename.com</a></td>
-							<td>						
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
-								</ul>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Jim's Plumbing</td>
-							<td><a href="#">http://sitename.com</a></td>
-							<td>						
-								<ul class="list-inline pull-right">
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-									<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
-								</ul>
-							</td>
-						</tr>						
-					</tbody>
-				</table>
+				
+				<? get_sites(); ?>
+
+
 			</div>
 		</div>
 	</div>

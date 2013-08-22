@@ -1,31 +1,32 @@
-<? /* Default admin modal template
+<? /* Add new page modal
 ------------------------------
-Save as modal-*modal-template-name*.php to extend
 ------------------------------
 ** Here we go */
 ?>
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Add a new page</h3>
+<div class="hud-modal-header">
+    <button type="button" class="hud-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="hud-modal-title">Add a New Page</h4>
 </div>
 
-<div class="modal-body">
+<div class="hud-modal-body">
 <? 
 /*
 $form = new Form("add-page");
 $form->configure(array(
-    "prevent" => array("bootstrap", "jQuery"),
-    "view" => new View_Vertical,
-    "action" => URL.'/'.ADMIN."/actions/add-page.php",
+    "prevent" 	=> array("bootstrap", "jQuery"),
+    "view" 		=> new View_Vertical,
+    "action"	=> URL.''.ADMIN."/actions/add-page.php",
 ));
 $form->addElement(new Element_Hidden("form", "add-page"));
-$form->addElement(new Element_Textbox("Title:", "page-title"));
+$form->addElement(new Element_Hidden("site_id", SITE_ID));
+$form->addElement(new Element_Textbox("Page Title", "page-title"));
 $form->addElement(new Element_TinyMCE("", "page-content"));
 $form->addElement(new Element_Button("Add Page"));
 $form->render();
 */
 ?>
 
+<<<<<<< HEAD
 	<form id="add-page" method="post" action="<?= URL.'/'.ADMIN.'/actions/add-page.php' ?>"?>
 		<label>Title:</label>
 		<input type="text" value="" name="page-title">
@@ -34,4 +35,6 @@ $form->render();
 			<input class="btn btn-primary" type="submit" name="Add Page" value="Add Page">
 		</div>
 	</form>
+=======
+>>>>>>> b3e35b337451d9145b36dff722bb39304f269526
 </div>

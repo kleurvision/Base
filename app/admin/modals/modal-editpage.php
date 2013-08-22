@@ -1,15 +1,14 @@
-<? /* Default admin modal template
+<? /* Edit page modal
 ------------------------------
-Save as modal-*modal-template-name*.php to extend
 ------------------------------
 ** Here we go */
 ?>
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Edit Page</h3>
+<div class="hud-modal-header">
+    <button type="button" class="hud-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="hud-modal-title">Edit Page</h4>
 </div>
 
-<div class="modal-body">
+<div class="hud-modal-body">
 <?
 global $db;
 $page = new Page($db);
@@ -48,7 +47,7 @@ $form = new Form("edit-page");
 $form->configure(array(
     "prevent" => array("bootstrap", "jQuery"),
     "view" => new View_Vertical,
-    "action" => URL.'/'.ADMIN."/actions/edit-page.php",
+    "action" => URL.''.ADMIN."/actions/edit-page.php",
 ));
 
 
@@ -59,6 +58,7 @@ $form->setValues(array(
 					
 $form->addElement(new Element_Hidden("form", "edit-page"));
 $form->addElement(new Element_Hidden("pageID", "$pageID"));
+$form->addElement(new Element_Hidden("site_id", SITE_ID));
 $form->addElement(new Element_Textbox("Display Title:", "edit-title", array("value" => "$pagetitle")));
 $form->addElement(new Element_Textbox("SEO Title:", "edit-meta-title", array("value" => "$pagemeta_title")));
 $form->addElement(new Element_Textbox("Page URL:", "edit-pagename", array("value" => "$pageslug")));

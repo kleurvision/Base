@@ -1,3 +1,6 @@
+<? // Load the primary 
+require('bootstrap-admin.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
 
 	</title>
 	<!-- Bootstrap and core CSS -->
-	<link href="/app/admin/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/app/admin/assets/css/bootstrap.css" rel="stylesheet">
 	<link href="/app/admin/assets/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/app/admin/assets/css/dashboard.css" rel="stylesheet">
 

@@ -1,0 +1,86 @@
+.hud-tooltip
+	position: absolute
+	z-index: 1030
+	display: block
+	visibility: visible
+	font-size: 12px
+	line-height: 1.4
+	opacity: 0
+	filter: alpha(opacity = 0)
+	&.in
+		opacity: 0.9
+		filter: alpha(opacity = 90)
+	&.top
+		margin-top: -3px
+		padding: 5px 0
+	&.right
+		margin-left: 3px
+		padding: 0 5px
+	&.bottom
+		margin-top: 3px
+		padding: 5px 0
+	&.left
+		margin-left: -3px
+		padding: 0 5px
+
+.hud-tooltip-inner
+	max-width: 200px
+	padding: 3px 8px
+	color: #ffffff
+	text-align: center
+	text-decoration: none
+	background-color: #000000
+	border-radius: 4px
+
+.hud-tooltip-arrow
+	position: absolute
+	width: 0
+	height: 0
+	border-color: transparent
+	border-style: solid
+
+.hud-tooltip
+	&.top .hud-tooltip-arrow
+		bottom: 0
+		left: 50%
+		margin-left: -5px
+		border-width: 5px 5px 0
+		border-top-color: #000000
+	&.top-left .hud-tooltip-arrow
+		bottom: 0
+		left: 5px
+		border-width: 5px 5px 0
+		border-top-color: #000000
+	&.top-right .hud-tooltip-arrow
+		bottom: 0
+		right: 5px
+		border-width: 5px 5px 0
+		border-top-color: #000000
+	&.right .hud-tooltip-arrow
+		top: 50%
+		left: 0
+		margin-top: -5px
+		border-width: 5px 5px 5px 0
+		border-right-color: #000000
+	&.left .hud-tooltip-arrow
+		top: 50%
+		right: 0
+		margin-top: -5px
+		border-width: 5px 0 5px 5px
+		border-left-color: #000000
+	&.bottom .hud-tooltip-arrow
+		top: 0
+		left: 50%
+		margin-left: -5px
+		border-width: 0 5px 5px
+		border-bottom-color: #000000
+	&.bottom-left .hud-tooltip-arrow
+		top: 0
+		left: 5px
+		border-width: 0 5px 5px
+		border-bottom-color: #000000
+	&.bottom-right .hud-tooltip-arrow
+		top: 0
+		right: 5px
+		border-width: 0 5px 5px
+		border-bottom-color: #000000

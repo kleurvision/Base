@@ -58,7 +58,25 @@ i
 	.navbar-nav>li>a
 		color: $white
 		&:hover
-			color: $darkestgrey
+			color: $white
+			background: lighten($green, 10%)
+			-webkit-border-radius: 0px
+			border-radius: 0px
+	.navbar-nav
+		.active
+			a
+				background: lighten($green, 15%)			
+				-webkit-border-radius: 0px
+				border-radius: 0px
+.navbar-toggle
+	background: lighten($green, 15%)
+	border:	darken($green, 15%)
+	margin: 18px 0
+	.icon-bar
+		background-color: $white
+	&:hover
+		background: lighten($green, 25%)
+	
 
 // Content
 ////////////////////////////////////////

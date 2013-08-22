@@ -14,7 +14,7 @@ define( 'PATH', '/' );
 define( 'ROOT', $_SERVER['DOCUMENT_ROOT'] . '/' );
 
 // Define stucture APP path
-define( 'APP', '../app' );
+define( 'APP', ROOT.'/app' );
 
 // Define stucture LIBRARY path
 define( 'SYSTEM', ROOT.'/system' );
@@ -64,3 +64,6 @@ require_once(SYSTEM . '/system_functions.php' );
 
 // Load in the helpers
 require_once(SYSTEM . '/system_helpers.php' );
+
+// Load in the functions admin functions ??
+require_once(ADMIN . '/functions/functions.php' );

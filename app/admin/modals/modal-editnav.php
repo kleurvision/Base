@@ -1,27 +1,25 @@
-<? /* Default admin modal template
+<? /* Edit Nav Modal
 ------------------------------
-Save as modal-*modal-template-name*.php to extend
 ------------------------------
 ** Here we go */
 ?>
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Edit Nav</h3>
+<div class="hud-modal-header">
+    <button type="button" class="hud-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="hud-modal-title">Edit Nav</h4>
 </div>
 
-<div class="modal-body">
-	<div class="row-fluid">
-		<div class="span7">
+<div class="hud-modal-body">
+	<div class="hud-row">
+		<div class="hud-col-12 hud-col-lg-7">
 			<? global $db;
-			 
-			 	$navigation = $db->get_results("SELECT navigation FROM app_nav ORDER BY id DESC LIMIT 1");
+			 	$navigation = $db->get_results("SELECT navigation FROM site_".SITE_ID."_settings");
 				if($navigation){
 					$navs = json_decode($navigation[0]->navigation, true);
 					echo "<div class='dd' id='nestable'>\r\n";
 				    echo "<ol id='siteNavigation' class='dd-list'>\r\n";
 					foreach($navs as $nav){
 						
-						$pages = $db->get_row("SELECT id, pageparent, pagename, pagetitle FROM app_pages WHERE id =". $nav['id']);
+						$pages = $db->get_row("SELECT id, pageparent, pagename, pagetitle FROM site_".SITE_ID."_pages WHERE id =". $nav['id']);
 						// Check to see if the page has children
 						if(isset($nav['children'])){
 							$child_pages = $nav['children'];
@@ -39,7 +37,7 @@ Save as modal-*modal-template-name*.php to extend
 						if($child_pages){
 							echo '<ol class="dd-list">'."\r\n";
 							foreach($child_pages as $child){
-								$childUrls = $db->get_row("SELECT id, pagename, pagetitle FROM app_pages WHERE id = ".$child['id']);
+								$childUrls = $db->get_row("SELECT id, pagename, pagetitle FROM site_".SITE_ID."_pages WHERE id = ".$child['id']);
 								echo '<li class="dd-item" data-id="'.$childUrls->id.'">'."\r\n"
 											.'<div class="dd-handle dd3-handle"></div><div class="dd3-content">'."\r\n"
 											.$childUrls->pagetitle.'<i class="icon-remove right removeItem" data-id="'.$childUrls->id.'"></i></div></li>'."\r\n";
@@ -56,7 +54,7 @@ Save as modal-*modal-template-name*.php to extend
 						.'</div>'."\r\n";
 				} else {
 			 
-					$navs = $db->get_results("SELECT id, pageparent, pagename, pagetitle FROM app_pages");
+					$navs = $db->get_results("SELECT id, pageparent, pagename, pagetitle FROM site_".SITE_ID."_pages");
 					if($navs){
 						echo "<div class='dd' id='nestable'>\r\n";
 				        echo "<ol class='dd-list'>\r\n";
@@ -70,7 +68,7 @@ Save as modal-*modal-template-name*.php to extend
 							echo '</div>';
 							} 	
 								
-							$child_pages = $db->get_results("SELECT id, pagename, pagetitle FROM app_pages WHERE pageparent = ".$nav->id."");
+							$child_pages = $db->get_results("SELECT id, pagename, pagetitle FROM site_".SITE_ID."_pages WHERE pageparent = ".$nav->id."");
 							
 							if($child_pages){
 								echo '<ol class="dd-list">'."\r\n";
@@ -91,92 +89,90 @@ Save as modal-*modal-template-name*.php to extend
 			}
 			?>
 		</div>
-		<div class="span5">
-			<? $allPages = $db->get_results("SELECT id, pagetitle FROM app_pages ORDER BY pagetitle ASC");
+
+		<div class="hud-col-12 hud-col-lg-5">
+			<? $allPages = $db->get_results("SELECT id, pagetitle FROM site_".SITE_ID."_pages ORDER BY pagetitle ASC");
 				if($allPages){?>
-					<form>
+					<form role="form">
 						<fieldset>
 							<legend>Add Page</legend>
 							<div class="input-append">
-								<select id="pagesToAdd">
+								<select class="hud-form-control" id="pagesToAdd">
 									<? foreach($allPages as $pages){
 										echo '<option value="'.$pages->id.'" >' .  $pages->pagetitle . '</option>';
 									} ?>
 								</select>
-								<a onclick="addItem()" class="btn btn-primary">Add <i class="icon-plus icon-white"></i></a>
+								<a onclick="addItem()" class="hud-btn hud-btn-default">Add <i class="icon-plus icon-white"></i></a>
 							</div>
 						</fieldset>
 					</form>
-			<? }?>
+			<? } ?>
 		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-			<form class="form-inline" method="post" id="edit-page" action="<?= URL.'/'.ADMIN.'/actions/edit-nav.php';?>"> 
+		<div class="hud-col-12 ">
+			<form role="form" class="form-inline" method="post" id="edit-page" action="<?= URL.ADMIN.'/actions/edit-nav.php';?>"> 
 				<textarea style="display:none" name="nav-order" id="nestable-output"></textarea>	 
 				<div class="form-actions">
-					<input type="submit" class="btn btn-primary" name="" value="Save">
+					<input type="submit" class="hud-btn hud-btn-default" name="" value="Save">
 				</div>
 			</form>
 		</div>
-	</div>
+	</div><!-- hud-row -->
 </div>
-<script>
 
-	    var updateOutput = function(e) {
-	        var list = e.length ? e : $(e.target),
-	            output = list.data('output');
+<script>
+	var updateOutput = function(e) {
+	    var list = e.length ? e : $(e.target),
+	        output = list.data('output');
+			
+		if(output != null){
 	        if (window.JSON) {
-	            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+	            	output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
 	        } else {
 	            output.val('JSON browser support required for this demo.');
 	        }
 	    };
+	};
+	
+	function addItem(){
 	    
-	    function addItem(){
+		    var pageID		= $('#pagesToAdd option:selected').val();
+		    var pageName 	= $('#pagesToAdd option:selected').html();
 		    
-			    var pageID		= $('#pagesToAdd option:selected').val();
-			    var pageName 	= $('#pagesToAdd option:selected').html();
-			    
 		    $('ol#siteNavigation').append('<li data-id="'+pageID+'" class="dd-item dd3-item">'
-		    +'<div class="dd-handle dd3-handle"></div>'
-		    +'<div class="dd3-content">'
-		    + pageName
-		    +'<i class="icon-remove right removeItem"></i>'
-		    +'</div></li>');
-		    updateOutput($('#nestable').data('output', $('#nestable-output')));
-	    }
-	    
-	    
+			    +'<div class="dd-handle dd3-handle"></div>'
+			    +'<div class="dd3-content">'
+			    + pageName
+			    +'<i class="icon-remove right removeItem"></i>'
+			    +'</div></li>');
+			updateOutput($('#nestable').data('output', $('#nestable-output')));
+	}
 	
-	    // activate Nestable for list 1
-	    $('#nestable').nestable({
-	        group: 1,
-	        maxDepth: 2
-	    })
-	    .on('change', updateOutput);
-	    
-	    $(".removeItem").click(function () {
-			$(this).parent().parent().remove();
-		    updateOutput($('#nestable').data('output', $('#nestable-output')));
-		});
-	    
-	     // output initial serialised data
+	
+	
+	// activate Nestable for list 1
+	$('#nestable').nestable({
+	    group: 1,
+	    maxDepth: 2
+	})
+	.on('change', updateOutput);
+	
+	$(".removeItem").click(function () {
+		$(this).parent().parent().remove();
 	    updateOutput($('#nestable').data('output', $('#nestable-output')));
+	});
 	
-	    $('#nestable-menu').on('click', function(e)
-	    {
-	        var target = $(e.target),
-	            action = target.data('action');
-	        if (action === 'expand-all') {
-	            $('.dd').nestable('expandAll');
-	        }
-	        if (action === 'collapse-all') {
-	            $('.dd').nestable('collapseAll');
-	        }
-	    });
-	    
-	    
+	 // output initial serialised data
+	updateOutput($('#nestable').data('output', $('#nestable-output')));
 	
-	
+	$('#nestable-menu').on('click', function(e)
+	{
+	    var target = $(e.target),
+	        action = target.data('action');
+	    if (action === 'expand-all') {
+	        $('.dd').nestable('expandAll');
+	    }
+	    if (action === 'collapse-all') {
+	        $('.dd').nestable('collapseAll');
+	    }
+	});
 </script>

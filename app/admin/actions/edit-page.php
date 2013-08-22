@@ -1,4 +1,4 @@
-<? require('../../../bootstrap-light.php');
+<? require('../bootstrap-admin.php');
 	
 	$pageID 		= $_POST['pageID'];
 	$pageslug		= to_permalink($_POST['edit-pagename']);
@@ -9,11 +9,12 @@
 	$pagemeta_desc	= $db->escape($_POST['edit-meta-desc']);
 	$pagekeywords	= $_POST['edit-keywords'];
 	$template		= $_POST['template'];
+	$site_id		= $_POST['site_id'];
 	if($template == 'default'){ $template = NULL; };
 	
 
 	
-	$editPage = $db->query("UPDATE app_pages SET 
+	$editPage = $db->query("UPDATE site_".$site_id."_pages SET 
 								pagename = '$pageslug', 
 								pagetitle = '$pagetitle', 
 								pagecontent = '$pageContent',
@@ -26,6 +27,6 @@
 	
 
 	if($editPage) {
-		 header('Location:'.URL.'/'.$pageslug);
+		 header('Location:'.URL.$pageslug);
 	}
 ?>
