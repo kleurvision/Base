@@ -37,7 +37,7 @@ if (file_exists(dirname(ROOT).'/config/config.php')) {
 };
 
 // Define parent URL
-define( 'URL', 'http://webninja.me/app/admin');
+define( 'URL', 'http://webninja.me/');
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );

@@ -40,6 +40,7 @@ if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
     flock($fp, LOCK_UN);    	// release the lock
 } else {
     echo "Couldn't get the lock!";
+    exit;
 }
 
 fclose($fp);
@@ -47,7 +48,7 @@ fclose($fp);
 $url_encode = md5($newhostdir);
 
 /* Redirect on complete */
-header("location:".URL."/app/admin?msg=success&url=".$url_encode);
+header("location:".URL."app/admin?msg=success&url=".$url_encode);
 exit;
 
 }
