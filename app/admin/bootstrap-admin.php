@@ -14,7 +14,7 @@ define( 'PATH', '/' );
 define( 'ROOT', $_SERVER['DOCUMENT_ROOT'] . '/' );
 
 // Define stucture APP path
-define( 'APP', ROOT.'/app' );
+define( 'APP', ROOT.'app' );
 
 // Define stucture LIBRARY path
 define( 'SYSTEM', ROOT.'system' );
