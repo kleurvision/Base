@@ -37,7 +37,7 @@ if (file_exists(dirname(ROOT).'/config/config.php')) {
 };
 
 // URL -  Edit root URL
-$app_url = $db->get_var("SELECT app_url FROM app_options");
+$app_url = $db->get_var("SELECT app_sites FROM app_sites");
 
 // Define parent URL
 define( 'URL', $app_url);
