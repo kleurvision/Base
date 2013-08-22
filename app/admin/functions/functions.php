@@ -179,7 +179,7 @@ function get_sidebar(){
 		if($user->get_role() == 'user'){ ?>
 
 			<ul class="list-unstyled" id="main-nav">
-				<li><a href="<?= URL.'app/admin';?>"><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
 				<li><a href=""><i class="icon-download"></i>App Store</a></li>
 			</ul>
