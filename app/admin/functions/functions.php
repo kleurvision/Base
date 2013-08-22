@@ -30,7 +30,7 @@ $vh_content	= "
 "; 
 	
 /* Open, Lock, and Write to the VHOSTS file */
-$fp = fopen($vh_location.'/'.$newhostdir, 'x+');
+$fp = fopen($vh_location.'/'.$newhostdir, 'c');
 
 if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
     // ftruncate($fp, 0);      	// truncate file
