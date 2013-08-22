@@ -47,7 +47,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 			$db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroimg LONGTEXT);"); 
 			
 			// Make Directory
-			make_site_dir($site_id);
+			// make_site_dir($site_id);
 			
 			// If the tables are created without issue, fire the VHOST update and redirect to admin panel
 			update_vhosts($_POST['new_site_url']);
