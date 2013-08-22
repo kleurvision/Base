@@ -54,7 +54,8 @@ class Page {
 		if(isset($metaData->pagemeta_title)){
 			$title = $metaData->pagemeta_title;
 		} else {
-			$title = $metaData->pagetitle;
+			// $title = $metaData->pagetitle;
+			$title = '';
 		}
 		echo "<title>". $title . "</title>\n";
 
