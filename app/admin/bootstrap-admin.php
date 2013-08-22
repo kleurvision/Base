@@ -37,13 +37,13 @@ if (file_exists(dirname(ROOT).'/config/config.php')) {
 };
 
 // URL -  Edit root URL
-$app_url = $db->get_var("SELECT app_sites FROM app_sites");
+$app_url = $db->get_var("SELECT site_url FROM app_sites");
 
 // Define parent URL
 define( 'URL', $app_url);
 
 // Load in the classes
-require_once(SYSTEM . '/SYSTEM_classes.php' );
+require_once(SYSTEM . '/system_classes.php' );
 
 // Setup the page class
 $page 			= new Page($db);
@@ -61,9 +61,6 @@ $user->login_submit();
 
 // Load in the functions
 require_once(SYSTEM . '/system_functions.php' );
-
-// Load in the helpers
-require_once(SYSTEM . '/system_helpers.php' );
 
 // Load in the functions admin functions
 require_once(ADMIN . '/functions/functions.php' );
