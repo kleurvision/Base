@@ -24,17 +24,11 @@ $vh_content	= "
 /* Open, Lock, and Write to the VHOSTS file */
 $fp = fopen($vh_location.'/'.$newhostdir, 'c');
 
-if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
-    // ftruncate($fp, 0);      	// truncate file
-    fwrite($fp, $vh_content);	// write the content
-    fflush($fp);            	// flush output before releasing the lock
-    flock($fp, LOCK_UN);    	// release the lock
-} else {
-    echo "Couldn't get the lock!";
-}
-
+fwrite($fp, $vh_content);	// write the content
+fflush($fp);            	// flush output before releasing the lock
 fclose($fp);
 
+echo '<br/>---- CONTENT ----<br/>';
 echo $vh_content;
 echo '<br/>---- TO ----<br/>';
 echo $vh_location;
