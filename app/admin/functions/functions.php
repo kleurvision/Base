@@ -220,7 +220,7 @@ function get_admin_nav(){
 				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
 				<li>
 					<a href="sites"><i class="icon-list"></i>Sites
-					<?php if ($sitecount !== 0) {  echo '<span class="btn btn-xs btn-danger pull-right">'.$sitecount.'</span>'; } else {} ?>
+					<?php if ($sitecount != 0) {  echo '<span class="btn btn-xs btn-danger pull-right">'.$sitecount.'</span>'; } else {} ?>
 					</a>
 				</li>
 				<li><a href="users"><i class="icon-group"></i>Users</a></li>
