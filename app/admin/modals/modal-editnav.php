@@ -12,9 +12,10 @@
 	<div class="hud-row">
 		<div class="hud-col-12 hud-col-lg-7">
 			<? global $db;
-			 	$navigation = $db->get_results("SELECT navigation FROM site_".SITE_ID."_settings");
+			 	$navigation = $db->get_results("SELECT id, navigation FROM site_".SITE_ID."_settings");
 				if($navigation){
 					$navs = json_decode($navigation[0]->navigation, true);
+					$nav_id = $navigation[0]->id;
 					echo "<div class='dd' id='nestable'>\r\n";
 				    echo "<ol id='siteNavigation' class='dd-list'>\r\n";
 					foreach($navs as $nav){
@@ -112,6 +113,8 @@
 			<form role="form" class="form-inline" method="post" id="edit-page" action="<?= URL.ADMIN.'/actions/edit-nav.php';?>"> 
 				<textarea style="display:none" name="nav-order" id="nestable-output"></textarea>	 
 				<div class="form-actions">
+					<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
+					<input type="hidden" value="<?= SITE_ID;?>" name="nav_id">
 					<input type="submit" class="hud-btn hud-btn-default" name="" value="Save">
 				</div>
 			</form>
@@ -153,8 +156,7 @@
 	$('#nestable').nestable({
 	    group: 1,
 	    maxDepth: 2
-	})
-	.on('change', updateOutput);
+	}).on('change', updateOutput);
 	
 	$(".removeItem").click(function () {
 		$(this).parent().parent().remove();

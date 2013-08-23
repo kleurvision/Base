@@ -1,6 +1,8 @@
-<? require('../../../bootstrap-light.php');
-	
+<? require('../bootstrap-admin.php');
+		
 	$order = $_POST['nav-order'];
+	$nav_ID = $_POST['nav_id']; // USED TO CHECK DB FOR UPDATE OR INSERT
+	$site_id	= $_POST['site_id'];
 	$orderArray = json_decode(str_replace ('\"','"', $order), true);
 	
 	if($orderArray){
@@ -9,26 +11,17 @@
 			$child_pages = $page['children'];
 			if($child_pages){
 				foreach($child_pages as $child){
-					$childUrls = $db->query("UPDATE app_pages SET pageparent = '$pageParent' WHERE id = ".$child['id']);
+					$childUrls = $db->query("UPDATE site_".$site_id."_pages SET pageparent = '$pageParent' WHERE id = ".$child['id']);
 				}
 			} else {
-				$db->query("UPDATE app_pages SET pageparent = NULL WHERE id = $pageParent");
+				$db->query("UPDATE site_".$site_id."_pages SET pageparent = NULL WHERE id = $pageParent");
 			}
 		}
 	}
 	
-
-	/*$prefix = '';
-	$i = 0;
-	foreach ($order as $navItem)
-	{
-	    $pageID = $db->get_var("SELECT id FROM app_pages WHERE pagetitle = '$navItem'");
-	    $navArray[$i++] = $pageID;
-	}
-	
-	$nav = serialize($navArray); */
+	// INSERT INTO SITE OPTIONS FOR NAVIGATION STRUCTURE	
 	if($order){
-		$createNav = $db->query("INSERT INTO app_nav (navigation) VALUES ('$order')");
+		$createNav = $db->query("INSERT INTO site_".$site_id."_settings (id, navigation) VALUES ('$nav_ID','$order') ON DUPLICATE KEY UPDATE navigation='$order'");
 	}
 	
 	if($createNav) {
