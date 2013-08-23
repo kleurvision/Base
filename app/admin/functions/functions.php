@@ -150,7 +150,7 @@ function get_sites(){
 					<td>						
 						<ul class="list-inline pull-right">
 							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-							<li><a href="<?= $site->app_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+							<li><a href="<?= $site->site_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 						</ul>
 					</td>
 				</tr>
@@ -220,7 +220,7 @@ function get_admin_nav(){
 				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
 				<li>
 					<a href="sites"><i class="icon-list"></i>Sites
-					<?php if ($sitecount !== 0) {  echo '<span class="btn btn-xs btn-danger pull-right">'.$sitecount.'</span>'; } ?>
+					<?php if ($sitecount !== 0) {  echo '<span class="btn btn-xs btn-danger pull-right">'.$sitecount.'</span>'; } else {} ?>
 					</a>
 				</li>
 				<li><a href="users"><i class="icon-group"></i>Users</a></li>
