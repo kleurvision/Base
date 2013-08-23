@@ -5,7 +5,7 @@ include "header.php";
  /* Add URL to VHOSTS File */
 
 // Load the primary 
-require('bootstrap-admin.php');
+//require('bootstrap-admin.php');
 
 // Load in the functions
 // require_once(dirname(ROOT) . '/config/update_vhosts_function.php' );
@@ -22,6 +22,9 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	
 	// Set the activation date
 	$sitedate = date('Y-m-d');
+
+	// Set Site Status
+	$sitestatus = 1;
 	
 	// Lookup the URL in the app_options database to confirm registration
 	global $db;
@@ -31,7 +34,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	if($check_site == 0){
 		
 		// Add new site to app_options DB
-		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, activation_date) VALUES ('$newhostdir', '$sitename', '$sitedate')");
+		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, site_status, activation_date) VALUES ('$newhostdir', '$sitename', '$sitestatus' '$sitedate')");
 		
 		// Get new site ID
 		$site_id = mysql_insert_id();
