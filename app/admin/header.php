@@ -12,7 +12,7 @@ require('bootstrap-admin.php');
 
 	<title>
 
-		WebNinja
+		WebNinja<?php if (isset($page_title)) { echo " - ", $page_title; } ?>
 
 	</title>
 	<!-- Bootstrap and core CSS -->
@@ -45,21 +45,30 @@ require('bootstrap-admin.php');
 			<a href="" class="navbar-brand"><h4>WebNinja</h4></a>
 			<div class="nav-collapse collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li>
-						<a href="../getting-started">Getting started</a>
-					</li>
-					<li>
-						<a href="../css">CSS</a>
-					</li>
-					<li class="active">
-						<a href="../components">Components</a>
-					</li>
-					<li>
-						<a href="../javascript">JavaScript</a>
-					</li>
-					<li>
-						<a href="../customize">Customize</a>
-					</li>
+					<?php get_admin_nav(); ?>
 				</ul>
 			</div>
 		</div>
+		<section id="page">
+			<div class="col-3 visible-lg">
+				<div id="branding">
+					<img src="assets/img/logo@2x.png"/>
+				</div>
+				<? include 'inc/sidebar.php'; ?>
+			</div>
+			<div class="col-12 col-lg-9">
+				<div class="row" id="header">
+					<div class="col-6 ">
+						<h3 id="page-title">
+						<?php if (isset($page_title)) { 
+							echo $page_title;
+						} ?>
+						</h3>
+					</div>
+					<div class="col-6 ">
+						<ul class="list-inline pull-right">
+							<li><a href="" class="btn btn-default btn-lg" data-toggle="tooltip" title="Account Settings"><i class="icon-cog"></i></a></li>
+							<li><a href="" class="btn btn-default btn-lg" data-toggle="tooltip" title="Logout"><i class="icon-off"></i></a></li>
+						</ul>				
+					</div>
+				</div>

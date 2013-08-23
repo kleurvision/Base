@@ -175,31 +175,24 @@ function get_users(){
 	</tbody>
 </table>
 <? } 
-
 function get_sidebar(){
+
+}
+
+function get_admin_nav(){
 	global $user;
 	if(isset($user)){	
 		if($user->get_role() == 'user'){ ?>
-
-			<ul class="list-unstyled" id="main-nav">
 				<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
-				<li><a href=""><i class="icon-download"></i>App Store</a></li>
-			</ul>
-
+				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li>-->
 		<? } elseif ($user->get_role() == 'super'){ ?>
-
-			<ul class="list-unstyled" id="main-nav">
-				<li><a href="<?= URL.'app/admin';?>"><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href="index"><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
-				<li><a href=""><i class="icon-download"></i>App Store</a></li>
-			</ul>
-
-			<ul class="list-unstyled" id="main-nav">
+				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
 				<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>
 				<li><a href="sites"><i class="icon-list"></i>Sites</a></li>
 				<li><a href="users"><i class="icon-group"></i>Users</a></li>
-			</ul>
 		<? }
 	}
 }

@@ -46,6 +46,16 @@ i
 		background: darken($lightgrey, 5%)
 		color: $grey
 
+.btn-primary
+	background: $green
+	border: none
+	color: $white
+	font-size: 12px
+	font-weight: 500
+	letter-spacing: 1px
+	&:hover
+		background: darken($green, 5%)
+		color: $white	
 
 // Mobile Nav
 .navbar
@@ -63,6 +73,8 @@ i
 			-webkit-border-radius: 0px
 			border-radius: 0px
 	.navbar-nav
+		i
+			margin-right: 20px
 		.active
 			a
 				background: lighten($green, 15%)			
@@ -137,4 +149,14 @@ i
 		&:hover
 			color: $white
 			background: lighten($darkestgrey, 10%)
+
+// Modal Styles
+/////////////////////////////////////
+
+.modal-content
+	border-radius: 0px
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0)
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0)
+	border: none
+
 

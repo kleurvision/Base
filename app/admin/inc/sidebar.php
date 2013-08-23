@@ -1,7 +1,8 @@
 <div id="sidebar">
 	<nav>
-
-		<? get_sidebar();?>
-
+		<ul class="list-unstyled" id="main-nav">
+			<? get_admin_nav();?>
+		</ul>
+		<? //get_sidebar();?>
 	</nav>
 </div>
