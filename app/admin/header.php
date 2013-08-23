@@ -12,7 +12,7 @@ require('bootstrap-admin.php');
 
 	<title>
 
-		WebNinja<?php if (isset($page_title)) { echo " - ", $page_title; } ?>
+		WebNinja<?php if (isset($pagetitle)) { echo " - ", $pagetitle; } ?>
 
 	</title>
 	<!-- Bootstrap and core CSS -->
@@ -36,6 +36,10 @@ require('bootstrap-admin.php');
   <!-- Place anything custom after this. -->
 </head>
 	<body>
+		<?
+		error_reporting(E_ALL);
+		ini_set('display_errors', '1');
+		?>
 		<div class="navbar hidden-lg">
 			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="icon-bar"></span>
@@ -60,8 +64,8 @@ require('bootstrap-admin.php');
 				<div class="row" id="header">
 					<div class="col-6 ">
 						<h3 id="page-title">
-						<?php if (isset($page_title)) { 
-							echo $page_title;
+						<?php if (isset($pagetitle)) { 
+							echo $pagetitle;
 						} ?>
 						</h3>
 					</div>

@@ -19,4 +19,9 @@ $(function() {
 	   placement: "bottom"
 	 })
 
+	// Sites - Toggle More Info
+	$('.more-info').click(function() {
+	  $('#site_' + $(this).attr('rel')).toggle('fade');
+	  return false;
+	});	
 });

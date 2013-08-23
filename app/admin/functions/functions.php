@@ -75,31 +75,54 @@ function make_site_dir($site_id){
 // Super admin / ninja site table
 function get_all_sites(){
 	global $db;
-	$sites = $db->get_results("SELECT id, site_url, site_name, site_theme FROM app_sites");
+	$sites = $db->get_results("SELECT id, site_url, site_name, site_status, site_theme FROM app_sites");
 ?>
 
 	<table class="table sites-table">
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>Status</th>
 				<th>URL</th>
 				<th>Customer</th>
-				<th>Theme</th>
 			</tr>
 		</thead>
 		<tbody>
-			<? foreach ($sites as $site) { ?>
+			<? foreach ($sites as $site) { 
+				?>
 				<tr>
-					<td><?= $site->id;?></td>
+					<td>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default">
+								<?php 
+								if ($site->site_status == '1') { echo "New Site"; }
+								elseif ($site->site_status == '2') { echo "Approval Phase"; }
+								elseif ($site->site_status == '3') { echo "Approval Phase"; }
+								elseif ($site->site_status == '4') { echo "Approval Phase"; }
+								?>
+							</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">New Site</a></li>
+								<li><a href="#">Approval Phase</a></li>
+								<li><a href="#">Active Site</a></li>
+							</ul>
+						</div>
+					</td>					
 					<td><a href="<?= $site->site_url;?>"><?= $site->site_url;?></a></td>
-					<td>Tommy Hammer</td>
-					<td><?= $site->site_theme;?></td>							
+					<td><a href="">Tommy Hammer</a></td>
 					<td>
 						<ul class="list-inline pull-right">
-							<li><a class="btn btn-default btn-sm" href="">Edit</a></li>
+							<li><button class="btn btn-default btn-sm more-info" data-toggle="tooltip" title="More"><i class="icon-caret-down"></i></button></li>
+							<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+								<?php 
+								if ($site->site_status == '1') { ?>
+									<li><a class="btn btn-primary btn-sm" href="">Setup</a></li>
+								<? }  ?>
 						</ul>
 					</td>
-				</tr>																
+				</tr>															
 			<? } ?>	
 		</tbody>
 	</table>
@@ -190,10 +213,9 @@ function get_admin_nav(){
 				<li><a href="index"><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
-				<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>
+				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
 				<li><a href="sites"><i class="icon-list"></i>Sites</a></li>
 				<li><a href="users"><i class="icon-group"></i>Users</a></li>
 		<? }
 	}
 }
-

@@ -1,7 +1,8 @@
-<? /* Add URL to VHOSTS File */
+<?
+$pagetitle = "Add Site";
+include "header.php";
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+ /* Add URL to VHOSTS File */
 
 // Load the primary 
 require('bootstrap-admin.php');
@@ -73,3 +74,5 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 </form>
 
 <? }
+
+include 'footer.php';

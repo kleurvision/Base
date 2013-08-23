@@ -42,15 +42,6 @@ define( 'URL', 'http://webninja.me/');
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );
 
-// Setup the page class
-$page 			= new Page($db);
-
-// Check to see if there is a page asssociated to the URL
-if(isset($_GET['pagename'])){
-	$pagemap 		= $page->page_map($_GET['pagename']);
-} else {
-	
-}
 
 // Setup the user class
 $user = new User($db);

@@ -1,5 +1,5 @@
 <?
-$page_title = 'Dasboard';
+$pagetitle = 'Dasboard';
 include 'header.php';
 ?>
 <div class="row" id="content">

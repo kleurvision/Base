@@ -1,4 +1,5 @@
 <? 
+$pagetitle = 'Sites Queue';
 include 'header.php';
 ?>
 <div class="row" id="content">

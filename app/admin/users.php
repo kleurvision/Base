@@ -1,4 +1,5 @@
 <? 
+$pagetitle = 'Users';
 include 'header.php';
 ?>
 <div class="row" id="content">
