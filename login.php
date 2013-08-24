@@ -66,6 +66,7 @@
 				<? $user->login_form(); ?>
 				<br/>
 				<br/>
+				<h3>Register</h3>
 				<? $user->register_user(); ?>
 			</div>
 		</div> <!-- /container -->

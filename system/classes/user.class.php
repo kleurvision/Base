@@ -127,6 +127,19 @@ class User {
 						
 			$role = 1;
 			$email		= stripslashes($_POST['reg_user']);
+			$bio		= stripslashes($_POST['bio']);
+			$addr1		= stripslashes($_POST['addr1']);
+			$addr2		= stripslashes($_POST['addr2']);
+			$phone		= stripslashes($_POST['phone']);
+			$postal		= stripslashes($_POST['postal']);
+			$city		= stripslashes($_POST['city']);
+			$province	= stripslashes($_POST['province']);
+			$country	= stripslashes($_POST['country']);
+			$fname		= stripslashes($_POST['fname']);
+			$lname		= stripslashes($_POST['lname']);
+			$mobile		= stripslashes($_POST['mobile']);
+			
+
 			if($email == ''){
 				$err_msg['no_email'] = 'Please enter an email address';
 			} else {			
@@ -157,8 +170,8 @@ class User {
 				<? }
 				
 			} else {
-			
-				$create_user = $this->db->query("INSERT INTO app_users (email, password, role) VALUES ('$email', '$password', $role)");
+
+				$create_user = $this->db->query("INSERT INTO app_users (email, password, role, bio, addr1, addr2, postal, city, province, country, mobile, fname, lname ) VALUES ('$email', '$password', '$role', '$bio', '$addr1', '$addr2', '$postal', '$city', '$province', '$country', '$mobile', '$fname', '$lname')");
 				
 				if($create_user){ ?>
 					<div class="alert alert-success">
@@ -173,13 +186,20 @@ class User {
 				<? };
 			}
 
-		}
+		} 
 		
-		// Check to see if user it logged in
-		if(!isset($this->user_id)){?>
+		// Check to see if user it logged 
+		// Why are we checking for this ???
+		//if(!isset($this->user_id)){?>
 		<fieldset id="user_register_form">
-			<legend>Register User</legend>
 			<form role="form" id="registration_form" action="" method="post">
+				<h4>Essential Information</h4>
+				<div class="form-group">
+					<input class="form-control" type="text" name="fname" placeholder="First Name">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="lname" placeholder="Last Name">
+				</div>
 				<div class="form-group">
 					<input class="form-control" type="text" name="reg_user" placeholder="email">
 				</div>
@@ -189,13 +209,41 @@ class User {
 				<div class="form-group">
 					<input class="form-control" type="password" name="reg_password_confirm" placeholder="confirm password">
 				</div>
-				<div clas-"form-group">
-					<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Register"/>
+				<h4>Additional Information</h4>
+				<div class="form-group">
+					<input class="form-control" type="text" name="phone" placeholder="Phone">
 				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="mobile" placeholder="Mobile">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="addr1" placeholder="Address Line 1">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="addr2" placeholder="Address Line 2">
+				</div>				
+				<div class="form-group">
+					<input class="form-control" type="text" name="postal" placeholder="Postal Code">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="city" placeholder="City">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="province" placeholder="Province">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="country" placeholder="Country">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" type="text" name="bio" placeholder="Bio"></textarea>
+				</div>
+				<!-- Submit -->
+				<div clas-"form-group">
+					<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Add User"/>
 				</div>
 			</form> 
 		</fieldset>
-		<? }
+		<?// }
 		
 		
 	}

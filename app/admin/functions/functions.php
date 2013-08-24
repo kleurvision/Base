@@ -72,6 +72,13 @@ function make_site_dir($site_id){
 	}
 }
 
+// Get Site Status 
+function get_site_status($status){
+	global $db;
+	$status = $db->get_var("SELECT name FROM app_sites_status WHERE status = '$status'");
+	echo $status;
+}
+
 // Super admin / ninja site table
 function get_all_sites(){
 	global $db;
@@ -96,8 +103,7 @@ function get_all_sites(){
 								<?php 
 								if ($site->site_status == '1') { echo "New Site"; }
 								elseif ($site->site_status == '2') { echo "Approval Phase"; }
-								elseif ($site->site_status == '3') { echo "Approval Phase"; }
-								elseif ($site->site_status == '4') { echo "Approval Phase"; }
+								elseif ($site->site_status == '3') { echo "Active Site"; }
 								?>
 							</button>
 							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -131,26 +137,30 @@ function get_all_sites(){
 // Get sites and list as table
 function get_sites(){
 	global $db;
-	$sites = $db->get_results("SELECT id, site_url, site_name FROM app_sites");
+	$sites = $db->get_results("SELECT id, site_url, site_name, site_status FROM app_sites");
 ?>
 <table class="table sites-table">
 		<thead>
 			<tr>
-				<th>#</th>
-				<th>Site Name</th>
 				<th>Site URL</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
 			<? foreach ($sites as $site) { ?>
 				<tr>
-					<td><?= $site->id;?></td>
-					<td><?= $site->site_name;?></td>
 					<td><a href="<?= $site->site_url;?>"><?= $site->site_url;?></a></td>
+					<td><? get_site_status($site->site_status); ?></td>
 					<td>						
 						<ul class="list-inline pull-right">
 							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
-							<li><a href="<?= $site->site_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+							<?php 
+							if ($site->site_status == '1') { ?>
+								<li><a class="btn btn-primary btn-sm" href="">Preview</a></li>
+							<? } else { ?>
+								<li><a href="<?= $site->site_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+								<li><a class="btn btn-primary btn-sm" href="">Approve</a></li>
+							<? } ?>					
 						</ul>
 					</td>
 				</tr>
@@ -198,6 +208,8 @@ function get_users(){
 	</tbody>
 </table>
 <? } 
+
+
 function get_sidebar(){
 
 }
