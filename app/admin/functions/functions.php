@@ -36,7 +36,7 @@ function update_vhosts($newhostdir){
 	/* Configuration - Path to VHOSTS file on live system */
 	// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 	//$vh_location = '/etc/apache2/sites-enabled';
-	$vh_location = ''.APP.'vhosts';
+	$vh_location = ''.APP.'/vhosts';
 	
 	/* Write the VHOSTS update */
 	$vh_content	= "
@@ -75,7 +75,7 @@ function update_vhosts($newhostdir){
 	$url_encode = md5($newhostdir);
 	
 	/* Redirect on complete */
-	header("location:".URL."/admin/?msg=success&url=".$url_encode);
+	header("location:".URL."admin/?msg=success&url=".$url_encode);
 	exit;
 	
 }
