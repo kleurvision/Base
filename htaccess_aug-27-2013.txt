@@ -1,0 +1,28 @@
+### Turn on URL rewriting engine
+RewriteEngine On
+
+### Parent directory
+RewriteBase /
+
+### Checks to see if the user is attempting to access a valid file,
+# such as an image or css document. If this isn't true, it sends the
+# request to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php 
+
+### Admin rewrite to remove app from the 
+RewriteRule ^app/admin/.*$ -            [L] # don't redirect again
+RewriteRule ^admin/(.*)$ app/admin/$1	[L] # redirect everything else
+    
+### Variables
+# preview sites and pagenames
+RewriteRule ^preview/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?site=$1&pagename=$2
+RewriteRule ^preview/([a-zA-Z0-9_-]+)$ index.php?site=$1
+
+# sites and pagenames
+# RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?site=$1&pagename=$2
+	
+# pagenames only
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?pagename=$1
