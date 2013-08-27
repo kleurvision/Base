@@ -36,7 +36,7 @@ function update_vhosts($newhostdir){
 	/* Configuration - Path to VHOSTS file on live system */
 	// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 	//$vh_location = '/etc/apache2/sites-enabled';
-	$vh_location = ''.ROOT.'vhosts';
+	$vh_location = ''.ROOT.'../vhosts';
 	
 	/* Write the VHOSTS update */
 	$vh_content	= "
@@ -90,7 +90,7 @@ function make_site_dir($site_id){
 	
 	// Create config file
 	$site_index_master 	= ''.APP.'/themes/setup/index.php';
-	$new_site_index		= $path_to_site.'index.php';
+	$new_site_index		= $path_to_site.'/index.php';
 	
 	if (!copy($site_index_master, $new_site_index)) {
 	    echo "failed to copy $site_index_master...\n";
