@@ -1,1 +1,0 @@
-<? echo 'Hello you beautiful mind you!';?>
