@@ -4,6 +4,9 @@ RewriteEngine On
 ### Parent directory
 RewriteBase /
 
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
+
 ### Checks to see if the user is attempting to access a valid file,
 # such as an image or css document. If this isn't true, it sends the
 # request to index.php
