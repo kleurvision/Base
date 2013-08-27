@@ -18,7 +18,7 @@ define( 'SYSTEM', 'system' );
 define( 'LIBRARY', SYSTEM.'/library' );
 
 // Define stucture ADMIN path
-define( 'ADMIN', APP.'/admin' );
+define( 'ADMIN', APP.'/admin/' );
 
 
 // Define the config file
@@ -43,10 +43,13 @@ if(isset($sitename)){
 
 	// When looking through preview
 	$site = $db->get_row("SELECT * FROM app_sites WHERE site_name = '$sitename'");
+	$preview = true;
+	
 } else {
 
 	// When loading URL
 	$site = $db->get_row("SELECT * FROM app_sites WHERE site_url = '$site_url'");
+	$preview = false;
 }
 	
 if(isset($site)){
@@ -86,10 +89,24 @@ require_once(SYSTEM . '/system_classes.php' );
 // Setup the page class
 $page = new Page($db);
 
-// Check to see if there is a page asssociated to the URL
+// Load the appropriate pages to run the Webninja platform 
+// a) Check to see if there is a page asssociated to the URL...
 if(isset($_GET['pagename'])){
+	
+	// b) Check for admin url and get us outta here as long as it's not a preview and its the Webninja platform 
+	if($preview == false || SITE_ID == '1'){
+	
+		// Variables in place of /admin/ - admin, dashboard, manager
+		if($_GET['pagename'] == 'admin' || $_GET['pagename'] == 'dashboard' || $_GET['pagename'] == 'manager' ){
+			header('location: /admin/');
+			exit;
+		};
+	};
+		
 	$pagemap = $page->page_map($_GET['pagename']);
+	
 } else {
+	// a) Else define the homepage
 	$pagemap = $page->page_map('home-page');
 }
 
@@ -103,7 +120,7 @@ require_once(SYSTEM . '/system_functions.php' );
 // Kickstart the views/theme delivery
 // Check to see if there is a page asssociated to the URL
 if(isset($_GET['pagename'])){
-	$pagemap 		= $page->page_map($_GET['pagename']);
+	$pagemap = $page->page_map($_GET['pagename']);
 	
 	if($pagemap == '404'){
 		require_once(THEME . '/404.php');

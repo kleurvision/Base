@@ -1,5 +1,9 @@
 <? // Load the primary 
 require('bootstrap-admin.php');
+
+// Make sure user is an admin
+is_admin();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,45 +38,62 @@ require('bootstrap-admin.php');
 	<link rel="shortcut icon" href="/app/admin/assets/ico/favicon.png">
 
   <!-- Place anything custom after this. -->
+  
+  	<!-- Brian, work this into your .sass complier -->
+  	<style>
+  	body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+    	margin-right: 15px;
+	}
+	</style>
+  
 </head>
 	<body>
 		<?
 		error_reporting(E_ALL);
 		ini_set('display_errors', '1');
 		?>
-		<div class="navbar hidden-lg">
-			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a href="" class="navbar-brand"><h4>WebNinja</h4></a>
-			<div class="nav-collapse collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<?php get_admin_nav(); ?>
-				</ul>
-			</div>
-		</div>
-		<section id="page">
-			<div class="col-3 visible-lg">
-				<div id="branding">
-					<img src="assets/img/logo@2x.png"/>
+		<div class="page-container">
+			<div class="navbar hidden-lg">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="" class="navbar-brand"><h4>WebNinja</h4></a>
+				<div class="nav-collapse collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<?php get_admin_nav(); ?>
+					</ul>
 				</div>
-				<? include 'inc/sidebar.php'; ?>
 			</div>
-			<div class="col-12 col-lg-9">
-				<div class="row" id="header">
-					<div class="col-6 ">
-						<h3 id="page-title">
-						<?php if (isset($pagetitle)) { 
-							echo $pagetitle;
-						} ?>
-						</h3>
+			<section id="page">
+				<div class="col-3 visible-lg">
+					<div id="branding">
+						<img src="assets/img/logo@2x.png"/>
 					</div>
-					<div class="col-6 ">
-						<ul class="list-inline pull-right">
-							<li><a href="" class="btn btn-default btn-lg" data-toggle="tooltip" title="Account Settings"><i class="icon-cog"></i></a></li>
-							<li><a href="" class="btn btn-default btn-lg" data-toggle="tooltip" title="Logout"><i class="icon-off"></i></a></li>
-						</ul>				
-					</div>
+					<? include 'inc/sidebar.php'; ?>
 				</div>
+				<div class="col-12 col-lg-9">
+					<div class="row" id="header">
+						<div class="col-6 ">
+							<h3 id="page-title">
+							<?php if (isset($pagetitle)) { 
+								echo $pagetitle;
+							} ?>
+							</h3>
+						</div>
+						<div class="col-6 ">
+							<ul class="list-inline pull-right">
+								<li>
+									<a href="" class="btn btn-default btn-lg" data-toggle="tooltip" title="Account Settings">
+										<i class="icon-cog"></i>
+									</a>
+								</li>
+								<li>
+									<a href="/logout" class="btn btn-default btn-lg" data-toggle="tooltip" title="Logout">
+										<i class="icon-off"></i>
+									</a>
+								</li>
+							</ul>				
+						</div>
+					</div>

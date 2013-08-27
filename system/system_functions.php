@@ -43,7 +43,7 @@ function app_head(){
 
 	global $user;
 	if(isset($user)){	
-		if($user->get_role() == 'super'){
+		if($user->get_role() == 'super' || $user->get_owner() == true){
 			// Load in Hud CSS
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
@@ -262,7 +262,7 @@ function theme_path($type){
 // Load page info
 function site_info($option = ''){
 		global $db;
-		$default = $db->get_row("SELECT * FROM app_options WHERE id = ".SITE_ID."");
+		$default = $db->get_row("SELECT * FROM app_sites WHERE id = ".SITE_ID."");
 		if(isset($option)){
 			if($option == 'title'){
 				echo $default->app_name;
@@ -296,7 +296,7 @@ function app_table_dump(){
 function app_options(){
 	global $db;
 	$app_url = URL;
-	$opts = $db->get_row("SELECT * FROM app_options WHERE app_url = '$app_url'");
+	$opts = $db->get_row("SELECT * FROM app_sites WHERE app_url = '$app_url'");
 	if($opts){
 		return $opts;
 	} else {

@@ -7,7 +7,7 @@ global $user;
 <div id="hud_toolbar_wrapper">
 	<div id="hud_toolbar">
 		<div class="pull-left">
-			<div id="hud_logo" onclick="hud_extend();" ><img src="<?= ADMIN; ?>/assets/img/icon@2x.png" /></div>
+			<div id="hud_logo" onclick="hud_extend();" ><img src="/<?= ADMIN; ?>assets/img/icon@2x.png" /></div>
 		</div>
 		<div class="pull-right" id="hud_tools">
 			<div id="hud_menu_button"><i class="icon-reorder"></i></div>

@@ -25,7 +25,6 @@ define( 'LIBRARY', SYSTEM.'/library' );
 // Define stucture ADMIN path
 define( 'ADMIN', APP.'/admin' );
 
-
 // Define the config file
 if (file_exists(dirname(ROOT).'/config/config.php')) {
 

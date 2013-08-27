@@ -1,5 +1,5 @@
 <?
-$pagetitle = 'Dasboard';
+$pagetitle = 'Dashboard';
 include 'header.php';
 ?>
 <div class="row" id="content">
@@ -13,6 +13,9 @@ include 'header.php';
 					<li><a href="#orderSite" data-toggle="modal" class="btn btn-default btn-lg"><i class="icon-plus"></i> Order Site</a></li>
 				</ul>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
 				<? get_sites(); ?>
 			</div>
 		</div>
