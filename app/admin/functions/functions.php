@@ -240,7 +240,6 @@ function get_sidebar(){
 
 }
 
-
 function get_admin_nav(){
 	global $db;
 	$sitecount = $db->get_var("SELECT count(*) FROM app_sites WHERE site_status = '1'");
@@ -248,11 +247,11 @@ function get_admin_nav(){
 	global $user;
 	if(isset($user)){	
 		if($user->get_role() == 'user'){ ?>
-				<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li>-->
 		<? } elseif ($user->get_role() == 'super'){ ?>
-				<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
 				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
