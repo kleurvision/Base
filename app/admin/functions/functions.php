@@ -6,7 +6,6 @@ Y: 2013
 */
 
 function update_vhosts($newhostdir){
-echo 'balls';
 /* Configuration - Path to VHOSTS file on live system */
 // $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 //$vh_location = '/etc/apache2/sites-enabled';
@@ -55,7 +54,6 @@ exit;
 
 // Make necessary directory for new site and copy in files
 function make_site_dir($site_id){
-	echo 'balls';
 	// Desired folder structure
 	$path_to_site = '/var/www/webninja.me/htdocs/sites/'.$site_id;
 	

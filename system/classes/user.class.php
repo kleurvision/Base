@@ -244,10 +244,13 @@ class User {
 			</form> 
 		</fieldset>
 		<?// }
-		
-		
 	}
 	
+
+	function edit_user(){
+ 
+	}
+
 	// If user level is application admin, load HUD controllers
 	function load_hud(){
 		
