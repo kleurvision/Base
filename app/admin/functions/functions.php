@@ -36,7 +36,7 @@ function update_vhosts($newhostdir){
 	/* Configuration - Path to VHOSTS file on live system */
 	// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 	//$vh_location = '/etc/apache2/sites-enabled';
-	$vh_location = ''.ROOT.'../vhosts';
+	$vh_location = ''.APP.'vhosts';
 	
 	/* Write the VHOSTS update */
 	$vh_content	= "
@@ -59,6 +59,7 @@ function update_vhosts($newhostdir){
 	/* Open, Lock, and Write to the VHOSTS file */
 	$fp = fopen($vh_location.'/'.$newhostdir, 'c');
 	
+
 	if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
 	    // ftruncate($fp, 0);      	// truncate file
 	    fwrite($fp, $vh_content);	// write the content
