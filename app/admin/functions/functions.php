@@ -36,7 +36,7 @@ function update_vhosts($newhostdir){
 	/* Configuration - Path to VHOSTS file on live system */
 	// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 	//$vh_location = '/etc/apache2/sites-enabled';
-	$vh_location = ''.ROOT.'/vhosts';
+	$vh_location = ''.ROOT.'vhosts';
 	
 	/* Write the VHOSTS update */
 	$vh_content	= "
@@ -46,7 +46,7 @@ function update_vhosts($newhostdir){
 	
 	<VirtualHost *:80>
 	
-		DocumentRoot /var/www/webninja.me/htdocs
+		DocumentRoot ".ROOT."
 		ServerName ".$newhostdir."
 			
 	</VirtualHost>
