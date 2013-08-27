@@ -36,7 +36,7 @@ function update_vhosts($newhostdir){
 	/* Configuration - Path to VHOSTS file on live system */
 	// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
 	//$vh_location = '/etc/apache2/sites-enabled';
-	$vh_location = '/var/www/webninja.me/vhosts';
+	$vh_location = ''.ROOT.'/vhosts';
 	
 	/* Write the VHOSTS update */
 	$vh_content	= "
@@ -82,14 +82,14 @@ function update_vhosts($newhostdir){
 // Make necessary directory for new site and copy in files
 function make_site_dir($site_id){
 	// Desired folder structure
-	$path_to_site = '/var/www/webninja.me/htdocs/sites/'.$site_id;
+	$path_to_site = ''.APP.'/sites/'.$site_id;
 	
 	// To create the nested structure, the $recursive parameter 
 	// to mkdir() must be specified.
 	$check = mkdir($path_to_site, 0700);
 	
 	// Create config file
-	$site_index_master 	= '/var/www/webninja.me/htdocs/app/themes/setup/index.php';
+	$site_index_master 	= ''.APP.'/themes/setup/index.php';
 	$new_site_index		= $path_to_site.'index.php';
 	
 	if (!copy($site_index_master, $new_site_index)) {
