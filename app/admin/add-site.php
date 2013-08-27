@@ -34,7 +34,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	if($check_site == 0){
 		
 		// Add new site to app_options DB
-		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, site_status, activation_date) VALUES ('$newhostdir', '$sitename', '$sitestatus' '$sitedate')");
+		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, site_status, activation_date) VALUES ('$newhostdir', '$sitename', '$sitestatus', '$sitedate')");
 		
 		// Get new site ID
 		$site_id = mysql_insert_id();
