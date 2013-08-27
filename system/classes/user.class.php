@@ -32,6 +32,16 @@ class User {
 			return $role;
 		}
 	}
+	
+	// Get owner
+	function get_owner(){
+		if($this->user != 'undefined'){
+			$owner = $this->db->get_var("SELECT count(*) FROM app_sites WHERE id = '".SITE_ID."' && site_users = '".$this->user->id."'");
+			if($owner = '1'){
+				return true;
+			}
+		}
+	}
 		
 	// Login form submission
 	function login_submit(){
@@ -65,19 +75,20 @@ class User {
 				
 			} else {
 		
-				$user = $this->db->get_row("SELECT id, username FROM app_users WHERE email = '$email' && password = '$password'");
+				$user = $this->db->get_row("SELECT id, username, role FROM app_users WHERE email = '$email' && password = '$password'");
 				
 				if($user->id != ''){
 					
 					// Generate sessions 
-					$date_on 			= date('ymdHis');
-					$user_session 		= hash('md5',($date_on*$user->id));
-					$set_user_session 	= $this->db->query("INSERT INTO app_user_sessions (user_id, user_session, session_status, session_time_on) VALUES ('".$user->id."', '$user_session', 'active', '$date_on') ");
+					$date_on 				= date('ymdHis');
+					$user_session 			= hash('md5',($date_on*$user->id));
+					$set_user_session 		= $this->db->query("INSERT INTO app_user_sessions (user_id, user_session, session_status, session_time_on) VALUES ('".$user->id."', '$user_session', 'active', '$date_on') ");
 					
 					$_SESSION['USER'] 		= $user->id;
+					$_SESSION['ROLE']		= $user->role;
 					$_SESSION['SESSION_ID'] = $user_session;
 					
-					header("location:".URL .'/'.ADMIN); 
+					header("location:".URL .'admin'); 
 					
 				} else { ?>
 					 <div class="alert">
@@ -96,18 +107,17 @@ class User {
 		// Load login form
 		if(!isset($this->user_id)){ ?>
 		<fieldset id="user_login_fields">
-			<legend>Login</legend>
 			<form role="form" id="login_form" action="" method="post">
-					<div class="form-group">
-						<input class="form-control" id="exampleInputEmail" type="text" name="login_user" placeholder="email">
-					</div>
-					<div class="form-group">
-						<input class="form-control" id="exampleInputPassword" type="password" name="login_password" placeholder="password">
-					</div>
-					<div class="form-group">
-						<input class="btn btn-primary form-control pull-right" type="submit" name="login_form_submit" value="Login"/>
-					</div>
-					<a href="" >Forgot Password?</a>
+				<div class="form-group">
+					<input class="form-control" id="exampleInputEmail" type="text" name="login_user" placeholder="email">
+				</div>
+				<div class="form-group">
+					<input class="form-control" id="exampleInputPassword" type="password" name="login_password" placeholder="password">
+				</div>
+				<div class="form-group">
+					<input class="btn btn-primary form-control pull-right" type="submit" name="login_form_submit" value="Login"/>
+				</div>
+				<a href="/forgot">Forgot Password?</a>
 			</form> 
 		</fieldset>
 		<? } else {
@@ -247,43 +257,29 @@ class User {
 	}
 	
 
+
 	function edit_user(){
  
 	}
 
-	// If user level is application admin, load HUD controllers
+
+	// If user level is application admin or site owner, load HUD controllers
 	function load_hud(){
 		
-		// Check for active user
-		if($this->user != 'undefined'){
-			
-			// Check to see if its a user page			
-			if(isset($_GET['user'])){
-				$user_profile = $_GET['user'];
-			}
-
-			// Check to see if user is an administrator or super user
-			// Admins are level 9, Super users are 10 or higher
-			$level = 9;
-			$role = $this->user->role;
-			$permissions = $this->db->get_var("SELECT permissions FROM app_roles WHERE id = '".$role."'");
-	
-			// Check to see if user is an administrator or super user
-			if($permissions >= $level){
-				include ADMIN.'/hud.php';
+			if($this->get_owner() == true || $this->get_role() == 'super'){
+				include ADMIN.'hud.php';
 			} else if($permissions < $level){
 				
 				// Check to see if you're looking at your own profile
 				if(isset($user_profile)){
 					if($user_profile == $this->user->username){
-						include ADMIN.'/hud-user.php';	
+						include ADMIN.'hud-user.php';	
 					};
 				};		
 			} else {
 				// No HUD access
 				echo "balls";
 			}
-		};
 	}
 	
 	

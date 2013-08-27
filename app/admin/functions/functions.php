@@ -1,4 +1,30 @@
-<? /* Update VHOSTS Function 
+<? /* Admin Functions */
+
+/* Admin Auth
+Author: Patrick Lyver
+Owner: Webninja
+V: 1.0
+Y: 2013
+*/
+
+
+function is_admin($level = '10'){
+	// Grab role from sessions
+	if(isset($_SESSION['ROLE'])) {
+		$role = $_SESSION['ROLE'];
+	} else {
+		header('location: / ');
+		exit;
+	}
+	
+	// If not admin, beat it...
+	if($role < $level){
+		header('location: / ');
+		exit;
+	}
+}
+
+/* Update VHOSTS Function 
 Author: Patrick Lyver
 Owner: Webninja
 V: 1.0
@@ -6,50 +32,51 @@ Y: 2013
 */
 
 function update_vhosts($newhostdir){
-/* Configuration - Path to VHOSTS file on live system */
-// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
-//$vh_location = '/etc/apache2/sites-enabled';
-$vh_location = '/var/www/webninja.me/vhosts';
-
-/* Write the VHOSTS update */
-$vh_content	= "
-#
-#Domain Definition for ".$newhostdir."
-#
-
-<VirtualHost *:80>
-
-	DocumentRoot /var/www/webninja.me/htdocs
-	ServerName ".$newhostdir."
-		
-</VirtualHost>
-
-#
-#End Domain Definition for ".$newhostdir."
-#
-"; 
 	
-/* Open, Lock, and Write to the VHOSTS file */
-$fp = fopen($vh_location.'/'.$newhostdir, 'c');
-
-if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
-    // ftruncate($fp, 0);      	// truncate file
-    fwrite($fp, $vh_content);	// write the content
-    fflush($fp);            	// flush output before releasing the lock
-    flock($fp, LOCK_UN);    	// release the lock
-} else {
-    echo "Couldn't get the lock!";
-    exit;
-}
-
-fclose($fp);
-
-$url_encode = md5($newhostdir);
-
-/* Redirect on complete */
-header("location:".URL."app/admin?msg=success&url=".$url_encode);
-exit;
-
+	/* Configuration - Path to VHOSTS file on live system */
+	// $vh_location = '/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf';
+	//$vh_location = '/etc/apache2/sites-enabled';
+	$vh_location = '/var/www/webninja.me/vhosts';
+	
+	/* Write the VHOSTS update */
+	$vh_content	= "
+	#
+	#Domain Definition for ".$newhostdir."
+	#
+	
+	<VirtualHost *:80>
+	
+		DocumentRoot /var/www/webninja.me/htdocs
+		ServerName ".$newhostdir."
+			
+	</VirtualHost>
+	
+	#
+	#End Domain Definition for ".$newhostdir."
+	#
+	"; 
+		
+	/* Open, Lock, and Write to the VHOSTS file */
+	$fp = fopen($vh_location.'/'.$newhostdir, 'c');
+	
+	if (flock($fp, LOCK_EX)) {  	// acquire an exclusive lock
+	    // ftruncate($fp, 0);      	// truncate file
+	    fwrite($fp, $vh_content);	// write the content
+	    fflush($fp);            	// flush output before releasing the lock
+	    flock($fp, LOCK_UN);    	// release the lock
+	} else {
+	    echo "Couldn't get the lock!";
+	    exit;
+	}
+	
+	fclose($fp);
+	
+	$url_encode = md5($newhostdir);
+	
+	/* Redirect on complete */
+	header("location:".URL."/admin/?msg=success&url=".$url_encode);
+	exit;
+	
 }
 
 // Make necessary directory for new site and copy in files
@@ -224,7 +251,7 @@ function get_admin_nav(){
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li>-->
 		<? } elseif ($user->get_role() == 'super'){ ?>
-				<li><a href="index"><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href=""><i class="icon-home"></i>Dashboard</a></li>
 				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
 				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
