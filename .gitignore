@@ -3,6 +3,8 @@
 robots.txt
 config.rb
 error_log
+sites
+vhosts
 
 # Hidden system files
 .DS_Store
