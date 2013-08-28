@@ -232,6 +232,7 @@ class User {
 						</div>
 					</div>
 				</fieldset>
+				<br/>
 				<fieldset id="additional_information">
 					<h4>Additional Information</h4>
 					<div class="row">
