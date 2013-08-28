@@ -16,11 +16,6 @@
         </div>
     </footer>
 
- 	<!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
-    
     <? // Load final app elements into footer
 	 	app_foot();
 	?>    
