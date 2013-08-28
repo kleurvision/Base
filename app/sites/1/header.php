@@ -24,8 +24,8 @@
 	    <!-- Le styles -->
    	    <? app_head('1');?>
    	    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
-   	    <link href="<? get_theme_path('css');?>/bootstrap-glyphicons.css" rel="stylesheet">
-	    <link href="<? get_theme_path('css');?>/css/screen.css" rel="stylesheet">
+   	    <link href="<? get_site_path('css');?>/bootstrap-glyphicons.css" rel="stylesheet">
+	    <link href="<? get_site_path('css');?>/css/screen.css" rel="stylesheet">
 
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	    <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
   				<div class="row">
   					<div class="col-6 col-lg-3">
 			  			<a href="<?=URL;?>" class="navbar-brand">
-			  				<img src="<? get_theme_path('images');?>/webninja-logo@2x.png" alt="Web Ninja" />
+			  				<img src="<? get_site_path('images');?>/webninja-logo@2x.png" alt="Web Ninja" />
 			  			</a>
 		  			</div>
 		  			<? global $user;
