@@ -48,25 +48,11 @@ function app_head(){
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
-			// Load in Hud Scripts
-			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
-			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud CSS
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
-			// Load in Hud Scripts
-			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
-			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		}
 	}
 	
@@ -103,8 +89,24 @@ function app_head(){
 function app_foot(){
 	global $user;
 	if(isset($user)){	
-		if($user->get_role() == 'super'){
-
+		if($user->get_role() == 'super' || $user->get_owner() == true){
+			// Load in Hud Scripts
+			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
+			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'system/library/ckeditor/ckeditor.js"></script>'. "\r\n";	
+		} elseif ($user->get_role() == 'user'){
+			// Load in Hud Scripts
+			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
+			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'system/library/ckeditor/ckeditor.js"></script>'. "\r\n";
 		}
 	}
 }

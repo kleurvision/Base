@@ -23,7 +23,13 @@ $(function() {
 	$('.more-info').click(function() {
 	  $('#site_' + $(this).attr('rel')).toggle('fade');
 	  return false;
-	});	
+	});
 });
 
-	CKEDITOR.replace( 'edit-page-content' );
+
+window.onload = function() {
+    CKEDITOR.replace( 'edit-page-content' );
+    CKEDITOR.replace( 'add-page-content' );
+    CKEDITOR.replace( 'add-slide-content' );
+};
+
