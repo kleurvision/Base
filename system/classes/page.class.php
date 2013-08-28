@@ -89,7 +89,6 @@ class Page {
 			}
 		}
 
-		};
 	}
 	
 	// Load template footer
@@ -98,7 +97,7 @@ class Page {
 			include(SITE.'/footer.php');
 		} else {
 			include(SITE.'/footer-'.$modifier.'.php');
-		};
+		}
 	}
 	
 	// Load template sidebar
@@ -107,7 +106,7 @@ class Page {
 			include(SITE.'/sidebar.php');
 		} else {
 			include(SITE.'/sidebar-'.$modifier.'.php');
-		};
+		}
 	}
  
  
