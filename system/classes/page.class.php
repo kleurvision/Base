@@ -72,7 +72,7 @@ class Page {
 			echo "<meta name='keywords' content='".$keys."' />\n";
 		}
 	}
-	
+
 	// Load template header
 	function get_header($modifier = ''){
 		if ($modifier==''){
@@ -93,18 +93,34 @@ class Page {
 	// Load template footer
 	function get_footer($modifier = ''){
 		if ($modifier==''){
-			include(SITE.'/footer.php');
+			if (file_exists(SITE.'/footer.php')){
+				include(SITE.'/footer.php');
+			} else {
+				include(THEME.'/footer.php');
+			}
 		} else {
-			include(SITE.'/footer-'.$modifier.'.php');
+			if (file_exists(SITE.'/footer-'.$modifier.'.php')){
+				include(SITE.'/footer-'.$modifier.'.php');
+			} else {
+				include(SITE.'/footer-'.$modifier.'.php');
+			}
 		}
 	}
 	
 	// Load template sidebar
 	function get_sidebar($modifier = ''){
 		if ($modifier==''){
-			include(SITE.'/sidebar.php');
+			if (file_exists(SITE.'/sidebar.php')){
+				include(SITE.'/sidebar.php');
+			} else {
+				include(THEME.'/sidebar.php');
+			}
 		} else {
-			include(SITE.'/sidebar-'.$modifier.'.php');
+			if (file_exists(SITE.'/sidebar-'.$modifier.'.php')){
+				include(SITE.'/sidebar-'.$modifier.'.php');
+			} else {
+				include(SITE.'/sidebar-'.$modifier.'.php');
+			}
 		}
 	}
  

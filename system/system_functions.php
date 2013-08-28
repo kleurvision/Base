@@ -27,20 +27,6 @@ function is_homepage(){
 // Application head hook for mandatory head loads
 function app_head(){
 	
-	// Check site options
-/* Who needs sticky footers anyway
-	$app_url = URL;
-	global $db;
-	$opts = $db->get_row("SELECT * FROM app_options WHERE app_url = '$app_url'");
-		
-	// Set footer stick CSS
-	if($opts->footer_stick == true){
-		echo '<link href="'.URL.'resources/css/sticky.css'.'" rel="stylesheet">'. "\r\n";
-	}
-*/
-	
-	echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>' . "\r\n";
-
 	global $user;
 	if(isset($user)){	
 		if($user->get_role() == 'super' || $user->get_owner() == true){
@@ -82,7 +68,19 @@ function app_head(){
 		echo '</div>';
 	}
 	
-	
+
+	// Check for Site config file or load Parent Theme Config File
+	if (file_exists(SITE.'/config.php')){
+		include (SITE.'/config.php');
+	} else {
+		include (THEME.'/config.php');
+	}
+
+	// Check for site style Override
+	if (file_exists(SITE.'/screen.css')){
+		echo '<link href="'.URL.SITE.'/screen.css" rel="stylesheet">';
+	}
+
 }
 
 // Last ditch attempt to load in footer items
@@ -91,8 +89,7 @@ function app_foot(){
 	if(isset($user)){	
 		if($user->get_role() == 'super' || $user->get_owner() == true){
 			// Load in Hud Scripts
-			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
-			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
+			echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>' . "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
@@ -100,8 +97,7 @@ function app_foot(){
 			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud Scripts
-			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
-			// This doesn't existing should we remove it? echo '<script src="'.URL.'resources/library/PFBC/Resources/tiny_mce/tiny_mce.js"></script>'. "\r\n";
+			echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>' . "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
@@ -109,8 +105,8 @@ function app_foot(){
 			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		}
 	}
-}
 
+}
 
 // Top level navigation
 function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $endCap = '', $home = 'true', $parentLinks = 'false'){

@@ -17,10 +17,9 @@
 		$page->load_metadata();
 	}?>
 	<!-- Load styles -->
-	<? app_head('1');?>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="<? get_theme_path('css');?>/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="<? get_theme_path('css');?>/screen.css" rel="stylesheet">
+	
+	<? app_head('1'); ?>
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>

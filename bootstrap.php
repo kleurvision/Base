@@ -178,7 +178,12 @@ if(isset($_GET['pagename'])){
 	}
 
 } else {
+
 	// Is homepage
-	require_once(SITE . '/index.php');
+	if (file_exists(SITE.'/index.php')){
+		require_once(SITE . '/index.php');
+	} else {
+		require_once(THEME . '/index.php');
+	}
 
 }
