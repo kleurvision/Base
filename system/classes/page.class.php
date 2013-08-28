@@ -78,17 +78,16 @@ class Page {
 		if ($modifier==''){
 			if (file_exists(SITE.'/header.php')){
 				include(SITE.'/header.php');
-			}else{
+			} else {
 				include(THEME.'/header.php');
 			}
 		} else {
 			if (file_exists(SITE.'/header-'.$modifier.'.php')){
 				include(SITE.'/header-'.$modifier.'.php');
-			}else{
+			} else {
 				include(SITE.'/header-'.$modifier.'.php');
 			}
 		}
-
 	}
 	
 	// Load template footer
