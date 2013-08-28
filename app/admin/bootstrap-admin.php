@@ -35,8 +35,16 @@ if (file_exists(dirname(ROOT).'/config/config.php')) {
 	echo 'Config not found at '.ROOT.'/config/config.php<br/>';
 };
 
+// URL -  Edit root URL
+$site_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
+
+// Sitename
+if(isset($_GET['site'])){
+	$sitename = $_GET['site'];
+}
+
 // Define parent URL
-define( 'URL', 'http://webninja.me/');
+define( 'URL', $site_url);
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );

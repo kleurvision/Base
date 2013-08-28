@@ -90,12 +90,12 @@ function make_site_dir($site_id){
 	$check = mkdir($path_to_site, 0700);
 	
 	// Create config file
-	$site_index_master 	= ''.APP.'/themes/setup/index.php';
+	/*$site_index_master 	= ''.APP.'/themes/setup/index.php';
 	$new_site_index		= $path_to_site.'/index.php';
 	
 	if (!copy($site_index_master, $new_site_index)) {
 	    echo "failed to copy $site_index_master...\n";
-	}
+	}*/
 }
 
 // Get Site Status 

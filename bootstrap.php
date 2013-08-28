@@ -132,7 +132,12 @@ if(isset($_GET['pagename'])){
 	$pagemap = $page->page_map($_GET['pagename']);
 	
 	if($pagemap == '404'){
-		require_once(SITE . '/404.php');
+
+		if (file_exists(SITE.'/404.php')){
+			require_once(SITE . '/404.php');
+		} else {
+			require_once(THEME . '/404.php');
+		}
 	
 	} else if ($pagemap->pagename == 'home-page') {
 	
@@ -144,7 +149,12 @@ if(isset($_GET['pagename'])){
 		if($pagemap->pagetemplate == ''){
 		
 			// Load the default page template if no template is listed in the database
-			require_once(SITE . '/page.php');
+			if (file_exists(SITE.'/page.php')){
+				require_once(SITE . '/page.php');
+			} else {
+				require_once(THEME . '/page.php');
+			}
+
 		} elseif($pagemap->pagetemplate == 'user'){
 		
 			// Check to see if the page is a user page
@@ -158,12 +168,19 @@ if(isset($_GET['pagename'])){
 			} elseif ($username == 'undefined'){
 				
 				// If no username is defined, load user landing page
-				 require_once(SITE . '/page-'.$pagemap->pagetemplate.'.php');
+				if (file_exists(SITE.'/page-'.$pagemap->pagetemplate.'.php')){
+					require_once(SITE . '/page-'.$pagemap->pagetemplate.'.php');
+				} else {
+					require_once(THEME . '/page-'.$pagemap->pagetemplate.'.php');
+				}
 			} else {
 			
 				// If username doesn't exist, load 404 page
-				require_once(SITE . '/404.php');
-			}
+				if (file_exists(SITE.'/404.php')){
+					require_once(SITE . '/404.php');
+				} else {
+					require_once(THEME . '/404.php');
+				}			}
 		
 		} elseif($pagemap->pagetemplate == 'login'){
 			
@@ -173,7 +190,11 @@ if(isset($_GET['pagename'])){
 			
 			// If there is a unique template, load the custom template
 			// Custom templates are saved in the theme folder as page-templatename.php
-			require_once(SITE . '/page-'.$pagemap->pagetemplate.'.php');
+			if (file_exists(SITE.'/page-'.$pagemap->pagetemplate.'.php')){
+				require_once(SITE . '/page-'.$pagemap->pagetemplate.'.php');
+			} else {
+				require_once(THEME . '/page-'.$pagemap->pagetemplate.'.php');
+			}
 		}
 	}
 

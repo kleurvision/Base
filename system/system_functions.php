@@ -72,7 +72,7 @@ function app_head(){
 	// Check for Site config file or load Parent Theme Config File
 	if (file_exists(SITE.'/config.php')){
 		include (SITE.'/config.php');
-	} else {
+	} elseif (file_exists(THEME.'/config.php')){
 		include (THEME.'/config.php');
 	}
 
@@ -119,7 +119,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 	}
 	global $db;
 	//$pages = $db->get_results("SELECT id, pageparent, pagename, pagetitle FROM app_pages");
-	$navs = $db->get_results("SELECT navigation FROM site_".SITE_ID."_settings");
+	$navs = $db->get_results("SELECT id, navigation FROM site_".SITE_ID."_settings");
 	if($navs){
 	
 		$navs = json_decode($navs[0]->navigation, true);
