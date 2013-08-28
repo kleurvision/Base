@@ -76,9 +76,19 @@ class Page {
 	// Load template header
 	function get_header($modifier = ''){
 		if ($modifier==''){
-			include(SITE.'/header.php');
+			if (file_exists(SITE.'/header.php');){
+				include(SITE.'/header.php');
+			}else{
+				include(THEME.'/header.php');
+			}
 		} else {
-			include(SITE.'/header-'.$modifier.'.php');
+			if (file_exists(SITE.'/header-'.$modifier.'.php');){
+				include(SITE.'/header-'.$modifier.'.php');
+			}else{
+				include(SITE.'/header-'.$modifier.'.php');
+			}
+		}
+
 		};
 	}
 	
