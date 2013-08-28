@@ -39,17 +39,26 @@ if(isset($_GET['site'])){
 // Define parent URL
 define( 'URL', $site_url);
 
+
+/* Check to see if the site is being previewed or if looking
+through the domain */
 if(isset($sitename)){
 
 	// When looking through preview
 	$site = $db->get_row("SELECT * FROM app_sites WHERE site_name = '$sitename'");
 	$preview = true;
 	
+	// Define parent preview nav path
+	define( 'NAV', URL.'preview/'.$sitename.'/');
+	
 } else {
 
-	// When loading URL
+	// When loading site domain
 	$site = $db->get_row("SELECT * FROM app_sites WHERE site_url = '$site_url'");
 	$preview = false;
+	
+	// Define parent nav path
+	define( 'NAV', URL);
 }
 	
 if(isset($site)){
@@ -123,7 +132,7 @@ if(isset($_GET['pagename'])){
 	$pagemap = $page->page_map($_GET['pagename']);
 	
 	if($pagemap == '404'){
-		require_once(THEME . '/404.php');
+		require_once(SITE . '/404.php');
 	
 	} else if ($pagemap->pagename == 'home-page') {
 	
@@ -135,7 +144,7 @@ if(isset($_GET['pagename'])){
 		if($pagemap->pagetemplate == ''){
 		
 			// Load the default page template if no template is listed in the database
-			require_once(THEME . '/page.php');
+			require_once(SITE . '/page.php');
 		} elseif($pagemap->pagetemplate == 'user'){
 		
 			// Check to see if the page is a user page
@@ -145,31 +154,31 @@ if(isset($_GET['pagename'])){
 			if(isset($username->username)){
 			
 				// Load the global user template
-				require_once(THEME . '/user-profile.php');	
+				require_once(SITE . '/user-profile.php');	
 			} elseif ($username == 'undefined'){
 				
 				// If no username is defined, load user landing page
-				 require_once(THEME . '/page-'.$pagemap->pagetemplate.'.php');
+				 require_once(SITE . '/page-'.$pagemap->pagetemplate.'.php');
 			} else {
 			
 				// If username doesn't exist, load 404 page
-				require_once(THEME . '/404.php');
+				require_once(SITE . '/404.php');
 			}
 		
 		} elseif($pagemap->pagetemplate == 'login'){
 			
 			// Load the default page template if no template is listed in the database
-			require_once(THEME . '/login.php');	
+			require_once(SITE . '/login.php');	
 		} else {
 			
 			// If there is a unique template, load the custom template
 			// Custom templates are saved in the theme folder as page-templatename.php
-			require_once(THEME . '/page-'.$pagemap->pagetemplate.'.php');
+			require_once(SITE . '/page-'.$pagemap->pagetemplate.'.php');
 		}
 	}
 
 } else {
 	// Is homepage
-	require_once(THEME . '/index.php');
+	require_once(SITE . '/index.php');
 
 }

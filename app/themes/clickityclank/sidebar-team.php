@@ -11,37 +11,37 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/pat_rainbow.jpg" class="img-rounded" alt="Patrick Lyver - Capitan" title="Patrick Lyver - Capitan" />
+			<img src="../<?=THEME;?>/images/team/pat_rainbow.jpg" class="img-rounded" alt="Patrick Lyver - Capitan" title="Patrick Lyver - Capitan" />
 			<h3 class="teamName">Patrick Lyver, Capitan</h3>
 		</div>	
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/trevor_bacon.jpg" class="img-rounded" alt="Trevor Cave - Runner Up" title="Trevor Cave - Runner Up" />
+			<img src="../<?=THEME;?>/images/team/trevor_bacon.jpg" class="img-rounded" alt="Trevor Cave - Runner Up" title="Trevor Cave - Runner Up" />
 			<h3 class="teamName">Trevor Cave, Runner Up</h3>
 		</div>	
 	</div>
 	<div class="row-fluid">
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/matt_pew.jpg" class="img-rounded" alt="Matt Bell - Evil Genius" title="Matt Bell - Evil Genius" />
+			<img src="../<?=THEME;?>/images/team/matt_pew.jpg" class="img-rounded" alt="Matt Bell - Evil Genius" title="Matt Bell - Evil Genius" />
 			<h3 class="teamName">Matt Bell, Evil Genius</h3>
 		</div>	
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/ali_unicorn.jpg" class="img-rounded" alt="Ali Elle - Dreamshaper" title="Ali El - Dreamshaper" />
+			<img src="../<?=THEME;?>/images/team/ali_unicorn.jpg" class="img-rounded" alt="Ali Elle - Dreamshaper" title="Ali El - Dreamshaper" />
 			<h3 class="teamName">Ali Elle, Dreamshaper</h3>
 		</div>	
 	</div>
 	<div class="row-fluid">
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/brian_viking.jpg" class="img-rounded" alt="Brian Warren — Pixelator" title="Brian Warren — Pixelator" />
+			<img src="../<?=THEME;?>/images/team/brian_viking.jpg" class="img-rounded" alt="Brian Warren — Pixelator" title="Brian Warren — Pixelator" />
 			<h3 class="teamName">Brian Warren, Pixelator</h3>
 		</div>
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/rob_balls.jpg" class="img-rounded" alt="Rob Biglin — Pixelator" title="Rob Biglin — Pixelator" />
+			<img src="../<?=THEME;?>/images/team/rob_balls.jpg" class="img-rounded" alt="Rob Biglin — Pixelator" title="Rob Biglin — Pixelator" />
 			<h3 class="teamName">Rob Biglin, Pixelator</h3>
 		</div>	
 	</div>
 	<div class="row-fluid">
 		<div class="span6">
-			<img src="<?=URL.SITE;?>/images/team/mike_godzilla.jpg" class="img-rounded" alt="Michael Couture — Marketing Giant" title="Michael Couture — Marketing Giant" />
+			<img src="../<?=THEME;?>/images/team/mike_godzilla.jpg" class="img-rounded" alt="Michael Couture — Marketing Giant" title="Michael Couture — Marketing Giant" />
 			<h3 class="teamName">Michael Couture, Marketing Giant</h3>
 		</div>	
 	</div>

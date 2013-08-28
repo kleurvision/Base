@@ -266,17 +266,16 @@ class User {
 	// If user level is application admin or site owner, load HUD controllers
 	function load_hud(){
 		
-			if($this->get_owner() == true || $this->get_role() == 'super'){
+			if($this->get_role() == 'super'){
+				
+				// If you are a super admin, load admin HUD
 				include ADMIN.'hud.php';
-			} else if($permissions < $level){
+			} else if($this->get_owner() == true ){
 				
 				// Check to see if you're looking at your own profile
-				if(isset($user_profile)){
-					if($user_profile == $this->user->username){
-						include ADMIN.'hud-user.php';	
-					};
-				};		
+				include ADMIN.'hud-user.php';		
 			} else {
+			
 				// No HUD access
 				echo "balls";
 			}

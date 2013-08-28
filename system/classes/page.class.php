@@ -73,27 +73,27 @@ class Page {
 	// Load template header
 	function get_header($modifier = ''){
 		if ($modifier==''){
-			include(THEME.'/header.php');
+			include(SITE.'/header.php');
 		} else {
-			include(THEME.'/header-'.$modifier.'.php');
+			include(SITE.'/header-'.$modifier.'.php');
 		};
 	}
 	
 	// Load template footer
 	function get_footer($modifier = ''){
 		if ($modifier==''){
-			include(THEME.'/footer.php');
+			include(SITE.'/footer.php');
 		} else {
-			include(THEME.'/footer-'.$modifier.'.php');
+			include(SITE.'/footer-'.$modifier.'.php');
 		};
 	}
 	
 	// Load template sidebar
 	function get_sidebar($modifier = ''){
 		if ($modifier==''){
-			include(THEME.'/sidebar.php');
+			include(SITE.'/sidebar.php');
 		} else {
-			include(THEME.'/sidebar-'.$modifier.'.php');
+			include(SITE.'/sidebar-'.$modifier.'.php');
 		};
 	}
  
@@ -106,17 +106,18 @@ class Page {
 		}
 		
  function breadcrumbs($pagename){
- 	$breadcrumb  = $this->page_map($pagename);
- 	$parentID = $breadcrumb->pageparent;
+ 	$breadcrumb = $this->page_map($pagename);
+ 	$parentID 	= $breadcrumb->pageparent;
+ 	
  	if(isset($parentID)){
 	 	$parent = $this->db->get_results("SELECT pagetitle, pagename FROM site_".SITE_ID."_pages WHERE id = $parentID");
  	};
  	echo '<ul class="breadcrumb">'. "\r\n";
-    echo '<li><a href="'.URL.'">Home</a> <span class="divider">//</span></li>'."\r\n";
+    echo '<li><a href="'.NAV.'">Home</a> <span class="divider">//</span></li>'."\r\n";
     
     // Add the parent page
     if(isset($parent)){
-	    echo '<li><a href="'.URL.'/'.$parent[0]->pagename.'">'.$parent[0]->pagetitle.'</a> <span class="divider">//</span></li>'."\r\n";
+	    echo '<li><a href="'.NAV.'/'.$parent[0]->pagename.'">'.$parent[0]->pagetitle.'</a> <span class="divider">//</span></li>'."\r\n";
     }
     
     echo '<li class="active">'.$breadcrumb->pagetitle.'</li>';

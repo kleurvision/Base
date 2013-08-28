@@ -112,6 +112,7 @@ function app_foot(){
 
 // Top level navigation
 function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $endCap = '', $home = 'true', $parentLinks = 'false'){
+
 	if($class != ''){
 		$class = $class.'-nav';
 	}
@@ -129,7 +130,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 			echo '<li class="startCap"></li>';
 		}
 		if($home == 'true'){
-			echo '<li class="homeLink"><a href="'.URL.'">Home</a></li>';
+			echo '<li class="homeLink"><a href="'.NAV.'">Home</a></li>';
 		}
 		foreach($navs as $nav){
 			
@@ -149,11 +150,11 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 			
 			if($page->pageparent == ''){
 				if($child_pages && $parentLinks == 'true'){
-					echo'<a href="'.URL.$page->pagename.'">'.$page->pagetitle.'</a>';
+					echo'<a href="'.NAV.$page->pagename.'">'.$page->pagetitle.'</a>';
 				} else if($child_pages && $parentLinks == 'false'){
 					echo'<a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$page->pagetitle.'</a>';
 				} else {
-					echo'<a href="'.URL.$page->pagename.'">'.$page->pagetitle.'</a>';
+					echo'<a href="'.NAV.$page->pagename.'">'.$page->pagetitle.'</a>';
 				}
 			};
 			
@@ -162,7 +163,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 				foreach($child_pages as $child){
 					$childUrls = $db->get_row("SELECT pagename, pagetitle FROM site_".SITE_ID."_pages WHERE id = ".$child['id']);
 
-					echo '<li class="nav-child"><a href="'.URL.$childUrls->pagename.'">'.$childUrls->pagetitle.'</a></li>';
+					echo '<li class="nav-child"><a href="'.NAV.$childUrls->pagename.'">'.$childUrls->pagetitle.'</a></li>';
 				}
 				echo '</ul>';
 			}
@@ -259,6 +260,35 @@ function theme_path($type){
 	return $theme_path;
 }
 
+function get_theme_path($type){
+	if($type==''){
+		$theme_path = URL.''.THEME;
+	} else {
+		$theme_path = URL.''.THEME.'/'.$type;
+	}
+	echo $theme_path;
+}
+
+// Set resource directory
+function site_path($type){
+	if($type==''){
+		$theme_path = URL.''.SITE;
+	} else {
+		$theme_path = URL.''.SITE.'/'.$type;
+	}
+	return $theme_path;
+}
+
+function get_site_path($type){
+	if($type==''){
+		$theme_path = URL.''.SITE;
+	} else {
+		$theme_path = URL.''.SITE.'/'.$type;
+	}
+	echo $theme_path;
+}
+
+
 // Load page info
 function site_info($option = ''){
 		global $db;
@@ -272,14 +302,7 @@ function site_info($option = ''){
 		}
 }
 
-function get_theme_path($type){
-	if($type==''){
-		$theme_path = URL.''.THEME;
-	} else {
-		$theme_path = URL.''.THEME.'/'.$type;
-	}
-	echo $theme_path;
-}
+
 
 
 // Basic database query - get all the data
