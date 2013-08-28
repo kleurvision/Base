@@ -1,0 +1,4 @@
+This package contains a PHP project. This project contains the YellowAPI SDK and a Sample application.
+
+Yellow API key, Yellow API UID need to be added 
+in file /config.inc.php
