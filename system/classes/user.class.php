@@ -164,6 +164,10 @@ class User {
 				$err_msg['email_exists'] = 'An account has already been registered with that email address';
 			}
 			
+			// Compare and encrypt the password - replace MD5 encryption
+			// Use Salted and Hashed password algorythms
+			// For Trevor
+			
 			if(stripslashes($_POST['reg_password']) == stripslashes($_POST['reg_password_confirm'])){
 				$password	= md5($_POST['reg_password']);
 			} else {
@@ -201,58 +205,77 @@ class User {
 		// Check to see if user it logged 
 		// Why are we checking for this ???
 		//if(!isset($this->user_id)){?>
-		<fieldset id="user_register_form">
-			<form role="form" id="registration_form" action="" method="post">
-				<h4>Essential Information</h4>
-				<div class="form-group">
-					<input class="form-control" type="text" name="fname" placeholder="First Name">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="lname" placeholder="Last Name">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="reg_user" placeholder="email">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="password" name="reg_password" placeholder="password">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="password" name="reg_password_confirm" placeholder="confirm password">
-				</div>
-				<h4>Additional Information</h4>
-				<div class="form-group">
-					<input class="form-control" type="text" name="phone" placeholder="Phone">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="mobile" placeholder="Mobile">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="addr1" placeholder="Address Line 1">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="addr2" placeholder="Address Line 2">
-				</div>				
-				<div class="form-group">
-					<input class="form-control" type="text" name="postal" placeholder="Postal Code">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="city" placeholder="City">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="province" placeholder="Province">
-				</div>
-				<div class="form-group">
-					<input class="form-control" type="text" name="country" placeholder="Country">
-				</div>
-				<div class="form-group">
-					<textarea class="form-control" type="text" name="bio" placeholder="Bio"></textarea>
-				</div>
-				<!-- Submit -->
-				<div clas-"form-group">
-					<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Add User"/>
-				</div>
+		
+			<form class="admin_form" role="form" id="registration_form" action="" method="post">
+				<fieldset id="essential_information">
+					<h4>Essential Information</h4>
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" name="fname" placeholder="First Name">
+						</div>
+						
+						<div class="col-6">
+							<input class="form-control" type="text" name="lname" placeholder="Last Name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<input class="form-control" type="text" name="reg_user" placeholder="Email">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="password" name="reg_password" placeholder="Password">
+						</div>
+						<div class="col-6">
+							<input class="form-control" type="password" name="reg_password_confirm" placeholder="Confirm Password">
+						</div>
+					</div>
+				</fieldset>
+				<fieldset id="additional_information">
+					<h4>Additional Information</h4>
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" name="phone" placeholder="Phone">
+						</div>
+						<div class="col-6">
+							<input class="form-control" type="text" name="mobile" placeholder="Mobile">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-9">
+							<input class="form-control" type="text" name="addr1" placeholder="Street Address">
+						</div>
+						<div class="col-3">
+							<input class="form-control" type="text" name="addr2" placeholder="Suite/Apt/Unit">
+						</div>
+					</div>			
+					<div class="row">
+						<div class="col-3">
+							<input class="form-control" type="text" name="city" placeholder="City">
+						</div>
+						<div class="col-3">
+							<input class="form-control" type="text" name="province" placeholder="Province">
+						</div>
+						<div class="col-3">
+							<input class="form-control" type="text" name="country" placeholder="Country">
+						</div>
+						<div class="col-3">
+							<input class="form-control" type="text" name="postal" placeholder="Postal Code">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<textarea class="form-control" rows="6" type="text" name="bio" placeholder="Notes"></textarea>
+						</div>
+					</div>
+					<!-- Submit -->
+					<div clas-"form-group">
+						<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Add User"/>
+					</div>
+				</fieldset>
 			</form> 
-		</fieldset>
+		
 		<?// }
 	}
 	

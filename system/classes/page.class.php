@@ -43,6 +43,9 @@ class Page {
 	}
 	
 	// Load page meta data and title to header 
+	// Updated function to include reference to SITE ID
+	// Patrick to complete
+	
 	function load_metadata($pagename = ''){
 		
 		if($pagename != ''){

@@ -44,6 +44,11 @@ is_admin();
   	body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
     	margin-right: 15px;
 	}
+	
+	.admin_form .row{
+		margin-bottom: 10px;
+	}
+	
 	</style>
   
 </head>
