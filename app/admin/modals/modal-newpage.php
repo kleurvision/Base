@@ -9,10 +9,10 @@
 </div>
 
 <div class="hud-modal-body">
-	<form id="add-page" method="post" action="<?= URL.'/'.ADMIN.'/actions/add-page.php' ?>"?>
+	<form id="add-page" method="post" action="<?= URL.ADMIN.'actions/add-page.php';?>">
 		<label>Title:</label>
 		<input type="text" value="" name="page-title">
-		<textarea name="page-content" rows="5" ></textarea>
+		<textarea name="page-content" id="add-page-content" rows="5" ></textarea>
 		<div class="form-actions">
 			<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
 			<input class="btn btn-primary" type="submit" name="Add Page" value="Add Page">

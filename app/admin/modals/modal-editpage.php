@@ -72,7 +72,7 @@ $form->addElement(new Element_Button("Save"));
 $form->render(); 
 */ 
 ?>
-	<form id="edit-page" method="post" action="<?= URL.'/'.ADMIN.'/actions/edit-page.php'?>"?>
+	<form id="edit-page" method="post" action="<?= URL.ADMIN.'actions/edit-page.php'?>">
 		<label>Display Title:</label>
 		<input type="text" value="<?= $pagetitle;?>" name="edit-title">
 		
@@ -82,7 +82,7 @@ $form->render();
 		<label>Page URL:</label>
 		<input type="text" value="<?= $pageslug;?>" name="edit-pagename">
 		
-		<textarea name="edit-content" rows="5" ><?= $pageContent;?></textarea>
+		<textarea id="edit-page-content" name="edit-content" rows="5" ><?= $pageContent;?></textarea>
 		
 		<label>Template:</label>
 		<select name="template">

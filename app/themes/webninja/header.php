@@ -26,7 +26,7 @@
    	    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
    	    <link href="<? get_theme_path('css');?>/bootstrap-glyphicons.css" rel="stylesheet">
 	    <link href="<? get_theme_path('css');?>/css/screen.css" rel="stylesheet">
-	   	
+
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	    <!--[if lt IE 9]>
 	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

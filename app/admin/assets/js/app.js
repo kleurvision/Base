@@ -25,3 +25,5 @@ $(function() {
 	  return false;
 	});	
 });
+
+	CKEDITOR.replace( 'edit-page-content' );

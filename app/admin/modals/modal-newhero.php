@@ -10,19 +10,15 @@ Save as modal-*modal-template-name*.php to extend
 </div>
 
 <div class="hud-modal-body">
-<? 
-
-$form = new Form("add-hero");
-$form->configure(array(
-    "prevent" => array("bootstrap", "jQuery"),
-    "view" => new View_Vertical,
-    "action" => URL.'/'.ADMIN."/actions/add-hero.php",
-    "enctype"=> "multipart/form-data"
-));
-$form->addElement(new Element_Hidden("form", "add-hero"));
-$form->addElement(new Element_Textbox("Title:", "hero-title"));
-$form->addElement(new Element_TinyMCE("", "hero-content"));
-$form->addElement(new Element_File("File:", "hero-file"));
-$form->addElement(new Element_Button("Add Hero"));
-$form->render();
-?>
+	<form id="add-hero" enctype="multipart/form-data" method="post" action="<?= URL.ADMIN.'actions/add-hero.php'; ?>">
+		<label>Title:</label>
+		<input type="text" name="hero-title">
+		<textarea id="add-slide-content" name="hero-content" rows="5" ></textarea>
+		<label >File:</label>
+		<input type="file" name="hero-file">
+		<div class="form-actions">
+			<input type="hidden" value="add-hero" name="form">
+			<input id="add-hero-element-4" class="btn btn-primary" type="submit" name="" value="Add Hero">
+		</div>
+	</form>
+</div>
