@@ -26,10 +26,3 @@ $(function() {
 	});
 });
 
-
-window.onload = function() {
-    CKEDITOR.replace( 'edit-page-content' );
-    CKEDITOR.replace( 'add-page-content' );
-    CKEDITOR.replace( 'add-slide-content' );
-};
-

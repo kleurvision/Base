@@ -96,8 +96,8 @@ function app_foot(){
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'system/library/ckeditor/ckeditor.js"></script>'. "\r\n";	
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		} elseif ($user->get_role() == 'user'){
 			// Load in Hud Scripts
 			//echo '<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>'. "\r\n";
@@ -105,8 +105,8 @@ function app_foot(){
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.modals.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
-			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'system/library/ckeditor/ckeditor.js"></script>'. "\r\n";
+			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
 		}
 	}
 }
