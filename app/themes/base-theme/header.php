@@ -53,7 +53,14 @@
 		  		<a class="navbar-brand" href="<?=URL;?>">Company Name</a>
 		  		<!-- Display Nav -->
 		  		<div class="nav-collapse collapse navbar-responsive-collapse pull-right">
-		  			<? echo app_nav('', 'main');?>
+		  			<? //echo app_nav('main');
+		  				echo URL;
+		  				echo "<br/>";
+		  				echo $sitename;
+		  				echo "<br/>";
+		  				echo THEME;
+
+		  			?>
 				</div>
 			</div>
 		</div>

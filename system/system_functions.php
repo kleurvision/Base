@@ -293,9 +293,9 @@ function site_info($option = ''){
 		$default = $db->get_row("SELECT * FROM app_sites WHERE id = ".SITE_ID."");
 		if(isset($option)){
 			if($option == 'title'){
-				echo $default->app_name;
+				echo $default->site_name;
 			} else {
-				echo $default->app_name;
+				echo $default->site_name;
 			}
 		}
 }
