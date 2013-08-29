@@ -13,15 +13,15 @@ global $user;
 			<div id="hud_menu_button"><i class="icon-reorder"></i></div>
 			<ul id="hud_menu">
 				<li>
-					<a href="#" id="hud_edit_trigger"><i class="icon-pencil"></i>&nbsp;&nbsp;Edit</a>
-					<ul id="hud_edit_menu">
+					<a href="#" id="hud_edit_trigger" class="hud_trigger"><i class="icon-pencil"></i>&nbsp;&nbsp;Edit</a>
+					<ul class="hud_sub_menu">
 						<li><a class="hud_btn trigger" href="#editpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn trigger" href="#editnavModalAdmin" data-toggle="modal">Navigation</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="#" id="hud_new_trigger"><i class="icon-plus"></i>&nbsp;&nbsp;Add</a>
-					<ul id="hud_new_menu">
+					<a href="#" id="hud_new_trigger" class="hud_trigger"><i class="icon-plus"></i>&nbsp;&nbsp;Add</a>
+					<ul class="hud_sub_menu">
 						<li><a class="hud_btn" href="#newpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
