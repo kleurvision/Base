@@ -28,6 +28,7 @@
     this.$element  = $(element).on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
     this.$backdrop =
     this.isShown   = null
+    
 
     if (this.options.remote) this.$element.find('.hud-modal-body').load(this.options.remote)
   }
@@ -224,7 +225,6 @@
     var href    = $this.attr('href')
     var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
     var option  = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
-
     e.preventDefault()
 
     $target

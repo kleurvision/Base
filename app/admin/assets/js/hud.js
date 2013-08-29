@@ -31,30 +31,42 @@ function hud_extend(){
 
 $(function() {
 
-	$('#hud_edit_trigger').click(function() {
-	  $('#hud_edit_menu').slideToggle('fast', function() {
-	    // Animation complete.
-	  });
-	});
+/*	$('a.delete').click(function(){
+		var id = $(this).attr("data-id");
+		var data = 'id=' + id ;
+	}); */
 
-	$('#hud_new_trigger').click(function() {
-	  $('#hud_new_menu').slideToggle('fast', function() {
-	    // Animation complete.
-	  });
-	});
+	// Show hide dropdown lists
+	$('.hud_trigger').click(function() {
+		var $toOpen = $(this).next('.hud_sub_menu');
+	  	var $opened = $('.hud_sub_menu.open');
+        if ( $toOpen.hasClass("open") ) {
+        	$toOpen.toggleClass('open');
+	        $toOpen.slideToggle();
+        } else {
+	        $opened.toggleClass('open');
+	        $opened.slideToggle();
+			$toOpen.toggleClass('open');
+	        $toOpen.slideToggle();
+	    }
+    });
 
-	$('#hud_menu_button').click(function() {
-	  $('#hud_menu').slideToggle('fast', function() {
-	    // Animation complete.
-	  });
-	});
-	
+
+	// Close dropdowns when modals open
+	$('.hud_sub_menu a').click(function() {
+		$('.hud_sub_menu').slideUp();
+	})
 
 	// tool tips
 	$('#hud_toolbar_wrapper').tooltip({
 	   selector: "[data-toggle=hud-tooltip]",
 	   placement: "bottom"
 	 })
+
+	// Show only one modal at a time
+	$("a[data-toggle=modal]").click(function(ev) {
+	    $('.hud-modal').modal('hide')
+	})
 
 });
 
