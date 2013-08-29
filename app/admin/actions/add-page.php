@@ -6,10 +6,7 @@
 	$pageName 	= to_permalink($title);
 	
 	$createPage = $db->query("INSERT INTO site_".$site_id."_pages (pagename, pagetitle, pagecontent) VALUES ('$pageName','$title','$content')");	
-	$site_slug = $db->get_var("SELECT site_name FROM app_sites WHERE id = ".$site_id."");
-
 	if($createPage) {
-		 header('Location:'.URL.'preview/'.$site_slug.'/'.$pageName);
+		 header('Location:'.URL.$pageName);
 	}
-
 ?>
