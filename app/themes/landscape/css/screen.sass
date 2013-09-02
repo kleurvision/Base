@@ -1,0 +1,94 @@
+@import "base"
+
+// Global
+/////////////////////////////////////////////////////////
+
+
+// Header
+/////////////////////////////////////////////////////////
+header
+	.navbar
+		background: $header-bg
+		border-radius: 0px
+		margin-bottom: 0px
+		padding: 20px 0
+		border: none
+	.main-nav
+		background: $accent
+		padding: 0px 0
+
+	.navbar-default .navbar-toggle
+		background: darken($header-bg,18%)
+		border: 0px
+		&:hover
+			background: darken($header-bg,10%)
+		.icon-bar
+			background: darken($header-bg,45%)
+	.navbar-default .navbar-nav>li>a
+		color: darken($header-bg,18%)
+		&:hover
+			background: darken($header-bg,10%)
+
+
+// Page Elements
+/////////////////////////////////////////////////////////
+
+// Slider
+.slider
+	padding: 60px 0
+	background: $slider-bg
+
+.carousel-inner
+	img 
+		min-width: 100%
+
+.thumbnail		
+	border: 0px
+	background: $slider-bg
+	padding: 0px
+
+// Action Banner
+.action-banner
+	background: $action-banner-bg
+	padding: 20px 0
+	.action-button
+		text-align: center
+		padding: 20px 0
+
+// Social Links
+.social-links
+	margin-bottom: 0px
+	.symbol
+		font-size: 30px
+
+// Main Content
+.main-content
+	padding: 60px 0
+	h3
+		margin-top: 0px
+
+// Footer
+/////////////////////////////////////////////////////////
+footer	
+	background: $footer-bg
+	padding: 30px 0
+
+
+footer
+	.social-links
+		float: right
+
+
+
+// Responsive
+/////////////////////////////////////////////////////////
+@media screen and (max-width: 768px)
+	header
+		.navbar
+			.pull-right
+				float: none
+
+	footer
+		text-align: center
+		.social-links
+			float: none
