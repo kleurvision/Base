@@ -12,29 +12,31 @@ header
 		border-radius: 0px
 		margin-bottom: 0px
 		padding: 0px
-		border-bottom: 3px solid $accent
+		border: 0px
+		padding: 20px 0
 	.navbar-brand
 		background: none
 		img
-			width: 133px
+			width: 80px
 	.navbar-default .navbar-toggle
-		background: darken($accent,0%)
+		background: darken($accent,10%)
 		border: 0px
 		margin-top: 30px
 		&:hover
-			background: darken($accent,10%)
+			background: darken($accent,15%)
 		.icon-bar
 			background: darken($accent,45%)
 	.navbar-default .navbar-nav>li>a
-		color: darken($accent,10%)
+		color: $white
+		padding: 15px
 		&:hover
+			color: $white
 			background: darken($accent,10%)
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a
-		color: darken($accent,10%)
-		padding: 10px
+		color: $white
+		padding: 15px
 		&:hover
 			background: darken($header-bg,10%)
-
 	.navbar-collapse
 		background: darken($header-bg,6%)
 		border-top: darken($header-bg,25%)
@@ -46,11 +48,11 @@ header
 			padding: 0px
 			border: none
 			a
-				color: $link-color
+				color: $white
 				padding: 15px
 				&:hover
 					background: darken($accent,0%)
-					color: darken($accent,45%)
+					color: $white
 		.open
 			background: $accent
 
@@ -63,9 +65,10 @@ header
 
 // Slider
 .slider
-	padding: 0px
+	padding: 0px 0 50px 0
 	background: $slider-bg
 	.carousel
+		border: 0px
 		.item
 			max-height: 450px
 			overflow: hidden
@@ -148,11 +151,10 @@ header
 footer	
 	background: $footer-bg
 	padding: 30px 0
-	text-align: center
 	.social-links
-		float: none
+		float: right
 		font-size: 22px
-		margin-top: 20px
+		margin-top: 0px
 		li
 			a 
 				color: $darkgrey
@@ -192,7 +194,7 @@ footer
 	header
 		.navbar-nav
 			float: right
-			margin-top: 30px
+			margin-top: 20px
 		.navbar-collapse
 			background: none
 			border-top: none

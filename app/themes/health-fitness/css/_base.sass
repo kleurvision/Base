@@ -3,15 +3,15 @@
 
 // Pallet
 $base:				#f5f3f0
-$primary:			#67775E
-$accent:			#efde94
+$primary:			#ed1c24
+$accent:			#ed1c24
 
 // Backgrounds
 $primary-bg:		#ffffff
-$header-bg:			#444444
+$header-bg:			$primary
 $content-bg:		#ffffff
 $footer-bg:			$base
-$slider-bg:			darken($header-bg,5%)
+$slider-bg:			$primary
 $action-banner-bg:	#444444
 
 // Actions
@@ -23,8 +23,8 @@ $heading-color:		#777777
 $body-color:		#444444
 $footer-color:		$base
 $body-font:			'Open Sans'
-$heading-font:		'Droid Serif'
-$paragraph-font:	'Lora'
+$heading-font:		'Oswald'
+$paragraph-font:	'Open Sans'
 
 // Defaults
 $white: 			#ffffff
@@ -39,13 +39,13 @@ $darkgrey:			#444444
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600)
 
 //Oswald
-//@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300)
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300)
 
 //Droid Serif
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700)
+//@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700)
 
 //Lora
-@import url(http://fonts.googleapis.com/css?family=Lora:400,700)
+//@import url(http://fonts.googleapis.com/css?family=Lora:400,700)
 
 //Social Icons
 @font-face 
@@ -105,8 +105,9 @@ a
 .btn-default
 	background-color: $button-color
 	border-color: $button-color
-	border-radius: 0px
+	color: $white
 	&:hover
+		color: $white
 		background-color: lighten( $button-color, 10% )
 		border-color: lighten( $button-color, 10% )
 

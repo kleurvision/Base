@@ -6,7 +6,6 @@ echo $page->get_header();
 ?>
 <!-- Slider -->
 <section class="slider">
-	<div class="container">
 		<div id="carousel-generic" class="carousel slide">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -19,33 +18,29 @@ echo $page->get_header();
 			<div class="carousel-inner">
 				<!-- Slide 1 -->
 				<div class="item active">
-					<a href="#" class="thumbnail">
-						<img src="<?= URL.THEME;?>/img/sample-2.jpg" alt="">
-						<div class="carousel-caption">
-							<h3>Slide Title 1</h3>
-							<p>Slide Description</p>
-						</div>
-					</a>
+					<img src="<?= URL.SITE;?>/img/jpeg.jpeg" alt="#" />
+					<div class="carousel-caption">
+						<h2>Professional Landscape Construction</h2>
+						<a href="#" class="btn btn-default btn-large">View Our Work</a>
+					</div>
 				</div>
 				<!-- Slide 2 -->
 				<div class="item">
-					<a href="#" class="thumbnail">
-						<img data-src="holder.js/100%x400" alt="">
-						<div class="carousel-caption">
-							<h3>Slide Title 2</h3>
-							<p>Slide Description</p>
-						</div>
-					</a>
+					<img src="<?= URL.SITE;?>/img/jpeg-1.jpeg" alt="" />
+					<div class="carousel-caption">
+						<h2>Every Project Starts With a Great Plan</h2>
+						<p>Get in touch with us to get started on your dream landscape. </p>
+						<a href="#" class="btn btn-default btn-large">Contact Us</a>
+					</div>
 				</div>
 				<!-- Slide 3 -->
 				<div class="item">
-					<a href="#" class="thumbnail">
-						<img data-src="holder.js/100%x400" alt="">
-						<div class="carousel-caption">
-							<h3>Slide Title 3</h3>
-							<p>Slide Description</p>
-						</div>
-					</a>
+					<img src="<?= URL.SITE;?>/img/jpeg-2.jpeg" alt="" />
+					<div class="carousel-caption">
+						<h2>Weekly and Seasonal Landscape Maintenance</h2>
+						<p>We have a variety of plans tailored to your needs</p>
+						<a href="#" class="btn btn-default btn-large">Contact Us</a>
+					</div>
 				</div>			
 				
 			</div>
@@ -58,27 +53,55 @@ echo $page->get_header();
 				<span class="icon-next"></span>
 			</a>
 		</div>
-	</div>
 </section>
 <!-- /End Slider -->
+<!-- Action Banner -->
+<section class="action-banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-9">
+				<h3>Need a Free Consultation? Contact Us Today!</h3>
+			</div>
+			<div class="col-12 col-lg-3 action-button">
+				<a href="#" class="btn btn-default btn-lg">Contact Us</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /End Action Banner -->
 <!-- Main Content -->
 <section class="main-content">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-4">
-				<h3>Service 1</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam nibh.</p>
-				<a href="#" class="btn btn-default btn-block">Learn More</a>
+				<div class="service">
+					<div class="icon">
+						<i class="icon-heart"></i>
+					</div>
+					<h4>Landscape Maintenance</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam nibh.</p>
+					<a href="#" class="btn btn-default btn-block">Learn More</a>
+				</div>
 			</div>
 			<div class="col-12 col-lg-4">
-				<h3>Service 2</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam nibh.</p>
-				<a href="#" class="btn btn-default btn-block">Learn More</a>
+				<div class="service">
+					<div class="icon">
+						<i class="icon-leaf"></i>
+					</div>
+					<h4>Landscape Construction</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam nibh.</p>
+					<a href="#" class="btn btn-default btn-block">Learn More</a>
+				</div>
 			</div>
 			<div class="col-12 col-lg-4">
-				<h3>Service 3</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam nibh.</p>
-				<a href="#" class="btn btn-default btn-block">Learn More</a>
+				<div class="service">
+					<div class="icon">
+						<i class="icon-pencil"></i>
+					</div>
+					<h4>Landscape <br/> Design</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam nibh.</p>
+					<a href="#" class="btn btn-default btn-block">Learn More</a>
+				</div>
 			</div>						
 		</div>
 	</div>

@@ -7,7 +7,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-12">
-				<a href="http://webninja.me">Example websites</a> by Webninja - &copy; Company Name
+				<a href="http://webninja.me">Landscape Websites</a> by Webninja - &copy; Nottinghill Landscaping
 			</div>
 			<section class="social-footer">
 				<div class="col-12 ">

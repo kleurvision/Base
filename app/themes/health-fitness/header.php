@@ -57,20 +57,6 @@
 					<!-- Display Nav -->
 					<div class="collapse navbar-collapse navbar-responsive-collapse">
 						<?php app_nav('1'); ?>
-						<!-- <ul class="nav navbar-nav">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
-								<ul class="dropdown-menu">
-									<li><a href="">Landscape Design</a></li>
-									<li><a href="">Landscape Construction</a></li>
-									<li><a href="">Landscape Maintenance</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					-->
 					</div>
 				</div>
 			</div>

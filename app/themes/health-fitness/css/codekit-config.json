@@ -26,17 +26,14 @@
       "fileType" : 2,
       "debugStyle" : 0
     },
-    "\/screen.sass" : {
+    "\/screen.css" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/screen.sass",
-      "outputStyle" : 3,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/screen.css",
-      "fileType" : 2,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/screen.css",
+      "outputAbbreviatedPath" : "\/No Output Path",
+      "fileType" : 16
     },
     "\/print.sass" : {
       "ignoreWasSetByUser" : 0,
@@ -50,14 +47,17 @@
       "fileType" : 2,
       "debugStyle" : 0
     },
-    "\/screen.css" : {
+    "\/screen.sass" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/screen.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
+      "inputAbbreviatedPath" : "\/screen.sass",
+      "outputStyle" : 3,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/screen.css",
+      "fileType" : 2,
+      "debugStyle" : 0
     }
   },
   "manualImportLinks" : [
@@ -75,7 +75,7 @@
     "hamlOutputFormat" : 2,
     "stylusAutoOutputPathReplace1" : "stylus",
     "lessStrictImports" : 0,
-    "sassAutoOutputPathStyle" : 1,
+    "sassAutoOutputPathStyle" : 0,
     "stylusAutoOutputPathReplace2" : "css",
     "lessAutoOutputPathStyle" : 1,
     "lessIECompatibility" : 1,
