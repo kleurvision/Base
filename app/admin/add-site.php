@@ -70,11 +70,40 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	
 } else { ?>
 
-<form action="" method="post">
-	<input type="text" name="new_site_name" placeholder="Name (no special characters)" />
-	<input type="text" name="new_site_url" placeholder="URL (no http://)" />
-	<input type="submit" value="Enter URL"/>
-</form>
+<div class="row" id="content">
+	<div class="col-12"> 
+		<form class="admin_form" id="add_site_form" action="" method="post">
+			<fieldset id="user_information">
+				<h4>User Information</h4>
+				<div class="row">
+					<div class="col-12">
+						<input id="existing_user_email" class="form-control" type="text" name="new_site_name" placeholder="User Email" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<input class="form-control" type="text" name="new_site_url" placeholder="URL (no http://)" />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset id="site_information">
+				<h4>New Site Information</h4>
+				<div class="row">
+					<div class="col-12">
+						<input class="form-control" type="text" name="new_site_name" placeholder="Name (no special characters)" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<input class="form-control" type="text" name="new_site_url" placeholder="URL (no http://)" />
+					</div>
+				</div>
+				
+				<input class="btn btn-primary form-control" type="submit" value="Add New Site"/>
+			</fieldset>
+		</form>
+	</div>
+</div>
 
 <? }
 

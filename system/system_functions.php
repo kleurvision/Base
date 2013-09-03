@@ -85,6 +85,7 @@ function app_head(){
 
 // Last ditch attempt to load in footer items
 function app_foot(){
+	
 	global $user;
 	if(isset($user)){	
 		if($user->get_role() == 'super' || $user->get_owner() == true){

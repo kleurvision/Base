@@ -236,6 +236,12 @@ function get_users(){
 <? } 
 
 
+function get_users_api(){
+	global $db;
+	$users 	= $db->get_results("SELECT id, fname, lname, email, role FROM app_users");
+	return $users;
+}
+
 function get_sidebar(){
 
 }
