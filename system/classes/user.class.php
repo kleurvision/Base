@@ -299,9 +299,7 @@ class User {
 				// Check to see if you're looking at your own profile
 				include ADMIN.'hud-user.php';		
 			} else {
-			
-				// No HUD access
-				echo "balls";
+
 			}
 	}
 	
