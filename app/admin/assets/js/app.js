@@ -26,3 +26,17 @@ $(function() {
 	});
 });
 
+
+// Typeahead for Exiting Site User Lookup by Email
+$(document).ready(function(){
+
+	$('input#existing_user_email').typeahead({
+
+    name: 'user',
+    valueKey: 'email',
+    prefetch: 'http://local.webninja.me/admin/api/app.users'
+
+	});
+	
+});
+

@@ -4,6 +4,9 @@
 ------------------------------
 ** Here we go */
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 // Initiate session
 session_start();
 
@@ -48,6 +51,9 @@ define( 'URL', $site_url);
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );
+
+// Load in the admin classes
+// require_once(ADMIN . '/classes/class_loader.php' );
 
 
 // Setup the user class
