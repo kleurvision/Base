@@ -23,7 +23,6 @@
 		 }?>
 	    <!-- Le styles -->
    	    <? app_head('1');?>
-	    <link href="<? get_theme_path('css');?>/css/screen.css" rel="stylesheet">
 
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	    <!--[if lt IE 9]>
@@ -44,7 +43,7 @@
 	    
 	</head>
 
-  <body>
+  <body data-spy="scroll">
   		<div class="navbar navbar-fixed-top">
   			<div class="container">
   				<div class="row">
@@ -86,9 +85,9 @@
   			<div class="jumbotron">
   				<div class="container">
   					<div class="row">
-  						<div class="col-lg-8">
+  						<div class="col-lg-8" id="hero-title">
   							<h1>Get a simple website tailored to your business</h1>
-  							<a data-toggle="modal" href="#contact-modal" class="btn btn-default btn-large">Get Started</a>
+  							<a data-toggle="modal" href="#contact-modal" class="btn btn-lg">Get Started</a>
   						</div>
   					</div>
   				</div>
@@ -101,6 +100,8 @@
   							<h4 class="modal-title">Get Started</h4>
   						</div>
   						<div class="modal-body">
+  							<p>Fill out the form below and one of our Ninjas will be in touch with you to being the process of building your new website.</p>
+  							<strong>Current Response Time: 22 hours </strong>
   							<!-- BEGIN Podio web form -->
 							<script src="https://podio.com/webforms/5088208/398552.js"></script>
 							<script type="text/javascript">
