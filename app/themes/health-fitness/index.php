@@ -62,21 +62,28 @@ echo $page->get_header();
 <section class="main-content">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-lg-8">
-				<h3>The Fitness Revolution</h3>
+			<div class="col-12 col-lg-6">
+				<h3>FITness</h3>
 				<p>Integer enim sociis proin tempor lectus! Etiam pellentesque porttitor? Dolor, dignissim! Enim. Porta ut! Natoque, ultrices, pellentesque augue. Sagittis, pulvinar montes. In, integer rhoncus duis augue! </p>
 				<p> Purus amet integer montes, vut a augue integer. Aliquam pulvinar placerat ac tristique in tincidunt auctor, augue porta montes proin integer scelerisque mus magnis platea magnis? Urna lectus, elit tincidunt pid augue! Odio rhoncus.</p>
 			</div>
-			<div class="col-12 col-lg-4">
-				<div class="service">
-					<div class="icon">
-						<i class="icon-envalope"></i>
-					</div>
-					<h4>Fitmotto in Your Inbox</h4>
-					<p>Signup for our monthly newsletter to recieve Fit and Health Tips</p>
-					<a href="#" class="btn btn-default btn-block">Signup</a>
-				</div>
-			</div>						
+			<div class="col-12 col-lg-6">
+				<h3>Nutrition</h3>
+				<p>Integer enim sociis proin tempor lectus! Etiam pellentesque porttitor? Dolor, dignissim! Enim. Porta ut! Natoque, ultrices, pellentesque augue. Sagittis, pulvinar montes. In, integer rhoncus duis augue! </p>
+				<p> Purus amet integer montes, vut a augue integer. Aliquam pulvinar placerat ac tristique in tincidunt auctor, augue porta montes proin integer scelerisque mus magnis platea magnis? Urna lectus, elit tincidunt pid augue! Odio rhoncus.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<h3>Mottovation</h3>
+				<p>Integer enim sociis proin tempor lectus! Etiam pellentesque porttitor? Dolor, dignissim! Enim. Porta ut! Natoque, ultrices, pellentesque augue. Sagittis, pulvinar montes. In, integer rhoncus duis augue! </p>
+				<p> Purus amet integer montes, vut a augue integer. Aliquam pulvinar placerat ac tristique in tincidunt auctor, augue porta montes proin integer scelerisque mus magnis platea magnis? Urna lectus, elit tincidunt pid augue! Odio rhoncus.</p>
+			</div>
+			<div class="col-12 col-lg-6">
+				<h3>TRX</h3>
+				<p>Integer enim sociis proin tempor lectus! Etiam pellentesque porttitor? Dolor, dignissim! Enim. Porta ut! Natoque, ultrices, pellentesque augue. Sagittis, pulvinar montes. In, integer rhoncus duis augue! </p>
+				<p> Purus amet integer montes, vut a augue integer. Aliquam pulvinar placerat ac tristique in tincidunt auctor, augue porta montes proin integer scelerisque mus magnis platea magnis? Urna lectus, elit tincidunt pid augue! Odio rhoncus.</p>
+			</div>					
 		</div>
 	</div>
 </section>
