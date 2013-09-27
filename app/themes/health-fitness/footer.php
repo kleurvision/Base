@@ -7,14 +7,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-6">
-				<a href="http://webninja.me">Landscape Websites</a> by Webninja - &copy; Nottinghill Landscaping
+				<a href="http://webninja.me">Fitness Websites</a> by Webninja - &copy; Fit Motto
 			</div>
 			<div class="col-12 col-lg-6">
 				<section class="social-footer">
 					<div class="col-12 ">
 						<ul class="social-links list-unstyled list-inline">
 							<li>
-								<a href="#">
+								<a href="http://www.facebook.com/FitMotto">
 									<span class="icon-stack">
 										<i class="icon-circle icon-stack-base"></i>
 										<i class='icon-facebook icon-light'></i>
@@ -22,7 +22,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.twitter.com/FitMotto">
 									<span class="icon-stack">
 										<i class="icon-circle icon-stack-base"></i>
 										<i class='icon-twitter icon-light'></i>
@@ -30,10 +30,10 @@
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="https://plus.google.com/108352986588769841661/posts">
 									<span class="icon-stack">
 										<i class="icon-circle icon-stack-base"></i>
-										<i class='icon-linkedin icon-light'></i>
+										<i class='icon-google-plus-sign icon-light'></i>
 									</span>
 								</a>
 							</li>		
