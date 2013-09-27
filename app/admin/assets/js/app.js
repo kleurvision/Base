@@ -38,5 +38,61 @@ $(document).ready(function(){
 
 	});
 	
+	// Bootstrap Carousel
+	$('.carousel').carousel()
+
+
+	$('#loginTab a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	});
+
+
+	$('#bio-begin,#bio-edit').click(function (e) {
+		e.preventDefault()
+		$('#plan').css('position', 'absolute'),
+		$('#plan').animate({
+			right: "-870px"
+		}, 1000)
+		$('#bio-questions').delay(500).fadeIn('slow')
+
+	});
+
+	$('#about-begin,#about-edit').click(function (e) {
+		e.preventDefault()
+		$('#plan').css('position', 'absolute'),
+		$('#plan').animate({
+			right: "-870px"
+		}, 1000)
+		$('#about-questions').delay(500).fadeIn('slow')
+	});
+
+	$('#brand-begin,#brand-edit').click(function (e) {
+		e.preventDefault()
+		$('#plan').css('position', 'absolute'),
+		$('#plan').animate({
+			right: "-870px"
+		}, 1000)
+		$('#brand-questions').delay(500).fadeIn('slow')
+	});
+
+
+
+	$('.save').click(function (e) {
+	e.preventDefault()
+	$('.question-batch').fadeOut('slow')
+	$('#plan').animate({
+		right: "0px"
+	}, {
+		duration: 1000, 
+	}, {
+		complete: function() {
+			$('#plan').after.css('position', 'relative')
+		}
+	}
+	)
+
 });
 
+
+});

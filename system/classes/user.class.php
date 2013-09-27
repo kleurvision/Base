@@ -88,7 +88,14 @@ class User {
 					$_SESSION['ROLE']		= $user->role;
 					$_SESSION['SESSION_ID'] = $user_session;
 					
-					header("location:".URL .'admin'); 
+					$sitebrief = "". URL ."/admin/site-brief";
+					$currentpage = URL.$_SERVER['REQUEST_URI'];
+					if($sitebrief==$currentpage) {
+						header("location:". URL .'admin/site-brief'); 
+					} else {
+						header("location:". URL .'admin'); 
+					}
+
 					
 				} else { ?>
 					 <div class="alert">
@@ -109,10 +116,10 @@ class User {
 		<fieldset id="user_login_fields">
 			<form role="form" id="login_form" action="" method="post">
 				<div class="form-group">
-					<input class="form-control" id="exampleInputEmail" type="text" name="login_user" placeholder="email">
+					<input class="form-control" id="exampleInputEmail" type="text" name="login_user" placeholder="Email">
 				</div>
 				<div class="form-group">
-					<input class="form-control" id="exampleInputPassword" type="password" name="login_password" placeholder="password">
+					<input class="form-control" id="exampleInputPassword" type="password" name="login_password" placeholder="Password">
 				</div>
 				<div class="form-group">
 					<input class="btn btn-primary form-control pull-right" type="submit" name="login_form_submit" value="Login"/>
@@ -137,17 +144,17 @@ class User {
 						
 			$role = 1;
 			$email		= stripslashes($_POST['reg_user']);
-			$bio		= stripslashes($_POST['bio']);
-			$addr1		= stripslashes($_POST['addr1']);
-			$addr2		= stripslashes($_POST['addr2']);
-			$phone		= stripslashes($_POST['phone']);
-			$postal		= stripslashes($_POST['postal']);
-			$city		= stripslashes($_POST['city']);
-			$province	= stripslashes($_POST['province']);
-			$country	= stripslashes($_POST['country']);
+			//$bio		= stripslashes($_POST['bio']);
+			//$addr1		= stripslashes($_POST['addr1']);
+			//$addr2		= stripslashes($_POST['addr2']);
+			//$phone		= stripslashes($_POST['phone']);
+			//$postal		= stripslashes($_POST['postal']);
+			//$city		= stripslashes($_POST['city']);
+			//$province	= stripslashes($_POST['province']);
+			//$country	= stripslashes($_POST['country']);
 			$fname		= stripslashes($_POST['fname']);
 			$lname		= stripslashes($_POST['lname']);
-			$mobile		= stripslashes($_POST['mobile']);
+			//$mobile		= stripslashes($_POST['mobile']);
 			
 
 			if($email == ''){
@@ -202,13 +209,10 @@ class User {
 
 		} 
 		
-		// Check to see if user it logged 
-		// Why are we checking for this ???
-		//if(!isset($this->user_id)){?>
+		?>
 		
 			<form class="admin_form" role="form" id="registration_form" action="" method="post">
 				<fieldset id="essential_information">
-					<h4>Essential Information</h4>
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control" type="text" name="fname" placeholder="First Name">
@@ -233,8 +237,9 @@ class User {
 					</div>
 				</fieldset>
 				<br/>
+				<!-- 
 				<fieldset id="additional_information">
-					<h4>Additional Information</h4>
+					<h4>Contact Information</h4>
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control" type="text" name="phone" placeholder="Phone">
@@ -270,14 +275,15 @@ class User {
 							<textarea class="form-control" rows="6" type="text" name="bio" placeholder="Notes"></textarea>
 						</div>
 					</div>
+					-->
 					<!-- Submit -->
 					<div clas-"form-group">
-						<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Add User"/>
+						<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Create Account"/>
 					</div>
 				</fieldset>
 			</form> 
 		
-		<?// }
+		<?
 	}
 	
 
