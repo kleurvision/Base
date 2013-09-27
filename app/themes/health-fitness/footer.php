@@ -28,7 +28,7 @@
 										<i class='icon-twitter icon-light'></i>
 									</span>
 								</a>
-							</li>
+							</li> 
 							<li>
 								<a href="https://plus.google.com/108352986588769841661/posts">
 									<span class="icon-stack">
