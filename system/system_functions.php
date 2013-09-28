@@ -34,7 +34,7 @@ function app_head(){
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/hud.css'.'" rel="stylesheet">'. "\r\n";
-		} elseif ($user->get_role() == 'user'){
+		} elseif ($user->get_role() == 'user' && $user->get_owner() == true){
 			// Load in Hud CSS
 			echo '<link href="'.URL.'app/admin/assets/css/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
 			echo '<link href="'.URL.'app/admin/assets/css/file_input.css'.'" rel="stylesheet">'. "\r\n";			
@@ -96,7 +96,7 @@ function app_foot(){
 			echo '<script src="'.URL.'app/admin/assets/js/bootstrap.tooltips.min.js"></script>'. "\r\n";
 			echo '<script src="'.URL.'system/library/ckeditor/ckeditor.js"></script>'. "\r\n";	
 			echo '<script src="'.URL.'app/admin/assets/js/hud.js"></script>'. "\r\n";
-		} elseif ($user->get_role() == 'user'){
+		} elseif ($user->get_role() == 'user' && $user->get_owner() == true){
 			// Load in Hud Scripts
 			echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>' . "\r\n";
 			echo '<script src="'.URL.'app/admin/assets/js/jquery.nestable.js"></script>'. "\r\n";

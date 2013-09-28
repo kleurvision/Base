@@ -2,6 +2,20 @@
 ------------------------------
 ------------------------------
 ** Here we go */
+$pageTemplate	= "";
+
+// Call In Page Templates
+$template[]= 'default';
+
+$files = directoryToArray(THEME, false);
+foreach ($files as $file) {
+	$template_contents = file_get_contents($file);
+	if (preg_match_all("/Template Name:(.*)\n/siU",$template_contents,$template_name)){						
+		$template_name = trim($template_name[1][0]);
+		$template[] = strtolower($template_name);
+	}
+}
+
 ?>
 <div class="hud-modal-header">
     <button type="button" class="hud-close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -10,12 +24,62 @@
 
 <div class="hud-modal-body">
 	<form id="add-page" method="post" action="<?= URL.ADMIN.'actions/add-page.php';?>">
-		<label>Title:</label>
-		<input type="text" value="" name="page-title">
-		<textarea name="page-content" id="add-page-content" rows="5" ></textarea>
-		<div class="form-actions">
-			<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
-			<input class="btn btn-primary" type="submit" name="Add Page" value="Add Page">
+		<div class="hud-form-group">
+			<label>Page Title:</label>
+			<input type="text" value="" class="hud-form-control" name="page-title">
+		</div>
+		<div class="hud-form-group">
+			<label>Page Content:</label>
+			<textarea name="page-content" id="add-page-content" rows="5" ></textarea>
+		</div>
+		<div class="hud-row">
+			<div class="hud-col-12 hud-col-lg-8">
+				<div class="hud-well">
+					<h4>Search Enginge Optimization Options</h4>
+					<div class="hud-form-group">
+						<label>Optimized Page Title:</label>
+						<input type="text" class="hud-form-control" name="edit-meta-title">
+					</div>
+
+					<div class="hud-form-group">
+						<label>Optimized Page URL:</label>
+						<input type="text" class="hud-form-control" name="edit-pagename">
+					</div>
+
+					<div class="hud-form-group">
+						<label>Meta Description:</label>
+						<input type="text" class="hud-form-control" name="edit-meta-desc">
+					</div>
+
+					<div class="hud-form-group">
+						<label>Meta Keywords:</label>
+						<input type="text" class="hud-form-control" name="edit-keywords">			
+					</div>
+				</div>
+			</div>
+			<div class="hud-col-12 hud-col-lg-4">
+				<div class="hud-well">
+					<h4>Page Options</h4>
+					<label>Template:</label>
+					<select class="hud-form-control" name="template">
+						<? foreach($template as $option){?>
+						<option value="<?= $option;?>" <? if($pageTemplate == $option){echo "selected";}?>><?= $option;?></option>
+						<? } ?>
+					</select> 
+					<div class="hud-form-group">
+						<label>Author:</label>
+						<input type="text" class="hud-form-control" name="edit-author">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hud-row">
+			<div class="col-12">
+				<div class="form-actions pull-right">
+					<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
+					<input class="hud-btn hud-btn-primary btn-lg" type="submit" name="Add Page" value="Add Page">
+				</div>
+			</div>
 		</div>
 	</form>
 </div>

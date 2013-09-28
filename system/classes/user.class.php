@@ -37,7 +37,7 @@ class User {
 	function get_owner(){
 		if($this->user != 'undefined'){
 			$owner = $this->db->get_var("SELECT count(*) FROM app_sites WHERE id = '".SITE_ID."' && site_users = '".$this->user->id."'");
-			if($owner = '1'){
+			if($owner == '1'){
 				return true;
 			}
 		}
@@ -303,7 +303,7 @@ class User {
 			} else if($this->get_owner() == true ){
 				
 				// Check to see if you're looking at your own profile
-				include ADMIN.'hud-user.php';		
+				include ADMIN.'hud.php';		
 			} else {
 
 			}

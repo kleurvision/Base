@@ -164,6 +164,7 @@ function get_all_sites(){
 function get_sites(){
 	global $db;
 	$sites = $db->get_results("SELECT id, site_url, site_name, site_status FROM app_sites");
+	
 ?>
 <table class="table sites-table">
 		<thead>
@@ -208,7 +209,7 @@ function get_user_role($level){
 function get_users(){
 	global $db;
 	$users 	= $db->get_results("SELECT id, fname, lname, email, role FROM app_users");
-	 
+
 ?>
 <table class="table sites-table">
 	<thead>

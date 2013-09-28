@@ -51,8 +51,7 @@
 	
 	<!-- Load Admin Bar -->
 	<? 
-	global $db;
-	$user = new User($db);
+	global $user;
 	$hud = $user->load_hud();
 	echo $hud;
 	?>

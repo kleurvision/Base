@@ -24,8 +24,6 @@
 								pagemeta_keywords = '$pagekeywords',
 								pagetemplate =	'$template'
 							WHERE id = $pageID");
-	
-
 	if($editPage) {
 		 header('Location:'.URL.$pageslug);
 	}
