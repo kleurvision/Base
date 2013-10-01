@@ -81,50 +81,62 @@ $form->render();
 
 	<div class="hud-form-group">
 		<label for="pagecontent" >Page Content:</label>
-		<textarea id="edit-page-content" class="hud-form-control" name="edit-content" rows="5" ><?= $pageContent;?></textarea>
+		<textarea id="edit-page-content" name="edit-content" rows="1" ><?= $pageContent;?></textarea>
 	</div>
 
-	<div class="hud-row">
-		<div class="hud-col-12 hud-col-lg-8">
-			<div class="hud-well">
-				<h4>Search Enginge Optimization Options</h4>
-				<div class="hud-form-group">
-					<label>Optimized Page Title:</label>
-					<input type="text" class="hud-form-control" value="<?= $pagemeta_title;?>" name="edit-meta-title">
-				</div>
+	<div class="hud-panel-heading">
+		<h4 class="hud-panel-title">
+			<a class="hud-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+				Page Options<i class="icon-plus pull-right"></i>
 
-				<div class="hud-form-group">
-					<label>Optimized Page URL:</label>
-					<input type="text" class="hud-form-control" value="<?= $pageslug;?>" name="edit-pagename">
-				</div>
+			</a>
+		</h4>
+	</div>
 
-				<div class="hud-form-group">
-					<label>Meta Description:</label>
-					<input type="text" class="hud-form-control" value="<?= $pagemeta_desc;?>" name="edit-meta-desc">
-				</div>
+	<div id="collapseOne" class="hud-panel-collapse collapse">
+		<div class="hud-row">
+			<div class="hud-col-12 hud-col-lg-8">
+				<div class="hud-well">
+					<h4>Search Enginge Optimization</h4>
+					<div class="hud-form-group">
+						<label>Optimized Page Title:</label>
+						<input type="text" class="hud-form-control" value="<?= $pagemeta_title;?>" name="edit-meta-title">
+					</div>
 
-				<div class="hud-form-group">
-					<label>Meta Keywords:</label>
-					<input type="text" class="hud-form-control" value="<?= $pagekeywords;?>" name="edit-keywords">			
+					<div class="hud-form-group">
+						<label>Optimized Page URL:</label>
+						<input type="text" class="hud-form-control" value="<?= $pageslug;?>" name="edit-pagename">
+					</div>
+
+					<div class="hud-form-group">
+						<label>Meta Description:</label>
+						<input type="text" class="hud-form-control" value="<?= $pagemeta_desc;?>" name="edit-meta-desc">
+					</div>
+
+					<div class="hud-form-group">
+						<label>Meta Keywords:</label>
+						<input type="text" class="hud-form-control" value="<?= $pagekeywords;?>" name="edit-keywords">			
+					</div>
+				</div>
+			</div>
+			<div class="hud-col-12 hud-col-lg-4">
+				<div class="hud-well">
+					<h4>Layout</h4>
+					<label>Template:</label>
+					<select class="hud-form-control" name="template">
+						<? foreach($template as $option){?>
+						<option value="<?= $option;?>" <? if($pageTemplate == $option){echo "selected";}?>><?= $option;?></option>
+						<? } ?>
+					</select> 
+					<!--<div class="hud-form-group">
+						<label>Author:</label>
+						<input type="text" class="hud-form-control" value="<?= $pageauthor;?>" name="edit-author">
+					</div>-->
 				</div>
 			</div>
 		</div>
-		<div class="hud-col-12 hud-col-lg-4">
-			<div class="hud-well">
-				<h4>Page Options</h4>
-				<label>Template:</label>
-				<select class="hud-form-control" name="template">
-					<? foreach($template as $option){?>
-					<option value="<?= $option;?>" <? if($pageTemplate == $option){echo "selected";}?>><?= $option;?></option>
-					<? } ?>
-				</select> 
-				<div class="hud-form-group">
-					<label>Author:</label>
-					<input type="text" class="hud-form-control" value="<?= $pageauthor;?>" name="edit-author">
-				</div>
-			</div>
-		</div>
 	</div>
+
 	<div class="hud-row">
 		<div class="col-12">
 			<div class="form-actions pull-right">

@@ -38,6 +38,7 @@ if (file_exists(dirname(ROOT).'/config/config.php')) {
 	echo 'Config not found at '.ROOT.'/config/config.php<br/>';
 };
 
+
 // URL -  Edit root URL
 $site_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
 
@@ -48,6 +49,58 @@ if(isset($_GET['site'])){
 
 // Define parent URL
 define( 'URL', $site_url);
+
+
+/* Check to see if the site is being previewed or if looking
+through the domain */
+if(isset($sitename)){
+
+	// When looking through preview
+	$site = $db->get_row("SELECT * FROM app_sites WHERE site_name = '$sitename'");
+	$preview = true;
+	
+	// Define parent preview nav path
+	define( 'NAV', URL.'preview/'.$sitename.'/');
+	
+} else {
+
+	// When loading site domain
+	$site = $db->get_row("SELECT * FROM app_sites WHERE site_url = '$site_url'");
+	$preview = false;
+	
+	// Define parent nav path
+	define( 'NAV', URL);
+}
+	
+if(isset($site)){
+	
+	// Define SITE ID
+	define('SITE_ID', $site->id);
+	
+	// Set site theme
+	$theme 	= $site->site_theme;
+	
+	if($theme != ''){
+		
+		// If theme is set...
+		define( 'THEME', APP.'/themes/'.$theme);
+	
+	} else {
+		
+		// Use setup them
+		define( 'THEME', APP.'/themes/setup' );	
+	}
+	
+	// Define the Site folder
+	define('SITE', APP.'/sites/'.SITE_ID);
+	
+	// echo SITE;
+	
+} else {
+
+	echo 'No site';
+
+}
 
 // Load in the classes
 require_once(SYSTEM . '/system_classes.php' );

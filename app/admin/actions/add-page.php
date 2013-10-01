@@ -6,13 +6,15 @@
 	$pageName 	= to_permalink($title);
 	$pageslug		= to_permalink($_POST['edit-pagename']);
 	$pagemeta_title = $_POST['edit-meta-title'];
-	$pageauthor		= $_POST['edit-author'];
+	//$pageauthor		= $_POST['edit-author'];
 	$pagemeta_desc	= $db->escape($_POST['edit-meta-desc']);
 	$pagekeywords	= $_POST['edit-keywords'];
 	$template		= $_POST['template'];
 
-	$createPage = $db->query("INSERT INTO site_".$site_id."_pages (pagename, pagetitle, pagecontent, pagemeta_title, pageauthor, pagemeta_desc, pagemeta_keywords, pagetemplate ) 
-		VALUES ('$pageName','$title','$content','$pagemeta_title','$pageauthor','$pagemeta_desc','$pagekeywords','$template')");	
+	$createPage = $db->query("INSERT INTO site_".$site_id."_pages (pagename, pagetitle, pagecontent, pagemeta_title, pagemeta_desc, pagemeta_keywords, pagetemplate ) 
+		VALUES ('$pageName','$title','$content','$pagemeta_title','$pagemeta_desc','$pagekeywords','$template')");	
+	
+
 	if($createPage) {
 		 header('Location:'.URL.$pageName);
 	}

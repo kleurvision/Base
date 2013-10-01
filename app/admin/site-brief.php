@@ -168,6 +168,13 @@
 								</select>
 								<p class="help-block"></p>
 							</div>
+							<!-- Existing Website input-->
+							<div class="form-group">
+								<label>Existing Website URL</label>
+								<input class="form-control" id="tagline" name="full-name" type="text" placeholder="eg. http://websiteurl.com"
+								class="input-xlarge">
+								<p class="help-block">If you already have a domain name regierested enter it here.</p>
+							</div>							
 							<h3 class="page-header">Business Contact Information</h3>
 							<div class="row">
 								<div class="col-12">

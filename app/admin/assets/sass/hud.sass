@@ -6,6 +6,7 @@
 @import 'hud-form'
 @import 'hud-button'
 @import 'hud-closer'
+@import 'hud-panel'
 
 // Variables
 /////////////////////////////////////////
@@ -17,7 +18,7 @@ $darkestgrey:	#293541
 $grey:			#777c80
 $darkgrey:		#666666
 $lightgrey:		#e0e0e0
-$lightestgrey:	#f2f3f8
+$lightestgrey:	#f2f2f2
 
 
 // Global
@@ -51,8 +52,8 @@ body
 	min-height: 20px
 	padding: 19px
 	margin-bottom: 20px
-	background-color: $lightestgrey
-	border: 1px solid $lightgrey
+	background: $lightgrey
+	border: 1px solid darken($lightgrey, 5%)
 	border-radius: 4px
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
@@ -65,6 +66,9 @@ body
 .hud-row
 	margin-right: -15px
 	margin-left: -15px
+
+.clear
+	clear: both
 
 // Buttons
 ///////////////////////////////////////////
@@ -270,8 +274,26 @@ i
 
 .hud_stage
 	padding: 10px
-	color: #fff
+	color: $white
 
+
+// Hud Modal - Panels (Accordions)
+///////////////////////////////////////////////
+.hud-panel-heading
+	padding: 0px
+	margin-bottom: 20px
+
+.hud-panel-title
+	a
+		display: block
+		padding: 20px
+		background: $lightgrey
+		color: $grey
+		&:hover
+			background: darken($lightgrey, 3%)
+			color: $grey
+.form-actions
+	margin-right: 15px
 // Edit Nav
 ///////////////////////////////////////////////
 
@@ -284,7 +306,8 @@ i
 	list-style: none
 	font-size: 13px
 	line-height: 20px
-
+	margin-bottom: 10px
+	
 .dd-list
 	display: block
 	position: relative
@@ -445,43 +468,54 @@ i
 
 .dd3-content
 	display: block
-	height: 30px
+	height: 40px
 	margin: 5px 0
-	padding: 5px 10px 5px 40px
-	color: #333
+	padding: 10px 10px 5px 55px
+	color: $grey
 	text-decoration: none
 	font-weight: bold
 	border: 1px solid #ccc
-	background: #fafafa
-	background: -webkit-linear-gradient(top, #fafafa 0%, #eeeeee 100%)
-	background: -moz-linear-gradient(top, #fafafa 0%, #eeeeee 100%)
-	background: linear-gradient(top, #fafafa 0%, #eeeeee 100%)
+	background: $lightestgrey
+	//background: -webkit-linear-gradient(top, #fafafa 0%, #eeeeee 100%)
+	//background: -moz-linear-gradient(top, #fafafa 0%, #eeeeee 100%)
+	//background: linear-gradient(top, #fafafa 0%, #eeeeee 100%)
 	-webkit-border-radius: 3px
 	border-radius: 3px
 	box-sizing: border-box
 	-moz-box-sizing: border-box
-	&:hover
+	//&:hover
 		color: $green
 		background: #fff
+	i
+		float: right
+		&:hover
+			color: $green
+			cursor: pointer
 
 .dd-dragel > .dd3-item > .dd3-content
 	margin: 0
 
 .dd3-item > button
-	margin-left: 30px
+	margin-left: 40px
+	height: 33px
+	width: 35px
+	&:hover
+		color: $green
 
 .dd3-handle
 	position: absolute
 	margin: 0
 	left: 0
 	top: 0
-	cursor: pointer
-	width: 30px
+	cursor: move
+	width: 40px
+	height: 40px
 	text-indent: 100%
 	white-space: nowrap
 	overflow: hidden
 	border: 1px solid #aaa
 	background: #ddd
+	padding: 10px 10px
 	background: -webkit-linear-gradient(top, #dddddd 0%, #bbbbbb 100%)
 	background: -moz-linear-gradient(top, #dddddd 0%, #bbbbbb 100%)
 	background: linear-gradient(top, #dddddd 0%, #bbbbbb 100%)
@@ -492,12 +526,12 @@ i
 		display: block
 		position: absolute
 		left: 0
-		top: 3px
+		top: 5px
 		width: 100%
 		text-align: center
 		text-indent: 0
 		color: #fff
-		font-size: 20px
+		font-size: 25px
 		font-weight: normal
 	&:hover
 		background: #ddd
