@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	// Fade Ins
-	$('#hero-title').show().addClass('animated fadeInLeft');
 
 	/*
 	$('.btn').hover(

@@ -2,6 +2,7 @@
 	//Load Styles
 	echo '<link href="'.URL.APP.'/assets/css/bootstrap-3.0.0/bootstrap.min.css'.'" rel="stylesheet">'. "\r\n";			
 	echo '<link href="'.URL.APP.'/assets/css/font-awesome-3.2.1/font-awesome.min.css'.'" rel="stylesheet">'. "\r\n";			
+	echo '<link href="'.URL.APP.'/assets/css/animate/animate.min.css'.'" rel="stylesheet">'. "\r\n";			
 	echo '<link href="'.URL.THEME.'/css/screen.css'.'" rel="stylesheet">'. "\r\n";			
 
 	//Load Scripts

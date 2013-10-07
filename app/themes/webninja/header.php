@@ -85,7 +85,7 @@
   			<div class="jumbotron">
   				<div class="container">
   					<div class="row">
-  						<div class="col-lg-8" id="hero-title">
+  						<div class="col-lg-8 animated fadeInLeft" id="hero-title">
   							<h1>Get a simple website tailored to your business</h1>
   							<a data-toggle="modal" href="#contact-modal" class="btn btn-lg">Get Started</a>
   						</div>

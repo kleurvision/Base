@@ -12,7 +12,7 @@ echo $page->get_header();
 				<p>
 					Webninja is perfect for the small business owner who wears many hats, but doesn’t want to wear them all.<br/>
 					We handle the design, development, hosting and setup. You help us with the content. 
-				</p>3
+				</p>
 			</div>
 		</div>
 	</div>
