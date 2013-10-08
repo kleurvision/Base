@@ -1,6 +1,6 @@
 <?
 $pagetitle = "Add Site";
-include "header.php";
+
 
  /* Add URL to VHOSTS File */
 
@@ -13,6 +13,9 @@ include "header.php";
 // Update VHOSTS File
 if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	
+	// Load the primary 
+	require('bootstrap-admin.php');
+
 	// Set the new site name (sanitize special characters and make lowercase
 	$site_name = strtolower($_POST['new_site_name']);
 	$sitename = str_replace(' ', '_', $site_name);
@@ -36,25 +39,58 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 		// Add new site to app_options DB
 		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, site_status, activation_date) VALUES ('$newhostdir', '$sitename', '$sitestatus', '$sitedate')");
 		
-		// Get new site ID
+		// Get the new auto-incremented site ID from the database
 		$site_id = mysql_insert_id();
 		
-		// If new site is registered without issue, create the databases
+		// If new site is registered without issue, create the database tables required to load in the new website
 		if($add_site){
 						
 			// Add pages table
-			$db->query("CREATE TABLE site_".$site_id."_pages (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, pagename VARCHAR(50) DEFAULT NULL, pagetitle VARCHAR(100) DEFAULT NULL, pagecontent LONGTEXT, pageauthor INTEGER(11) DEFAULT NULL, pagemeta_title VARCHAR(100) NOT NULL, pagemeta_desc VARCHAR(255) DEFAULT NULL, pagemeta_keywords VARCHAR(255) DEFAULT NULL, pagetemplate VARCHAR(100) DEFAULT NULL, pageparent INTEGER(11) DEFAULT NULL, pagedate INTEGER(11) DEFAULT NULL, pagepriority INTEGER(11) DEFAULT NULL, pagechangefreq VARCHAR(100) DEFAULT NULL); ");			
+			$table_pages 	= add_pages_table($site_id);			
+			
 			// Add settings table
-			$db->query("CREATE TABLE site_".$site_id."_settings (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, navigation LONGTEXT);");
+			$table_settings = add_settings_table($site_id);
 			
 			// Add hero table
-			$db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroimg LONGTEXT);"); 
+			$table_hero 	= add_hero_table($site_id); 
 			
-			// Make Directory
-			make_site_dir($site_id);
 			
-			// If the tables are created without issue, fire the VHOST update and redirect to admin panel
-			update_vhosts($_POST['new_site_url']);
+			// Table checks
+			if($table_pages == false){
+				$table_check['pages'] = 'error adding pages table';
+			}
+			
+			if($table_settings == false){
+				$table_check['settings'] = 'error adding settings table';
+			}
+			
+			if($table_hero == false){
+				$table_check['hero'] = 'error adding hero table';
+			}
+			
+			// If there are any errors writting the tables, let the administrators know where the issue is
+			if($table_check != ''){
+				foreach($table_check as $key => $value){
+					echo '<span>Error: '.$value.'</span><br/>';
+				};
+				
+			} else {
+			
+				// If there are no errors adding the site...
+				// Make a site directory in the "app/sites" folder
+				make_site_dir($site_id);
+				
+				// Fire the VHOST update to register the domain name to the server and redirect to "admin/sites" panel
+				$update_v = update_vhosts($_POST['new_site_url']);
+				
+				if($update_v != ''){
+					
+					// If update to DB was successful, redirect to the site page with a success message and hash code
+					header('location: '.URL.'admin/sites?msg='.urlencode('Site successfully added').'&type=success&hash='.$update_v);
+					exit;
+				}
+			
+			}
 			
 		} else {
 			
@@ -64,11 +100,15 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 			
 	} else {
 	
-		echo 'Site already registered in system';
-	
+		// If update to DB was successful, redirect to the site page with a success message and hash code
+		header('location: '.URL.'admin/sites?msg='.urlencode('Site already registered in system').'&type=err');
+		exit;	
 	}	
 	
-} else { ?>
+} else { 
+
+include "header.php";	
+?>
 
 <div class="row" id="content">
 	<div class="col-12"> 
@@ -77,12 +117,7 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 				<h4>User Information</h4>
 				<div class="row">
 					<div class="col-12">
-						<input id="existing_user_email" class="form-control" type="text" name="new_site_name" placeholder="User Email" />
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<input class="form-control" type="text" name="new_site_url" placeholder="URL (no http://)" />
+						<input id="existing_user_email" class="form-control input-block-level" type="text" name="new_site_name" placeholder="User Email" />
 					</div>
 				</div>
 			</fieldset>

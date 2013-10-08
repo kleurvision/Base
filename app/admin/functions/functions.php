@@ -75,9 +75,8 @@ function update_vhosts($newhostdir){
 	$url_encode = md5($newhostdir);
 	
 	/* Redirect on complete */
-	header("location:".URL."admin/?msg=success&url=".$url_encode);
-	exit;
 	
+	return($url_encode);	
 }
 
 // Make necessary directory for new site and copy in files
@@ -159,6 +158,16 @@ function get_all_sites(){
 		</tbody>
 	</table>
 <? } 
+
+
+// Get site info
+function get_site_info($site_id){
+	global $db;
+	$sites = $db->get_results("SELECT * FROM app_sites WHERE id = '$site_id'");
+	if(isset($sites)){
+		return $sites;
+	}
+}
 
 // Get sites and list as table
 function get_sites(){
@@ -270,4 +279,25 @@ function get_admin_nav(){
 				<li><a href="users"><i class="icon-group"></i>Users</a></li>
 		<? }
 	}
+}
+
+function add_pages_table($site_id){
+	global $db;
+	$pages = $db->query("CREATE TABLE site_".$site_id."_pages (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, pagename VARCHAR(50) DEFAULT NULL, pagetitle VARCHAR(100) DEFAULT NULL, pagecontent LONGTEXT, pageauthor INTEGER(11) DEFAULT NULL, pagemeta_title VARCHAR(100) NOT NULL, pagemeta_desc VARCHAR(255) DEFAULT NULL, pagemeta_keywords VARCHAR(255) DEFAULT NULL, pagetemplate VARCHAR(100) DEFAULT NULL, pageparent INTEGER(11) DEFAULT NULL, pagedate INTEGER(11) DEFAULT NULL, pagepriority INTEGER(11) DEFAULT NULL, pagechangefreq VARCHAR(100) DEFAULT NULL); ");
+
+	return true;
+}
+
+function add_settings_table($site_id){
+	global $db;
+	$settings = $db->query("CREATE TABLE site_".$site_id."_settings (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, navigation LONGTEXT);");
+	
+	return true;
+}
+
+function add_hero_table($site_id){
+	global $db;
+	$hero = $db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroimg LONGTEXT);");
+	
+	return true;
 }

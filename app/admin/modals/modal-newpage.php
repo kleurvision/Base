@@ -87,6 +87,7 @@ foreach ($files as $file) {
 			<div class="col-12">
 				<div class="form-actions pull-right">
 					<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
+					<input type="hidden" value="<?= NAV;?>" name="redirect">
 					<input class="hud-btn hud-btn-primary btn-lg" type="submit" name="Add Page" value="Add Page">
 				</div>
 			</div>
