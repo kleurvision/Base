@@ -141,16 +141,14 @@ function get_all_sites(){
 							</ul>
 						</div>
 					</td>					
-					<td><a href="<?= $site->site_url;?>"><?= $site->site_url;?></a></td>
+					<td>
+						<a href="<?= $site->site_url;?>"><?= $site->site_url;?></a>
+					</td>
 					<td><a href="">Tommy Hammer</a></td>
 					<td>
 						<ul class="list-inline pull-right">
-							<li><button class="btn btn-default btn-sm more-info" data-toggle="tooltip" title="More"><i class="icon-caret-down"></i></button></li>
-							<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
-								<?php 
-								if ($site->site_status == '1') { ?>
-									<li><a class="btn btn-primary btn-sm" href="">Setup</a></li>
-								<? }  ?>
+							<!--<li><button class="btn btn-default btn-sm more-info" data-toggle="tooltip" title="More"><i class="icon-caret-down"></i></button></li>-->
+							<!--<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>-->
 						</ul>
 					</td>
 				</tr>															
@@ -192,7 +190,7 @@ function get_sites(){
 							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
 							<?php 
 							if ($site->site_status == '1') { ?>
-								<li><a class="btn btn-primary btn-sm" href="">Preview</a></li>
+								<li><a href="<? APP ?>/preview/<?= $site->site_name; ?>" class="btn btn-primary btn-sm" href="">Preview</a></li>
 							<? } else { ?>
 								<li><a href="<?= $site->site_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 								<li><a class="btn btn-primary btn-sm" href="">Approve</a></li>
