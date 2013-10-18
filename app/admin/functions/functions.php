@@ -147,8 +147,11 @@ function get_all_sites(){
 					<td><a href="">Tommy Hammer</a></td>
 					<td>
 						<ul class="list-inline pull-right">
-							<!--<li><button class="btn btn-default btn-sm more-info" data-toggle="tooltip" title="More"><i class="icon-caret-down"></i></button></li>-->
-							<!--<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>-->
+							<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+							<?php 
+							if ($site->site_status == '1') { ?>
+								<li><a href="<? APP ?>/preview/<?= $site->site_name; ?>" class="btn btn-primary btn-sm" href="">Preview</a></li>
+							<? }?>
 						</ul>
 					</td>
 				</tr>															
