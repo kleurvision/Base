@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2013 at 10:26 PM
+-- Generation Time: Oct 19, 2013 at 10:43 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.3.10-1ubuntu3.7
 
@@ -149,7 +149,7 @@ INSERT INTO `app_sites` (`id`, `site_url`, `site_slug`, `site_name`, `site_theme
 DROP TABLE IF EXISTS `app_sites_status`;
 CREATE TABLE IF NOT EXISTS `app_sites_status` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(25) DEFAULT NULL,
+  `status_name` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `app_sites_status` (
 -- Dumping data for table `app_sites_status`
 --
 
-INSERT INTO `app_sites_status` (`id`, `name`) VALUES
+INSERT INTO `app_sites_status` (`id`, `status_name`) VALUES
 (1, 'New'),
 (2, 'Live'),
 (3, 'Inactive'),
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `app_user_sessions` (
   `session_time_on` varchar(100) DEFAULT NULL,
   `session_time_off` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `app_user_sessions`
@@ -295,7 +295,8 @@ INSERT INTO `app_user_sessions` (`id`, `user_id`, `user_session`, `session_statu
 (46, 2, 'f1c1bebaed8eb40b489694f77f3827a4', 0, '131019145514', NULL),
 (47, 2, 'b8111b4d7844d2eaece2c7098b3fc351', 0, '131019154910', NULL),
 (48, 2, '464b4f8268f8b0824928e971d99c982a', 0, '131019170136', NULL),
-(49, 2, '081caf1faa82ab34b453927421060e8d', 0, '131019221231', NULL);
+(49, 2, '081caf1faa82ab34b453927421060e8d', 0, '131019221231', NULL),
+(50, 2, 'afb27cd9c76f6f87a77e298c0e7b364d', 0, '131019224145', NULL);
 
 -- --------------------------------------------------------
 
