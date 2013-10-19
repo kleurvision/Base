@@ -150,8 +150,9 @@ function edit_site($site_id){
 			if($editSettings) {
 				 $_SESSION['message'] = '<div class="alert alert-success">Settings Saved<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
 			}
-		} else {
-			$_SESSION['message'] = '<div class="alert alert-danger">Please fill in the required fileds<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
+		 	else {
+				$_SESSION['message'] = '<div class="alert alert-danger">Please fill in the required fileds<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
+			}
 		}
 
 		?>
@@ -194,7 +195,7 @@ function edit_site($site_id){
 												$set_siteStatus = $site->site_status;
 												$set_siteId = $status->id;
 												?>
-												<option value='<?= $status->status_name; ?>' <?php if($set_siteStatus == $set_siteId){ echo('selected'); } ?> > <?= $status->status_name; ?></option>
+												<option value='<?= $status->id; ?>' <?php if($set_siteStatus == $set_siteId){ echo('selected'); } ?> > <?= $status->status_name; ?></option>
 											<? }?>
 										</select>
 									</div>
@@ -253,9 +254,9 @@ function get_all_sites(){
 							<div class="btn-group">
 								<?php 
 								if ($site->site_status == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
-								elseif ($site->site_status == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
-								elseif ($site->site_status == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>'; }
-								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Put Offline</button>'; }
+								elseif ($site->site_status == '2') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Live</button>'; }
+								elseif ($site->site_status == '3') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Inactive</button>'; }
+								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
 								?>
 								<ul class="dropdown-menu">
 									<li><a href="#">New</a></li>
