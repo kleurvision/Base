@@ -283,7 +283,7 @@ function get_admin_nav(){
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li>-->
 		<? } elseif ($user->get_role() == 'super'){ ?>
 				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
-				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
+				<li><a href="https://webninja1.zendesk.com/hc/en-us"><i class="icon-question-sign"></i>Support</a></li>
 				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
 				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
 				<li>

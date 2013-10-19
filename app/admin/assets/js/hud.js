@@ -68,6 +68,8 @@ $(function() {
 	    $('.hud-modal').modal('hide')
 	})
 
+	//$('.hud-dropdown').dropdown()
+
 });
 
 window.onload = function() {

@@ -12,16 +12,16 @@ global $user;
 		<div class="pull-right" id="hud_tools">
 			<div id="hud_menu_button"><i class="icon-reorder"></i></div>
 			<ul id="hud_menu">
-				<li>
-					<a href="#" id="hud_edit_trigger" class="hud_trigger"><i class="icon-pencil"></i>&nbsp;&nbsp;Edit</a>
-					<ul class="hud_sub_menu">
+				<li class="hud-dropdown">
+					<a href="#" id="drop1" role="button" data-toggle="dropdown" data-target="#" href="#"><i class="icon-pencil"></i>&nbsp;&nbsp;Edit</a>
+					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop1">
 						<li><a class="hud_btn trigger" href="#editpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn trigger" href="#editnavModalAdmin" data-toggle="modal">Navigation</a></li>
 					</ul>
 				</li>
-				<li>
-					<a href="#" id="hud_new_trigger" class="hud_trigger"><i class="icon-plus"></i>&nbsp;&nbsp;Add</a>
-					<ul class="hud_sub_menu">
+				<li class="hud-dropdown">
+					<a href="#" id="drop2" role="button" data-toggle="dropdown" data-target="#" href="#"><i class="icon-plus"></i>&nbsp;&nbsp;Add</a>
+					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop2">
 						<li><a class="hud_btn" href="#newpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
