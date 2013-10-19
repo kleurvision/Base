@@ -107,7 +107,7 @@ function get_site_status($status){
 // Super admin / ninja site table
 function get_all_sites(){
 	global $db;
-	$sites = $db->get_results("SELECT id, site_url, site_name, site_status, site_theme FROM app_sites");
+	$sites = $db->get_results("SELECT id, site_url, site_slug, site_name, site_status, site_theme FROM app_sites");
 ?>
 
 <section id="list">
@@ -152,7 +152,7 @@ function get_all_sites(){
 						</div>
 						<div class="col-5">
 							<span><small><strong>Active: </strong><?= $site->site_url;?></small></span></br>
-							<span><small><strong>Preview: </strong><?= URL ?>preview/<?= $site->site_name; ?></small></span>
+							<span><small><strong>Preview: </strong><?= URL ?>preview/<?= $site->site_slug; ?></small></span>
 						</div>
 						<div class="col-2">
 							<a href="">Tommy Hammer</a></td>
@@ -162,7 +162,7 @@ function get_all_sites(){
 								<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 								<?php 
 								if ($site->site_status == '1' || '2' ) { ?>
-									<li><a href="<?= URL ?>preview/<?= $site->site_name; ?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Preview"><i class="icon-eye-open"></i></a></li>
+									<li><a href="<?= URL ?>preview/<?= $site->site_slug; ?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Preview"><i class="icon-eye-open"></i></a></li>
 								<? } elseif ($site->site_status == '3') { ?>
 									<li><a href="<?= $site->site_url;?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="View"><i class="icon-eye-open"></i></a></li>
 								<? } ?>
@@ -187,7 +187,7 @@ function get_site_info($site_id){
 // Get sites and list as table
 function get_sites(){
 	global $db;
-	$sites = $db->get_results("SELECT id, site_url, site_name, site_status FROM app_sites");
+	$sites = $db->get_results("SELECT id, site_url, site_slug, site_name, site_status FROM app_sites");
 	
 ?>
 <table class="table sites-table">
@@ -207,7 +207,7 @@ function get_sites(){
 							<li><a href="" class="btn btn-default btn-sm" data-toggle="tooltip" title="Delete" ><i class="icon-remove"></i></a></li>
 							<?php 
 							if ($site->site_status == '1') { ?>
-								<li><a href="<? APP ?>/preview/<?= $site->site_name; ?>" class="btn btn-primary btn-sm" href="">Preview</a></li>
+								<li><a href="<? APP ?>/preview/<?= $site->site_slug; ?>" class="btn btn-primary btn-sm" href="">Preview</a></li>
 							<? } else { ?>
 								<li><a href="<?= $site->site_url;?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 								<li><a class="btn btn-primary btn-sm" href="">Approve</a></li>

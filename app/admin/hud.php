@@ -9,18 +9,18 @@ global $user;
 		<div class="pull-left">
 			<div id="hud_logo" onclick="hud_extend();" ><img src="/<?= ADMIN; ?>assets/img/icon@2x.png" /></div>
 		</div>
-		<div class="pull-right" id="hud_tools">
+		<div class="pull-right hud-dropdown" id="hud_tools">
 			<div id="hud_menu_button"><i class="icon-reorder"></i></div>
 			<ul id="hud_menu">
 				<li class="hud-dropdown" data-toggle="hud-tooltip" title="Edit">
-					<a href="#" id="drop1" role="button" data-toggle="dropdown" data-target="#" href="#" ><i class="icon-pencil"></i></a>
+					<a data-toggle="dropdown" href="#" ><i class="icon-pencil"></i></a>
 					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop1">
 						<li><a class="hud_btn trigger" href="#editpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn trigger" href="#editnavModalAdmin" data-toggle="modal">Navigation</a></li>
 					</ul>
 				</li>
 				<li class="hud-dropdown" data-toggle="hud-tooltip" title="Add">
-					<a href="#" id="drop2" role="button" data-toggle="dropdown" data-target="#" href="#" data-toggle="tooltip" title="Edit"><i class="icon-plus"></i></a>
+					<a data-toggle="dropdown" href="#"><i class="icon-plus"></i></a>
 					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop2">
 						<li><a class="hud_btn" href="#newpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>

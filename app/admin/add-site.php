@@ -16,10 +16,13 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	// Load the primary 
 	require('bootstrap-admin.php');
 
-	// Set the new site name (sanitize special characters and make lowercase
-	$site_name = strtolower($_POST['new_site_name']);
-	$sitename = str_replace(' ', '_', $site_name);
-	
+	// Set the New site name
+	$sitename = mysql_real_escape_string($_POST['new_site_name']);
+
+	// Set the new site slug (sanitize special characters and make lowercase
+	$site_slug = strtolower($_POST['new_site_slug']);
+	$siteslug = str_replace(' ', '_', $site_slug);
+
 	// Set the new site URL 
 	$newhostdir = 'http://'.$_POST['new_site_url'].'/';
 	
@@ -31,13 +34,13 @@ if(isset($_POST['new_site_url']) && isset($_POST['new_site_name'])){
 	
 	// Lookup the URL in the app_options database to confirm registration
 	global $db;
-	$check_site = $db->get_var("SELECT count(*) FROM app_sites WHERE site_url = '$newhostdir' OR site_name = '$sitename'");
+	$check_site = $db->get_var("SELECT count(*) FROM app_sites WHERE site_url = '$newhostdir' OR site_slug = '$siteslug'");
 	
 	// If the site does not exist...
 	if($check_site == 0){
 		
 		// Add new site to app_options DB
-		$add_site = $db->query("INSERT INTO app_sites (site_url, site_name, site_status, activation_date) VALUES ('$newhostdir', '$sitename', '$sitestatus', '$sitedate')");
+		$add_site = $db->query("INSERT INTO app_sites (site_url, site_slug, site_name, site_status, activation_date) VALUES ('$newhostdir', '$siteslug', '$sitename', '$sitestatus', '$sitedate')");
 		
 		// Get the new auto-incremented site ID from the database
 		$site_id = mysql_insert_id();
@@ -125,12 +128,17 @@ include "header.php";
 				<h4>New Site Information</h4>
 				<div class="row">
 					<div class="col-12">
-						<input class="form-control" type="text" name="new_site_name" placeholder="Name (no special characters)" />
+						<input class="form-control" type="text" name="new_site_name" placeholder="Site Name" />
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<input class="form-control" type="text" name="new_site_url" placeholder="URL (no http://)" />
+						<input class="form-control" type="text" name="new_site_slug" placeholder="Site Slug - eg. jims_bongos" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<input class="form-control" type="text" name="new_site_url" placeholder="Site URL (no http://)" />
 					</div>
 				</div>
 				

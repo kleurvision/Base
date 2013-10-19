@@ -33,7 +33,7 @@ $site_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
 
 // Sitename
 if(isset($_GET['site'])){
-	$sitename = $_GET['site'];
+	$siteslug = $_GET['site'];
 }
 
 // Define parent URL
@@ -42,14 +42,14 @@ define( 'URL', $site_url);
 
 /* Check to see if the site is being previewed or if looking
 through the domain */
-if(isset($sitename)){
+if(isset($siteslug)){
 
 	// When looking through preview
-	$site = $db->get_row("SELECT * FROM app_sites WHERE site_name = '$sitename'");
+	$site = $db->get_row("SELECT * FROM app_sites WHERE site_slug = '$siteslug'");
 	$preview = true;
 	
 	// Define parent preview nav path
-	define( 'NAV', URL.'preview/'.$sitename.'/');
+	define( 'NAV', URL.'preview/'.$siteslug.'/');
 	
 } else {
 
