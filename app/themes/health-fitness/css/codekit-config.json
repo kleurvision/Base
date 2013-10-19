@@ -26,6 +26,18 @@
       "fileType" : 2,
       "debugStyle" : 0
     },
+    "\/print.sass" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/print.sass",
+      "outputStyle" : 3,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/print.css",
+      "fileType" : 2,
+      "debugStyle" : 0
+    },
     "\/screen.sass" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -46,18 +58,6 @@
       "inputAbbreviatedPath" : "\/screen.css",
       "outputAbbreviatedPath" : "\/No Output Path",
       "fileType" : 16
-    },
-    "\/print.sass" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/print.sass",
-      "outputStyle" : 3,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/print.css",
-      "fileType" : 2,
-      "debugStyle" : 0
     }
   },
   "manualImportLinks" : [
