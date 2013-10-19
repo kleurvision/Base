@@ -1,0 +1,198 @@
+@import "base"
+
+// Global
+/////////////////////////////////////////////////////////
+
+
+// Header
+/////////////////////////////////////////////////////////
+header
+	.navbar
+		background: $header-bg
+		border-radius: 0px
+		margin-bottom: 0px
+		padding: 0px
+		border-bottom: 3px solid $accent
+	.navbar-brand
+		background: none
+		img
+			width: 133px
+	.navbar-default .navbar-toggle
+		background: darken($accent,0%)
+		border: 0px
+		margin-top: 30px
+		&:hover
+			background: darken($accent,10%)
+		.icon-bar
+			background: darken($accent,45%)
+	.navbar-default .navbar-nav>li>a
+		color: darken($accent,10%)
+		&:hover
+			background: darken($accent,10%)
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a
+		color: darken($accent,10%)
+		padding: 10px
+		&:hover
+			background: darken($header-bg,10%)
+
+	.navbar-collapse
+		background: darken($header-bg,6%)
+		border-top: darken($header-bg,25%)
+	.navbar-nav
+		margin: 0px -15px
+		.dropdown-menu
+			border-radius: 0px
+			background: darken($header-bg,6%)
+			padding: 0px
+			border: none
+			a
+				color: $link-color
+				padding: 15px
+				&:hover
+					background: darken($accent,0%)
+					color: darken($accent,45%)
+		.open
+			background: $accent
+
+
+
+
+
+// Page Elements
+/////////////////////////////////////////////////////////
+
+// Slider
+.slider
+	padding: 0px
+	background: $slider-bg
+	.carousel
+		.item
+			max-height: 450px
+			overflow: hidden
+	.carousel-control .icon-prev, .carousel-control .icon-next
+		font-size: 60px	
+	.carousel-caption
+		background-image: -webkit-gradient(linear,0 top,100% top,from(rgba(0, 0, 0, 0.5)),to(rgba(0, 0, 0, 0.5)))
+		background-image: -webkit-linear-gradient(left,color-stop(rgba(0,0,0,0.5) 0),color-stop(rgba(0,0,0,0.5) 100%))
+		background-image: -moz-linear-gradient(left,rgba(0,0,0,0.5) 0,rgba(0,0,0,0.5) 100%)
+		background-image: linear-gradient(to right,rgba(0, 0, 0, 0.5) 0,rgba(0, 0, 0, 0.5) 100%)
+		background-repeat: repeat-x
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000',endColorstr='#80000000',GradientType=1)
+		bottom: 30%
+		h2
+			color: $white
+		p 
+			color: darken($white,20%)
+	.carousel-inner
+		img 
+			min-width: 100%
+
+.thumbnail		
+	border: 0px
+	background: $slider-bg
+	padding: 0px
+
+// Action Banner
+.action-banner
+	background: $action-banner-bg
+	padding: 20px 0
+	text-align: center
+	h3
+		color: darken($white,20%)
+		line-height: 50px
+	.action-button
+		text-align: center
+		padding: 20px 0
+
+// Social Links
+.social-links
+	margin-bottom: 0px
+	.symbol
+		font-size: 30px
+
+// Main Content
+.main-content
+	padding: 60px 0
+	h3
+		margin-top: 0px
+	.service
+		padding: 30px
+		background: $base
+		text-align: center
+		margin-bottom: 20px
+		i 
+			font-size: 60px
+
+// Page
+.page
+	margin-bottom: 40px
+	.breadcrumb
+		margin-bottom: 0px
+		float: right
+		padding-left: 0px
+	.page-header
+		margin: 0 0 40px 0
+		background: $base
+		padding: 30px 0
+		h2
+			margin: 0
+
+
+// Sidebar
+.sidebar
+	padding: 20px
+	background: $base
+
+// Footer
+/////////////////////////////////////////////////////////
+footer	
+	background: $footer-bg
+	padding: 30px 0
+	text-align: center
+	.social-links
+		float: none
+		font-size: 22px
+		margin-top: 20px
+		li
+			a 
+				color: $darkgrey
+				&:hover
+					color: lighten($darkgrey,10%)
+
+
+
+// Responsive
+/////////////////////////////////////////////////////////
+@media screen and (max-width: 768px)
+	header
+		.navbar
+			.pull-right
+				float: none
+	footer
+		text-align: center
+		.social-links
+			float: none
+	.slider
+		.carousel-caption
+			padding: 10px
+			h2
+				font-size: 18px
+	.action-banner
+		h3
+			line-height: 20px
+			font-size: 20px
+
+@media screen and (max-width: 992px)
+	.page 
+		.breadcrumb
+			float: none
+
+//mobile			
+@media screen and (min-width: 768px)
+	header
+		.navbar-nav
+			float: right
+			margin-top: 30px
+		.navbar-collapse
+			background: none
+			border-top: none

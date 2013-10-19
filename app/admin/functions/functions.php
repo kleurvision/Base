@@ -97,6 +97,121 @@ function make_site_dir($site_id){
 	}*/
 }
 
+// Edit a Sites Settings
+/*function edit_site(){
+		global $db;
+		$id = mysql_real_escape_string($_GET['id']);
+		$sites = $db->get_results("SELECT id FROM app_sites WHERE id='$id'");
+		$site = mysql_query($sites);
+
+	  	if (($site) >0) {?>
+
+	  	<?php } else { 
+	  		echo "No Site with the id ".$site." found";
+	  	}
+}*/
+
+// Display a system message - useful for showing error and success messages
+function show_message(){
+	if (!empty($_SESSION['message'])) {
+	    echo $_SESSION['message'];
+	    unset($_SESSION['message']);
+	}
+}
+
+// Edit the settings of an individual site
+function edit_site($site_id){
+	global $db;
+	$sites = $db->get_results("SELECT * FROM app_sites WHERE id = '$site_id'");
+	if(isset($sites)){ 
+		$site = $db->get_row("SELECT id, site_url, site_slug, site_name, site_status, site_theme FROM app_sites WHERE id = '$site_id'");
+		$themes = $db->get_results("SELECT theme_name FROM app_themes");
+		$statuses = $db->get_results("SELECT id, status_name FROM app_sites_status");
+
+		if(isset($_POST['siteName']) && isset($_POST['siteSlug'])){
+
+			$site_slug = strtolower($_POST['siteSlug']);
+			$siteslug = str_replace(' ', '_', $site_slug);
+			
+			$siteUrl = $_POST['siteUrl'];
+			$siteslug = $_POST['siteSlug'];
+			$siteName = $_POST['siteName'];
+			$siteStatus = $_POST['siteStatus'];
+			$siteTheme = $_POST['siteTheme'];
+
+			$editSettings = $db->query("UPDATE app_sites SET 
+										site_url = '$siteUrl', 
+										site_slug = '$siteslug', 
+										site_name = '$siteName',
+										site_status = '$siteStatus',
+										site_theme = '$siteTheme' 
+									WHERE id = '$site_id'");
+
+			if($editSettings) {
+				 $_SESSION['message'] = '<div class="alert alert-success">Settings Saved<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
+			}
+		} else {
+			$_SESSION['message'] = '<div class="alert alert-danger">Please fill in the required fileds<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
+		}
+
+		?>
+			<div class="row" id="content">
+				<div class="col-12">
+					<?php show_message(); ?>
+					<h3><?= $site->site_name; ?> Settings </h3>
+					<br/>
+					<form role="form" action="" method="post">
+							<div class="row">
+								<div class="col-6">
+									<div class="form-group">
+										<label>Site Name</label>
+										<input class="form-control" type="text" name="siteName" value="<?= $site->site_name; ?>"/>
+									</div>
+									<div class="form-group">
+										<label>Site Slug</label>
+										<input class="form-control" type="text" name="siteSlug" value="<?= $site->site_slug; ?>"/>
+									</div>
+									<div class="form-group">
+										<label>Site URL</label>
+										<input class="form-control" type="text" name="siteUrl" value="<?= $site->site_url; ?>"/>
+									</div>
+									<div class="form-group">
+										<label>Site Theme</label>
+										<select class="form-control" name="siteTheme">
+											<option>Select New Theme</option>
+											<?php foreach ($themes as $theme) {
+												$set_siteTheme = $theme->theme_name;
+												$set_curTheme = $site->site_theme;
+												?>
+												<option value='<?= $theme->theme_name; ?>' <?php if($set_siteTheme == $set_curTheme){ echo('selected'); } ?> > <?= $theme->theme_name ?></option>
+											<? }?>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Site Status</label>
+										<select class="form-control" name="siteStatus">
+											<?php foreach ($statuses as $status) {
+												$set_siteStatus = $site->site_status;
+												$set_siteId = $status->id;
+												?>
+												<option value='<?= $status->status_name; ?>' <?php if($set_siteStatus == $set_siteId){ echo('selected'); } ?> > <?= $status->status_name; ?></option>
+											<? }?>
+										</select>
+									</div>
+									<input class="btn btn-primary form-control" type="submit" value="Save"/>
+								</div>
+							</div>
+					</form>
+				</div>
+			</div>
+
+	<?php } else { 
+		$_SESSION['message'] = '<div class="alert alert-danger"> No site with that ID found <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
+		header('location: /app/admin/sites');
+	 }
+}
+
+
 // Get Site Status 
 function get_site_status($status){
 	global $db;
@@ -137,10 +252,10 @@ function get_all_sites(){
 						<div class="col-2">
 							<div class="btn-group">
 								<?php 
-								if ($site->site_status == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
-								elseif ($site->site_status == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
-								elseif ($site->site_status == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>'; }
-								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Put Offline</button>'; }
+								if ($site->id == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
+								elseif ($site->id == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
+								elseif ($site->id == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>'; }
+								elseif ($site->id == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Put Offline</button>'; }
 								?>
 								<ul class="dropdown-menu">
 									<li><a href="#">New</a></li>
@@ -159,7 +274,7 @@ function get_all_sites(){
 						</div>
 						<div class="col-2 pull-right">
 							<ul class="list-inline pull-right">
-								<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Settings"><i class="icon-gear"></i></a></li>
+								<li><a href="<?= URL ?>app/admin/edit-site?id=<?= $site->id; ?>" class="btn btn-default btn-sm" data-toggle="tooltip" title="Settings"><i class="icon-gear"></i></a></li>
 								<?php 
 								if ($site->site_status == '1' || '2' ) { ?>
 									<li><a href="<?= URL ?>preview/<?= $site->site_slug; ?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
