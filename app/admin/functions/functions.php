@@ -119,8 +119,11 @@ function get_all_sites(){
 			<div class="col-2">
 				<strong>Status</strong>
 			</div>
-			<div class="col-2">
+			<div class="col-3">
 				<strong>Site Title</strong>
+			</div>
+			<div class="col-5">
+				<strong>URL</strong>
 			</div>
 		</div>
 	</header>
@@ -150,14 +153,18 @@ function get_all_sites(){
 						<div class="col-3">
 							<?= $site->site_name; ?>
 						</div>
+						<div class="col-4">
+							<span><small><strong>Active: </strong><?= $site->site_url;?></small></span></br>
+							<span><small><strong>Preview: </strong><?= URL ?>preview/<?= $site->site_slug; ?></small></span>
+						</div>
 						<div class="col-2 pull-right">
 							<ul class="list-inline pull-right">
-								<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+								<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Settings"><i class="icon-gear"></i></a></li>
 								<?php 
 								if ($site->site_status == '1' || '2' ) { ?>
-									<li><a href="<?= URL ?>preview/<?= $site->site_slug; ?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Preview"><i class="icon-eye-open"></i></a></li>
+									<li><a href="<?= URL ?>preview/<?= $site->site_slug; ?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 								<? } elseif ($site->site_status == '3') { ?>
-									<li><a href="<?= $site->site_url;?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="View"><i class="icon-eye-open"></i></a></li>
+									<li><a href="<?= $site->site_url;?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
 								<? } ?>
 							</ul>
 						</div>
