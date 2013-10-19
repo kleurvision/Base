@@ -28,6 +28,23 @@ define( 'LIBRARY', SYSTEM.'/library' );
 // Define stucture ADMIN path
 define( 'ADMIN', APP.'/admin' );
 
+// Define the config file
+if (file_exists(dirname(ROOT).'/config/config.php')) {
+
+	/** The config file resides one level above the main directory */
+	require_once(dirname(ROOT).'/config/config.php');
+} else {
+
+	echo 'Config not found at '.ROOT.'/config/config.php<br/>';
+};
+
+
+// Load in the classes
+require_once(SYSTEM . '/system_classes.php' );
+
+// Setup the user class
+$user = new User($db);
+$user->login_submit();
 
 // Load in the functions
 require_once(SYSTEM . '/system_functions.php' );
