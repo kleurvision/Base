@@ -110,54 +110,68 @@ function get_all_sites(){
 	$sites = $db->get_results("SELECT id, site_url, site_name, site_status, site_theme FROM app_sites");
 ?>
 
-	<table class="table sites-table">
-		<thead>
-			<tr>
-				<th>Status</th>
-				<th>URL</th>
-				<th>Customer</th>
-			</tr>
-		</thead>
-		<tbody>
+<section id="list">
+	<header>
+		<div class="row">
+			<div class="col-1">
+				<strong>ID</strong>
+			</div>
+			<div class="col-2">
+				<strong>Status</strong>
+			</div>
+			<div class="col-5">
+				<strong>URL</strong>
+			</div>
+			<div class="col-3">
+				<strong>Customer</strong>
+			</div>
+		</div>
+	</header>
+
 			<? foreach ($sites as $site) { 
 				?>
-				<tr>
-					<td>
-						<div class="btn-group">
-							<button type="button" class="btn btn-default">
+					<div class="row">
+						<div class="col-1">
+							<?= $site->id; ?>
+						</div>
+						<div class="col-2">
+							<div class="btn-group">
 								<?php 
-								if ($site->site_status == '1') { echo "New Site"; }
-								elseif ($site->site_status == '2') { echo "Approval Phase"; }
-								elseif ($site->site_status == '3') { echo "Active Site"; }
+								if ($site->site_status == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
+								elseif ($site->site_status == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
+								elseif ($site->site_status == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>;'; }
+								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Offline</button>;'; }
 								?>
-							</button>
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">New Site</a></li>
-								<li><a href="#">Approval Phase</a></li>
-								<li><a href="#">Active Site</a></li>
+								<ul class="dropdown-menu">
+									<li><a href="#">New</a></li>
+									<li><a href="#">Approvals</a></li>
+									<li><a href="#">Activeate</a></li>
+									<li><a href="#">Offline</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-5">
+							<span><small><strong>Active: </strong><?= $site->site_url;?></small></span></br>
+							<span><small><strong>Preview: </strong><?= URL ?>preview/<?= $site->site_name; ?></small></span>
+						</div>
+						<div class="col-2">
+							<a href="">Tommy Hammer</a></td>
+						</div>
+						<div class="col-2 pull-right">
+							<ul class="list-inline pull-right">
+								<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
+								<?php 
+								if ($site->site_status == '1' || '2' ) { ?>
+									<li><a href="<?= URL ?>preview/<?= $site->site_name; ?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="Preview"><i class="icon-eye-open"></i></a></li>
+								<? } elseif ($site->site_status == '3') { ?>
+									<li><a href="<?= $site->site_url;?>" class="btn btn-primary btn-sm" href="" data-toggle="tooltip" title="View"><i class="icon-eye-open"></i></a></li>
+								<? } ?>
 							</ul>
 						</div>
-					</td>					
-					<td>
-						<a href="<?= $site->site_url;?>"><?= $site->site_url;?></a>
-					</td>
-					<td><a href="">Tommy Hammer</a></td>
-					<td>
-						<ul class="list-inline pull-right">
-							<li><a class="btn btn-default btn-sm" href="" data-toggle="tooltip" title="Edit"><i class="icon-pencil"></i></a></li>
-							<?php 
-							if ($site->site_status == '1') { ?>
-								<li><a href="<? APP ?>/preview/<?= $site->site_name; ?>" class="btn btn-primary btn-sm" href="">Preview</a></li>
-							<? }?>
-						</ul>
-					</td>
-				</tr>															
+					</div>
+					<hr/>					
 			<? } ?>	
-		</tbody>
-	</table>
+</section>
 <? } 
 
 

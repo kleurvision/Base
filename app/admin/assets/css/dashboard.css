@@ -83,6 +83,12 @@ i {
 #content {
   padding-top: 30px; }
 
+#list header {
+  margin: 15px 0; }
+#list .row {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
 #branding {
   background: #7accc8;
   color: white;

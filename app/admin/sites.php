@@ -31,7 +31,6 @@ include 'header.php';
 				</div>
 			</div>
 		</div>
-		<br/>
 		<? get_all_sites();?>
 	</div>
 </div>
