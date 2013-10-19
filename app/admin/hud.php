@@ -12,22 +12,23 @@ global $user;
 		<div class="pull-right" id="hud_tools">
 			<div id="hud_menu_button"><i class="icon-reorder"></i></div>
 			<ul id="hud_menu">
-				<li class="hud-dropdown">
-					<a href="#" id="drop1" role="button" data-toggle="dropdown" data-target="#" href="#"><i class="icon-pencil"></i>&nbsp;&nbsp;Edit</a>
+				<li class="hud-dropdown" data-toggle="hud-tooltip" title="Edit">
+					<a href="#" id="drop1" role="button" data-toggle="dropdown" data-target="#" href="#" ><i class="icon-pencil"></i></a>
 					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop1">
 						<li><a class="hud_btn trigger" href="#editpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn trigger" href="#editnavModalAdmin" data-toggle="modal">Navigation</a></li>
 					</ul>
 				</li>
-				<li class="hud-dropdown">
-					<a href="#" id="drop2" role="button" data-toggle="dropdown" data-target="#" href="#"><i class="icon-plus"></i>&nbsp;&nbsp;Add</a>
+				<li class="hud-dropdown" data-toggle="hud-tooltip" title="Add">
+					<a href="#" id="drop2" role="button" data-toggle="dropdown" data-target="#" href="#" data-toggle="tooltip" title="Edit"><i class="icon-plus"></i></a>
 					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop2">
 						<li><a class="hud_btn" href="#newpageModalAdmin" data-toggle="modal">Page</a></li>
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
 				</li>
-				<li><a href="<?= URL;?>/app/admin" data-toggle="hud-tooltip" title="Dashboard"><i class="icon-home"></i><span>&nbsp;&nbsp;Dashboard</span></a></li>
-				<li><a href="<?= URL.'logout';?>" data-toggle="hud-tooltip" title="Logout"><i class="icon-off"></i><span>&nbsp;&nbsp;Logout</span></a></li>
+				<li data-toggle="hud-tooltip" title="Help"><a href="https://webninja1.zendesk.com/hc/en-us" title="help" ><i class="icon-question"></i></a></li>
+				<li data-toggle="hud-tooltip" title="Dashboard"><a href="<?= URL;?>/app/admin" title="dashboard" ><i class="icon-home"></i></a></li>
+				<li data-toggle="hud-tooltip" title="Logout"><a href="<?= URL.'logout';?>" title="logout"><i class="icon-off"></i></li>
 			</ul>
 		</div>
 	</div>
