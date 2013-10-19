@@ -29,10 +29,6 @@ define( 'LIBRARY', SYSTEM.'/library' );
 define( 'ADMIN', APP.'/admin' );
 
 
-// Setup the user class
-$user = new User($db);
-$user->login_submit();
-
 // Load in the functions
 require_once(SYSTEM . '/system_functions.php' );
 
