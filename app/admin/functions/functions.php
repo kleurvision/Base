@@ -140,7 +140,7 @@ function get_all_sites(){
 								if ($site->site_status == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
 								elseif ($site->site_status == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
 								elseif ($site->site_status == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>'; }
-								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Offline</button>'; }
+								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Put Offline</button>'; }
 								?>
 								<ul class="dropdown-menu">
 									<li><a href="#">New</a></li>
