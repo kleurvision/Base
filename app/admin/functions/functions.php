@@ -215,7 +215,7 @@ function edit_site($site_id){
 // Get Site Status 
 function get_site_status($status){
 	global $db;
-	$status = $db->get_var("SELECT name FROM app_sites_status WHERE status = '$status'");
+	$status = $db->get_var("SELECT status_name FROM app_sites_status WHERE id = '$status'");
 	echo $status;
 }
 
@@ -252,10 +252,10 @@ function get_all_sites(){
 						<div class="col-2">
 							<div class="btn-group">
 								<?php 
-								if ($site->id == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
-								elseif ($site->id == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
-								elseif ($site->id == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>'; }
-								elseif ($site->id == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Put Offline</button>'; }
+								if ($site->site_status == '1') { echo '<button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">New</button>'; }
+								elseif ($site->site_status == '2') { echo '<button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown">Approvals</button>'; }
+								elseif ($site->site_status == '3') { echo '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">Active</button>'; }
+								elseif ($site->site_status == '4') { echo '<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Put Offline</button>'; }
 								?>
 								<ul class="dropdown-menu">
 									<li><a href="#">New</a></li>
