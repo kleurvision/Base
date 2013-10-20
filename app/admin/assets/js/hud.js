@@ -37,7 +37,8 @@ $(function() {
 	}); */
 
 	// Show hide dropdown lists
-	$('.hud_trigger').click(function() {
+	
+	/*$('.hud_trigger').click(function() {
 		var $toOpen = $(this).next('.hud_sub_menu');
 	  	var $opened = $('.hud_sub_menu.open');
         if ( $toOpen.hasClass("open") ) {
@@ -55,7 +56,7 @@ $(function() {
 	// Close dropdowns when modals open
 	$('.hud_sub_menu a').click(function() {
 		$('.hud_sub_menu').slideUp();
-	})
+	})*/
 
 	// tool tips
 	$('#hud_toolbar_wrapper').tooltip({

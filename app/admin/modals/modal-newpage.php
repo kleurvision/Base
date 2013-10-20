@@ -5,7 +5,7 @@
 $pageTemplate	= "";
 
 // Call In Page Templates
-$template[]= 'default';
+$template[]= '';
 
 $files = directoryToArray(THEME, false);
 foreach ($files as $file) {

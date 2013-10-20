@@ -86,7 +86,7 @@ function make_site_dir($site_id){
 	
 	// To create the nested structure, the $recursive parameter 
 	// to mkdir() must be specified.
-	$check = mkdir($path_to_site, 0700);
+	$check = mkdir($path_to_site, 0777);
 	
 	// Create config file
 	/*$site_index_master 	= ''.APP.'/themes/setup/index.php';
@@ -148,7 +148,7 @@ function edit_site($site_id){
 									WHERE id = '$site_id'");
 
 			if($editSettings) {
-				 $_SESSION['message'] = '<div class="alert alert-success">Settings Saved<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
+				$_SESSION['message'] = '<div class="alert alert-success">Settings Saved<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';
 			}
 		 	else {
 				$_SESSION['message'] = '<div class="alert alert-danger">Please fill in the required fileds<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a></div>';

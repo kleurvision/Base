@@ -28,7 +28,7 @@
 	$pagekeywords	= $pagemap->pagemeta_keywords;
 	$pageTemplate	= $pagemap->pagetemplate;
 
-	$template[]= 'default';
+	$template[]= '';
 
 	$files = directoryToArray(THEME, false);
 	foreach ($files as $file) {

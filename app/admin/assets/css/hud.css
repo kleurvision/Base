@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -1620,47 +1621,29 @@ body {
     background: #68c5c0;
     color: white; }
 
-p {
+.hud_vail p {
   margin: 0 0 10px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  line-height: 1.1; }
-
-h1, h2, h3 {
-  margin-top: 20px;
-  margin-bottom: 10px; }
-
-h4, h5, h6 {
-  margin-top: 10px;
-  margin-bottom: 10px; }
-
-h1, .h1 {
+  font-family: "Open Sans"; }
+.hud_vail h1, .hud_vail h2, .hud_vail h3, .hud_vail h4, .hud_vail h5, .hud_vail h6 {
+  font-family: "Open Sans";
+  font-weight: 300; }
+.hud_vail h1, .hud_vail .h1 {
   font-size: 38px; }
-
-h2, .h2 {
+.hud_vail h2, .hud_vail .h2 {
   font-size: 32px; }
-
-h3, .h3 {
+.hud_vail h3, .hud_vail .h3 {
   font-size: 24px; }
-
-h4, .h4 {
+.hud_vail h4, .hud_vail .h4 {
   font-size: 18px; }
-
-h5, .h5 {
+.hud_vail h5, .hud_vail .h5 {
   font-size: 14px; }
-
-h6, .h6 {
+.hud_vail h6, .hud_vail .h6 {
   font-size: 12px; }
-
-a {
+.hud_vail a {
   text-decoration: none; }
-  a:hover {
+  .hud_vail a:hover {
     text-decoration: none; }
-
-i {
+.hud_vail i {
   font-size: 1.2em; }
 
 .hud_wrapper, #hud_stage_wrapper, #hud_stage {

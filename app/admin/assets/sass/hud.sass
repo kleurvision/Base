@@ -9,6 +9,10 @@
 @import 'hud-panel'
 @import 'hud-dropdown'
 
+//Open Sans
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600)
+
+
 // Variables
 /////////////////////////////////////////
 
@@ -21,6 +25,10 @@ $darkgrey:		#666666
 $lightgrey:		#e0e0e0
 $lightestgrey:	#f2f2f2
 
+// Typography
+$body-font:			'Open Sans'
+$heading-font:		'Open Sans'
+$paragraph-font:	'Open Sans'
 
 // Global
 ///////////////////////////////////////////
@@ -116,48 +124,41 @@ body
 
 // Typography
 ///////////////////////////////////////////
-p
-	margin: 0 0 10px
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 
-h1, h2, h3, h4, h5, h6,
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
-	font-weight: 500
-	line-height: 1.1
+.hud_vail
+	p
+		margin: 0 0 10px
+		font-family: $paragraph-font
 
-h1, h2, h3
-	margin-top: 20px
-	margin-bottom: 10px
+	h1, h2, h3, h4, h5, h6,
+		font-family: $heading-font
+		font-weight: 300
 
-h4, h5, h6
-	margin-top: 10px
-	margin-bottom: 10px
+	h1, .h1
+		font-size: 38px
 
-h1, .h1
-	font-size: 38px
+	h2, .h2
+		font-size: 32px
 
-h2, .h2
-	font-size: 32px
+	h3, .h3
+		font-size: 24px
 
-h3, .h3
-	font-size: 24px
+	h4, .h4
+		font-size: 18px
 
-h4, .h4
-	font-size: 18px
+	h5, .h5
+		font-size: 14px
 
-h5, .h5
-	font-size: 14px
+	h6, .h6
+		font-size: 12px	
 
-h6, .h6
-	font-size: 12px	
-
-a
-	text-decoration: none
-	&:hover
+	a
 		text-decoration: none
+		&:hover
+			text-decoration: none
 
-i
-	font-size: 1.2em
+	i
+		font-size: 1.2em
 
 // Mixins
 ///////////////////////////////////////////
