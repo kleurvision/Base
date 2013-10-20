@@ -1,8 +1,4 @@
 <? 
-/* 
-    Template Name: Page
- */
-
 echo $page->get_header();
 ?>
 <section class="page">

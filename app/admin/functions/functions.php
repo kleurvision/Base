@@ -179,7 +179,6 @@ function edit_site($site_id){
 									<div class="form-group">
 										<label>Site Theme</label>
 										<select class="form-control" name="siteTheme">
-											<option>Select New Theme</option>
 											<?php foreach ($themes as $theme) {
 												$set_siteTheme = $theme->theme_name;
 												$set_curTheme = $site->site_theme;

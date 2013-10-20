@@ -86,14 +86,14 @@ $form->render();
 
 	<div class="hud-panel-heading">
 		<h4 class="hud-panel-title">
-			<a class="hud-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			<a class="hud-accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
 				Page Options<i class="icon-plus pull-right"></i>
 
 			</a>
 		</h4>
 	</div>
 
-	<div id="collapseOne" class="hud-panel-collapse collapse">
+	<div id="collapseTwo" class="hud-panel-collapse collapse">
 		<div class="hud-row">
 			<div class="hud-col-12 hud-col-lg-8">
 				<div class="hud-well">
@@ -143,6 +143,7 @@ $form->render();
 				<input type="hidden" value="edit-page" name="form">
 				<input type="hidden" value="<?= $pageID;?>" name="pageID">
 				<input type="hidden" value="<?= SITE_ID; ?>" name="site_id">
+				<input type="hidden" value="<?= SITE_SLUG;?>" name="site_slug">
 				<input class="hud-btn hud-btn-primary btn-lg" type="submit" name="" value="Save">
 			</div>
 		</div>
