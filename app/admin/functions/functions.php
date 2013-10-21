@@ -87,7 +87,7 @@ function make_site_dir($site_id){
 	// To create the nested structure, the $recursive parameter 
 	// to mkdir() must be specified.
 	$check = mkdir($path_to_site);
-	chmod($path_to_site, 777);
+	chmod($path_to_site, 0777);
 	chown($path_to_site, $user_name);
 	
 	// Create config file
