@@ -83,11 +83,11 @@ function update_vhosts($newhostdir){
 function make_site_dir($site_id){
 	// Desired folder structure
 	$path_to_site = ''.APP.'/sites/'.$site_id;
-	
+	$user_name = 'ftpuser';
 	// To create the nested structure, the $recursive parameter 
 	// to mkdir() must be specified.
-	$check = mkdir($path_to_site, 0777);
-	$user_name = 'ftpuser';
+	$check = mkdir($path_to_site);
+	chmod($path_to_site, 777)
 	chown($path_to_site, $user_name);
 	
 	// Create config file
