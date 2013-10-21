@@ -86,7 +86,9 @@ function make_site_dir($site_id){
 	
 	// To create the nested structure, the $recursive parameter 
 	// to mkdir() must be specified.
-	$check = mkdir($path_to_site, 0755);
+	$check = mkdir($path_to_site, 0777);
+	$user_name = 'ftpuser';
+	chown($path_to_site, $user_name);
 	
 	// Create config file
 	/*$site_index_master 	= ''.APP.'/themes/setup/index.php';
