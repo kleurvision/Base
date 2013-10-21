@@ -79,6 +79,8 @@ function app_head(){
 	// Check for site style Override
 	if (file_exists(SITE.'/screen.css')){
 		echo '<link href="'.URL.SITE.'/screen.css" rel="stylesheet">';
+	} else {
+		echo 'cant find it';
 	}
 
 }

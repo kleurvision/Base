@@ -82,9 +82,7 @@ if(isset($site)){
 		define( 'THEME', APP.'/themes/setup' );	
 	}
 	
-
-	
-	echo SITE;
+	//echo SITE;
 	
 } else {
 

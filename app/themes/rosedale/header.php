@@ -16,9 +16,7 @@
 	} else {
 		$page->load_metadata();
 	}?>
-	<!-- Load styles -->
-	<link href="<? get_theme_path('css');?>/screen.css" rel="stylesheet">
-	
+	<!-- Load styles -->	
 	<? app_head('1'); ?>
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
