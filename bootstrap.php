@@ -65,6 +65,8 @@ if(isset($site)){
 	
 	// Define SITE ID
 	define('SITE_ID', $site->id);
+	// Define the Site folder
+	define('SITE', APP.'/sites/'.SITE_ID);
 	
 	// Set site theme
 	$theme 	= $site->site_theme;
@@ -80,10 +82,9 @@ if(isset($site)){
 		define( 'THEME', APP.'/themes/setup' );	
 	}
 	
-	// Define the Site folder
-	define('SITE', APP.'/sites/'.SITE_ID);
+
 	
-	// echo SITE;
+	echo SITE;
 	
 } else {
 

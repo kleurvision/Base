@@ -111,7 +111,7 @@ function make_site_dir($site_id){
 	  	}
 }*/
 
-// Display a system message - useful for showing error and success messages
+// Display a system message 
 function show_message(){
 	if (!empty($_SESSION['message'])) {
 	    echo $_SESSION['message'];
