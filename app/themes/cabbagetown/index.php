@@ -17,34 +17,7 @@ echo $page->get_header();
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
-				<!-- Slide 1 -->
-				<div class="item active">
-					<img src="<?= URL.SITE;?>/img/slide1.jpg" alt="#" />
-					<div class="carousel-caption">
-						<h2>Featured Workout</h2>
-						<p>Burn calories fast with this power workout.</p>
-						<a href="#" class="btn btn-default btn-large">Watch Now</a>
-					</div>
-				</div>
-				<!-- Slide 2 -->
-				<div class="item">
-					<img src="<?= URL.SITE;?>/img/slide2.jpg" alt="" />
-					<div class="carousel-caption">
-						<h2>Recieve Monthly Fitness Tips</h2>
-						<p>Join our newsletter and get monthly tips delivered to your inbox</p>
-						<a href="#" class="btn btn-default btn-large">Subscribe</a>
-					</div>
-				</div>
-				<!-- Slide 3 -->
-				<div class="item">
-					<img src="<?= URL.SITE;?>/img/slide3.jpg" alt="" />
-					<div class="carousel-caption">
-						<h2>Take the fitness challenge</h2>
-						<p>Looking to get in shape? Signup for our fitness challenge.</p>
-						<a href="#" class="btn btn-default btn-large">Learn More</a>
-					</div>
-				</div>			
-				
+				<? hero_slider(SITE_ID);?>		
 			</div>
 
 			<!-- Controls -->

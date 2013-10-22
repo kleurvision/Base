@@ -542,5 +542,39 @@ function social_share(){ ?>
 function social_links(){
 	
 }
+
+function hero_slider($site_id){
+	
+	global $db;
+	$heros = $db->get_results("SELECT * FROM site_".$site_id."_hero");
+	
+	if($heros){
+		$i = 1;
+		foreach($heros as $hero){ 
+		?>
+			<!-- Slide <?=$i;?> -->
+			<? if($i == '1'){ 
+				
+				// If is the first slide, set it to active ?>
+				<div class="item active">	
+			<? } else { ?>
+			
+				<div class="item">
+			<? }; ?>
+			
+				<img src="<?= URL.SITE.'/uploads/'.$hero->heroimg;?>" alt="#" />
+				<div class="carousel-caption">
+					<h2><?=$hero->herotitle;?></h2>
+					<p><?=$hero->herocontent;?></p>
+					
+					<? if($hero->heroaction){
+						$heroaction_url = str_replace('http://', '', $hero->heroaction);
+					} ?>
+					<a href="http://<?=$heroaction_url;?>" class="btn btn-default btn-large">Watch Now</a>
+				</div>
+			</div>
+		<? $i++; }
+	}
+}
 	
 	?>

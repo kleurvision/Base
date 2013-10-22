@@ -23,7 +23,7 @@ global $user;
 					<a data-toggle="dropdown" href="#"><i data-toggle="hud-tooltip" title="Add" class="icon-plus"></i></a>
 					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop2">
 						<li><a class="hud_btn" href="#newpageModalAdmin" data-toggle="modal">Page</a></li>
-						<!--<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>-->
+						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
 				</li>
 				<li><a href="https://webninja1.zendesk.com/hc/en-us" ><i data-toggle="hud-tooltip" title="Help" class="icon-question"></i></a></li>

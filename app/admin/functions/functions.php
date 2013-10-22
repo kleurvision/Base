@@ -429,7 +429,7 @@ function add_settings_table($site_id){
 
 function add_hero_table($site_id){
 	global $db;
-	$hero = $db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroimg LONGTEXT);");
+	$hero = $db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroaction LONGTEXT, heroimg LONGTEXT);");
 	
 	return true;
 }

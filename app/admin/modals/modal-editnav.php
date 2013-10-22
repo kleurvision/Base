@@ -94,6 +94,7 @@
 					<div class="form-actions pull-right">
 						<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
 						<input type="hidden" value="<?= SITE_ID;?>" name="nav_id">
+						<input type="hidden" value="<?= NAV;?>" name="redirect">
 						<input type="submit" class="hud-btn hud-btn-primary" name="" value="Save">
 					</div>
 					<div class="clear"></div>
