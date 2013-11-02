@@ -8,6 +8,11 @@ Y: 2013
 */
 
 
+
+//////////////////////////////////////////////////////////////////////////////
+// Admin Functions
+//////////////////////////////////////////////////////////////////////////////
+
 function is_admin($level = '10'){
 	// Grab role from sessions
 	if(isset($_SESSION['ROLE'])) {
@@ -120,6 +125,61 @@ function show_message(){
 	    unset($_SESSION['message']);
 	}
 }
+
+function get_admin_nav(){
+	global $db;
+	$sitecount = $db->get_var("SELECT count(*) FROM app_sites WHERE site_status = '1'");
+	
+	global $user;
+	if(isset($user)){	
+		if($user->get_role() == 'user'){ ?>
+				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
+				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li>-->
+		<? } elseif ($user->get_role() == 'super'){ ?>
+				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
+				<li><a href="https://webninja1.zendesk.com/hc/en-us"><i class="icon-question-sign"></i>Support</a></li>
+				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
+				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
+				<li>
+					<a href="sites"><i class="icon-list"></i>Sites
+					<?php if ($sitecount != 0) {  echo '<span class="btn btn-xs btn-danger pull-right">'.$sitecount.'</span>'; } else {} ?>
+					</a>
+				</li>
+				<li><a href="users"><i class="icon-group"></i>Users</a></li>
+		<? }
+	}
+}
+
+function add_pages_table($site_id){
+	global $db;
+	$pages = $db->query("CREATE TABLE site_".$site_id."_pages (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, pagename VARCHAR(50) DEFAULT NULL, pagetitle VARCHAR(100) DEFAULT NULL, pagecontent LONGTEXT, pageauthor INTEGER(11) DEFAULT NULL, pagemeta_title VARCHAR(100) NOT NULL, pagemeta_desc VARCHAR(255) DEFAULT NULL, pagemeta_keywords VARCHAR(255) DEFAULT NULL, pagetemplate VARCHAR(100) DEFAULT NULL, pageparent INTEGER(11) DEFAULT NULL, pagedate INTEGER(11) DEFAULT NULL, pagepriority INTEGER(11) DEFAULT NULL, pagechangefreq VARCHAR(100) DEFAULT NULL); ");
+
+	return true;
+}
+
+function add_settings_table($site_id){
+	global $db;
+	$settings = $db->query("CREATE TABLE site_".$site_id."_settings (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, navigation LONGTEXT);");
+	
+	return true;
+}
+
+function add_hero_table($site_id){
+	global $db;
+	$hero = $db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroaction LONGTEXT, heroimg LONGTEXT);");
+	
+	return true;
+}
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Sites
+//////////////////////////////////////////////////////////////////////////////
+
+
 
 // Edit the settings of an individual site
 function edit_site($site_id){
@@ -338,6 +398,12 @@ function get_sites(){
 	</table>
 <? } 
 
+
+//////////////////////////////////////////////////////////////////////////////
+// Users
+//////////////////////////////////////////////////////////////////////////////
+
+
 // Get User Role 
 function get_user_role($level){
 	global $db;
@@ -382,54 +448,4 @@ function get_users_api(){
 	global $db;
 	$users 	= $db->get_results("SELECT id, fname, lname, email, role FROM app_users");
 	return $users;
-}
-
-function get_sidebar(){
-
-}
-
-function get_admin_nav(){
-	global $db;
-	$sitecount = $db->get_var("SELECT count(*) FROM app_sites WHERE site_status = '1'");
-	
-	global $user;
-	if(isset($user)){	
-		if($user->get_role() == 'user'){ ?>
-				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
-				<li><a href=""><i class="icon-question-sign"></i>Support</a></li>
-				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li>-->
-		<? } elseif ($user->get_role() == 'super'){ ?>
-				<li><a href="/admin"><i class="icon-home"></i>Dashboard</a></li>
-				<li><a href="https://webninja1.zendesk.com/hc/en-us"><i class="icon-question-sign"></i>Support</a></li>
-				<!-- <li><a href=""><i class="icon-download"></i>App Store</a></li> -->
-				<!--<li><a href="site-queue"><i class="icon-tasks"></i>Site Queue</a></li>-->
-				<li>
-					<a href="sites"><i class="icon-list"></i>Sites
-					<?php if ($sitecount != 0) {  echo '<span class="btn btn-xs btn-danger pull-right">'.$sitecount.'</span>'; } else {} ?>
-					</a>
-				</li>
-				<li><a href="users"><i class="icon-group"></i>Users</a></li>
-		<? }
-	}
-}
-
-function add_pages_table($site_id){
-	global $db;
-	$pages = $db->query("CREATE TABLE site_".$site_id."_pages (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, pagename VARCHAR(50) DEFAULT NULL, pagetitle VARCHAR(100) DEFAULT NULL, pagecontent LONGTEXT, pageauthor INTEGER(11) DEFAULT NULL, pagemeta_title VARCHAR(100) NOT NULL, pagemeta_desc VARCHAR(255) DEFAULT NULL, pagemeta_keywords VARCHAR(255) DEFAULT NULL, pagetemplate VARCHAR(100) DEFAULT NULL, pageparent INTEGER(11) DEFAULT NULL, pagedate INTEGER(11) DEFAULT NULL, pagepriority INTEGER(11) DEFAULT NULL, pagechangefreq VARCHAR(100) DEFAULT NULL); ");
-
-	return true;
-}
-
-function add_settings_table($site_id){
-	global $db;
-	$settings = $db->query("CREATE TABLE site_".$site_id."_settings (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, navigation LONGTEXT);");
-	
-	return true;
-}
-
-function add_hero_table($site_id){
-	global $db;
-	$hero = $db->query("CREATE TABLE site_".$site_id."_hero (id INTEGER(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, herotitle LONGTEXT, herocontent LONGTEXT, heroaction LONGTEXT, heroimg LONGTEXT);");
-	
-	return true;
 }

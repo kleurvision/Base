@@ -1,6 +1,6 @@
 <? 
 /* 
-    Template Name: Full-Width
+    Template Name: Full
  */
 
 echo $page->get_header();
