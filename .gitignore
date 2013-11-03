@@ -5,6 +5,7 @@ config.rb
 error_log
 sites
 vhosts
+partners
 
 # Hidden system files
 .DS_Store
