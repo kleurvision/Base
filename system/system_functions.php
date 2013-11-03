@@ -177,6 +177,19 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 	}
 }
 
+// Get the partner name of the currently logged in user
+// This function is called into the hud
+function get_partner_name(){
+	global $db;
+	if(isset($_SESSION['USER'])){
+		$current_session = $_SESSION['USER'];
+		$user_id = $db->get_row("SELECT * FROM app_users WHERE id = '".$current_session."'");
+	}
+	$partner_name = $db->get_var("SELECT businessname FROM app_partners WHERE id = '".$user_id->partner_id."'");
+	return $partner_name;
+}
+
+
 // Create modal boxes
 function app_modal($modifier='default'){ ?>
 	<div id="<?=$modifier;?>Modal" class="hud-modal fade">

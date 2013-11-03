@@ -1,5 +1,4 @@
 <? /* Load in the HUD Toolbar on call */
-
 global $user;
 
 ?>
@@ -7,7 +6,14 @@ global $user;
 <div id="hud_toolbar_wrapper">
 	<div id="hud_toolbar">
 		<div class="pull-left">
-			<div id="hud_logo" onclick="hud_extend();" ><img src="/<?= ADMIN; ?>assets/img/icon@2x.png" /></div>
+			<?php 
+		$partner_name = get_partner_name();
+		if(!isset($partner_name)) {
+			echo '<div id="hud_logo" onclick="hud_extend();" ><img src="/'. ADMIN . 'assets/img/icon@2x.png" /></div>';
+		} else {
+			 echo '<h4 id="hud_logo_text">'.$partner_name.'</h4>';
+		 } ?>
+		
 		</div>
 		<div class="pull-right hud-dropdown" id="hud_tools">
 			<div id="hud_menu_button"><i class="icon-reorder"></i></div>
