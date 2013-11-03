@@ -22,9 +22,9 @@ is_admin();
 	<!-- Bootstrap and core CSS -->
 	<link href="/app/admin/assets/css/bootstrap.css" rel="stylesheet">
 	<link href="/app/admin/assets/css/font-awesome.min.css" rel="stylesheet">
-	<link href="/app/admin/assets/css/dashboard.css" rel="stylesheet">
 	<link href="/app/admin/assets/css/typeahead.css" rel="stylesheet">
-
+	<link href="/app/admin/assets/css/dashboard.css" rel="stylesheet">
+	<?php get_user_partner_styles(); ?>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
   		<script src="/app/admin/assets/js/html5shiv.js"></script>
@@ -53,8 +53,9 @@ is_admin();
 	</style>
   
 </head>
+
 	<body>
-		<?
+		<?php
 		error_reporting(E_ALL);
 		ini_set('display_errors', '1');
 		?>
@@ -65,7 +66,18 @@ is_admin();
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="" class="navbar-brand"><h4>WebNinja</h4></a>
+				<a href="" class="navbar-brand">
+					<h4>
+						<?php 
+							$partner_name = get_user_partner_name();
+							if(!isset($partner_name)) {
+								echo "WebNinja";
+							} else {
+								echo $partner_name;
+							}
+						?>
+					</h4>
+				</a>
 				<div class="nav-collapse collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						<?php get_admin_nav(); ?>
@@ -75,7 +87,14 @@ is_admin();
 			<section id="page">
 				<div class="col-3 visible-lg">
 					<div id="branding">
-						<img src="assets/img/logo@2x.png"/>
+						<?php 
+							$logo = get_user_partner_logo();
+							if(!isset($logo)) {
+								echo "<img src='assets/img/logo@2x.png'/>";
+							} else {
+								echo $logo;
+							}
+						?>
 					</div>
 					<? include 'inc/sidebar.php'; ?>
 				</div>

@@ -1,10 +1,10 @@
 <? 
-$pagetitle = 'Add User';
+$pagetitle = 'Add Partner';
 include 'header.php';
 ?>
 <div class="row" id="content">
 	<div class="col-12">
-			<? add_user(); ?>
+			<? add_partner(); ?>
 	</div>
 </div>
 <?php 

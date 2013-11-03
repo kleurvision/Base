@@ -154,6 +154,7 @@ class User {
 			//$country	= stripslashes($_POST['country']);
 			$fname		= stripslashes($_POST['fname']);
 			$lname		= stripslashes($_POST['lname']);
+			$partner	= stripslashes($_POST['partner_id']);
 			//$mobile		= stripslashes($_POST['mobile']);
 			
 
@@ -192,7 +193,7 @@ class User {
 				
 			} else {
 
-				$create_user = $this->db->query("INSERT INTO app_users (email, password, role, bio, addr1, addr2, postal, city, province, country, mobile, fname, lname ) VALUES ('$email', '$password', '$role', '$bio', '$addr1', '$addr2', '$postal', '$city', '$province', '$country', '$mobile', '$fname', '$lname')");
+				$create_user = $this->db->query("INSERT INTO app_users (email, password, role, bio, addr1, addr2, postal, city, province, country, mobile, fname, lname, partner_id ) VALUES ('$email', '$password', '$role', '$bio', '$addr1', '$addr2', '$postal', '$city', '$province', '$country', '$mobile', '$fname', '$lname', '$partner')");
 				
 				if($create_user){ ?>
 					<div class="alert alert-success">
@@ -286,11 +287,6 @@ class User {
 		<?
 	}
 	
-
-
-	function edit_user(){
- 
-	}
 
 
 	// If user level is application admin or site owner, load HUD controllers

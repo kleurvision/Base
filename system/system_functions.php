@@ -430,10 +430,8 @@ function pdf_to_jpeg($filename){
      * 'submit'			= submit button value
      * 'placeholder'	= input field placeholder value
      * 'folder'			= folder path for saving images
-
-     Requires javascript file loaded in the footer - app.js
-     Function file_input(); runs on change of fake input
-
+     * Requires javascript file loaded in the footer - app.js
+     * Function file_input(); runs on change of fake input
 */
 
 // Upload Image - Simple

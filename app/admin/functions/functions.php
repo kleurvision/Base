@@ -147,6 +147,8 @@ function get_admin_nav(){
 					</a>
 				</li>
 				<li><a href="users"><i class="icon-group"></i>Users</a></li>
+				<li><a href="partners"><i class="icon-link"></i>Partners</a></li>
+
 		<? }
 	}
 }
@@ -404,6 +406,389 @@ function get_sites(){
 //////////////////////////////////////////////////////////////////////////////
 
 
+// Registration form
+function add_user(){
+
+	// Call in Partners List for dropdown
+	global $db;
+	$partners = $db->get_results("SELECT businessname FROM app_partners");
+
+	// Check registraiont POST submission
+	if(isset($_POST['reg_form_submit'])){
+					
+		$role = 1;
+		$email		= stripslashes($_POST['reg_user']);
+		//$bio		= stripslashes($_POST['bio']);
+		//$addr1		= stripslashes($_POST['addr1']);
+		//$addr2		= stripslashes($_POST['addr2']);
+		//$phone		= stripslashes($_POST['phone']);
+		//$postal		= stripslashes($_POST['postal']);
+		//$city		= stripslashes($_POST['city']);
+		//$province	= stripslashes($_POST['province']);
+		//$country	= stripslashes($_POST['country']);
+		$fname		= stripslashes($_POST['fname']);
+		$lname		= stripslashes($_POST['lname']);
+		$partner	= stripslashes($_POST['partner_id']);
+		//$mobile		= stripslashes($_POST['mobile']);
+		
+
+
+		if($email == ''){
+			$err_msg['no_email'] = 'Please enter an email address';
+		} else {			
+			if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+				$err_msg['invalid_email'] = 'Please enter a valid email address';
+			}
+		}
+		
+		$check_email = $db->get_var("SELECT id FROM app_users WHERE email = '$email'");
+		
+		if($check_email != ''){
+			$err_msg['email_exists'] = 'An account has already been registered with that email address';
+		}
+		
+		// Compare and encrypt the password - replace MD5 encryption
+		// Use Salted and Hashed password algorythms
+		// For Trevor
+		
+		if(stripslashes($_POST['reg_password']) == stripslashes($_POST['reg_password_confirm'])){
+			$password	= md5($_POST['reg_password']);
+		} else {
+			$err_msg['password_match'] = 'Passwords do not match';
+		}
+		
+		if($err_msg){
+			
+			foreach($err_msg as $error){ ?>
+				    <div class="alert">
+					    <button type="button" class="close" data-dismiss="alert">&times;</button>
+					    <?=$error;?>
+					</div>
+			<? }
+			
+		} else {
+
+			$create_user = $db->query("INSERT INTO app_users (email, password, role, bio, addr1, addr2, postal, city, province, country, mobile, fname, lname, partner_id ) VALUES ('$email', '$password', '$role', '$bio', '$addr1', '$addr2', '$postal', '$city', '$province', '$country', '$mobile', '$fname', '$lname', '$partner')");
+			
+			if($create_user){ ?>
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					User successfully added
+				</div>
+			<? } else { ?>
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					Database error
+				</div>
+			<? };
+		}
+
+	} 
+	
+	?>
+	
+		<form class="admin_form" role="form" id="registration_form" action="" method="post">
+			<fieldset id="essential_information">
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label>First Name</label>
+							<input class="form-control" type="text" name="fname" >
+						</div>
+						<div class="form-group">
+							<label>Last Name</label>
+							<input class="form-control" type="text" name="lname">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input class="form-control" type="text" name="reg_user">
+						</div>
+						<div class="form-group">
+							<label>Customer of:</label>
+							<select class="form-control" name="siteTheme">
+								<?php foreach ($partners as $partner) {
+									?>
+									<option value='<?= $partner->businessname; ?>'> <?= $partner->businessname; ?></option>
+									<? }?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Password:</label>
+							<input class="form-control" type="password" name="reg_password" >
+						</div>
+						<div class="form-group">
+							<label>Confirm Password:</label>
+							<input class="form-control" type="password" name="reg_password_confirm">
+						</div>
+						<div class="form-group">
+							<!-- Submit -->
+							<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Add User"/>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<br/>
+			<!-- 
+			<fieldset id="additional_information">
+				<h4>Contact Information</h4>
+				<div class="row">
+					<div class="col-6">
+						<input class="form-control" type="text" name="phone" placeholder="Phone">
+					</div>
+					<div class="col-6">
+						<input class="form-control" type="text" name="mobile" placeholder="Mobile">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-9">
+						<input class="form-control" type="text" name="addr1" placeholder="Street Address">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="addr2" placeholder="Suite/Apt/Unit">
+					</div>
+				</div>			
+				<div class="row">
+					<div class="col-3">
+						<input class="form-control" type="text" name="city" placeholder="City">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="province" placeholder="Province">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="country" placeholder="Country">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="postal" placeholder="Postal Code">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<textarea class="form-control" rows="6" type="text" name="bio" placeholder="Notes"></textarea>
+					</div>
+				</div>
+				-->
+		</form> 
+	
+	<?
+}
+
+// Edit User
+function edit_user($user_id){
+
+	// Call in Partners List for dropdown
+	global $db;
+	$partners = $db->get_results("SELECT businessname FROM app_partners");
+
+	// Check registraiont POST submission
+	if(isset($_POST['reg_form_submit'])){
+					
+		$role = 1;
+		$email		= stripslashes($_POST['reg_user']);
+		//$bio		= stripslashes($_POST['bio']);
+		//$addr1		= stripslashes($_POST['addr1']);
+		//$addr2		= stripslashes($_POST['addr2']);
+		//$phone		= stripslashes($_POST['phone']);
+		//$postal		= stripslashes($_POST['postal']);
+		//$city		= stripslashes($_POST['city']);
+		//$province	= stripslashes($_POST['province']);
+		//$country	= stripslashes($_POST['country']);
+		$fname		= stripslashes($_POST['fname']);
+		$lname		= stripslashes($_POST['lname']);
+		$partner	= stripslashes($_POST['partner_id']);
+		//$mobile		= stripslashes($_POST['mobile']);
+		
+
+
+		if($email == ''){
+			$err_msg['no_email'] = 'Please enter an email address';
+		} else {			
+			if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+				$err_msg['invalid_email'] = 'Please enter a valid email address';
+			}
+		}
+		
+		$check_email = $db->get_var("SELECT id FROM app_users WHERE email = '$email'");
+		
+		if($check_email != ''){
+			$err_msg['email_exists'] = 'An account has already been registered with that email address';
+		}
+		
+		// Compare and encrypt the password - replace MD5 encryption
+		// Use Salted and Hashed password algorythms
+		// For Trevor
+		
+		if(stripslashes($_POST['reg_password']) == stripslashes($_POST['reg_password_confirm'])){
+			$password	= md5($_POST['reg_password']);
+		} else {
+			$err_msg['password_match'] = 'Passwords do not match';
+		}
+		
+		if($err_msg){
+			
+			foreach($err_msg as $error){ ?>
+				    <div class="alert">
+					    <button type="button" class="close" data-dismiss="alert">&times;</button>
+					    <?=$error;?>
+					</div>
+			<? }
+			
+		} else {
+
+			$create_user = $db->query("INSERT INTO app_users (email, password, role, bio, addr1, addr2, postal, city, province, country, mobile, fname, lname, partner_id ) VALUES ('$email', '$password', '$role', '$bio', '$addr1', '$addr2', '$postal', '$city', '$province', '$country', '$mobile', '$fname', '$lname', '$partner')");
+			
+			if($create_user){ ?>
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					User successfully added
+				</div>
+			<? } else { ?>
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					Database error
+				</div>
+			<? };
+		}
+
+	} 
+	
+	?>
+	
+		<form class="admin_form" role="form" id="registration_form" action="" method="post">
+			<fieldset id="essential_information">
+				<div class="row">
+					<div class="col-6">
+						<input class="form-control" type="text" name="fname" placeholder="First Name">
+					</div>
+					
+					<div class="col-6">
+						<input class="form-control" type="text" name="lname" placeholder="Last Name">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<input class="form-control" type="text" name="reg_user" placeholder="Email">
+					</div>
+					<div class="col-6">
+						<select class="form-control" name="siteTheme">
+							<?php foreach ($partners as $partner) {
+								?>
+								<option value='<?= $partner->businessname; ?>'> <?= $partner->businessname; ?></option>
+							<? }?>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<input class="form-control" type="password" name="reg_password" placeholder="Password">
+					</div>
+					<div class="col-6">
+						<input class="form-control" type="password" name="reg_password_confirm" placeholder="Confirm Password">
+					</div>
+				</div>
+			</fieldset>
+			<br/>
+			<!-- 
+			<fieldset id="additional_information">
+				<h4>Contact Information</h4>
+				<div class="row">
+					<div class="col-6">
+						<input class="form-control" type="text" name="phone" placeholder="Phone">
+					</div>
+					<div class="col-6">
+						<input class="form-control" type="text" name="mobile" placeholder="Mobile">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-9">
+						<input class="form-control" type="text" name="addr1" placeholder="Street Address">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="addr2" placeholder="Suite/Apt/Unit">
+					</div>
+				</div>			
+				<div class="row">
+					<div class="col-3">
+						<input class="form-control" type="text" name="city" placeholder="City">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="province" placeholder="Province">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="country" placeholder="Country">
+					</div>
+					<div class="col-3">
+						<input class="form-control" type="text" name="postal" placeholder="Postal Code">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<textarea class="form-control" rows="6" type="text" name="bio" placeholder="Notes"></textarea>
+					</div>
+				</div>
+				-->
+				<!-- Submit -->
+				<div clas-"form-group">
+					<input class="btn btn-primary form-control" type="submit" name="reg_form_submit" value="Create Account"/>
+				</div>
+			</fieldset>
+		</form> 
+	
+	<?
+}
+
+
+
+// Get user logged in details
+// Check for login variables
+
+
+
+// Get the ID of the partner who onboarded user
+function get_user_partner_styles(){
+	global $db;
+
+	if(isset($_SESSION['USER'])){
+		$current_session = $_SESSION['USER'];
+		$user_id = $db->get_row("SELECT * FROM app_users WHERE id = '".$current_session."'");
+	}
+	$user_partner = $db->get_var("SELECT id FROM app_partners WHERE id = '".$user_id->partner_id."'");
+
+	if (file_exists(APP .'/partners/'. $user_partner .'/style.css')){
+		$parter_styles = '<link href="/app/partners/'.$user_partner.'/style.css" rel="stylesheet">';
+	} else {
+		$parter_styles = '';
+	}
+	echo $parter_styles;
+}
+
+// Get the ID of the partner who onboarded user
+function get_user_partner_logo(){
+	global $db;
+	if(isset($_SESSION['USER'])){
+		$current_session = $_SESSION['USER'];
+		$user_id = $db->get_row("SELECT * FROM app_users WHERE id = '".$current_session."'");
+	}
+	$user_partner = $db->get_var("SELECT id FROM app_partners WHERE id = '".$user_id->partner_id."'");
+
+	if (file_exists(APP .'/partners/'. $user_partner .'/logo.png')){
+		$parter_logo = '<img src="/app/partners/'. $user_partner .'/logo.png">';
+	} else {
+		$parter_logo = NULL;
+	}
+	return $parter_logo;
+}
+
+function get_user_partner_name(){
+	global $db;
+	if(isset($_SESSION['USER'])){
+		$current_session = $_SESSION['USER'];
+		$user_id = $db->get_row("SELECT * FROM app_users WHERE id = '".$current_session."'");
+	}
+	$partner_name = $db->get_var("SELECT businessname FROM app_partners WHERE id = '".$user_id->partner_id."'");
+	return $partner_name;
+}
+
+
 // Get User Role 
 function get_user_role($level){
 	global $db;
@@ -449,3 +834,186 @@ function get_users_api(){
 	$users 	= $db->get_results("SELECT id, fname, lname, email, role FROM app_users");
 	return $users;
 }
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Partners
+//////////////////////////////////////////////////////////////////////////////
+
+// Make necessary directory for new parters files
+function make_partner_dir($partner_id){
+	// Desired folder structure
+	$path_to_folder = ''.APP.'/partners/'.$partner_id;
+	$user_name = 'ftpuser';
+	// To create the nested structure, the $recursive parameter 
+	// to mkdir() must be specified.
+	$check = mkdir($path_to_folder);
+	chmod($path_to_folder, 0777);
+	chown($path_to_folder, $user_name);
+	
+	// Create config file
+	/*$site_index_master 	= ''.APP.'/themes/setup/index.php';
+	$new_site_index		= $path_to_site.'/index.php';
+	
+	if (!copy($site_index_master, $new_site_index)) {
+	    echo "failed to copy $site_index_master...\n";
+	}*/
+}
+
+
+function add_partner(){
+
+	// Check registraiont POST submission
+	if(isset($_POST['add_partner_form_submit'])){
+					
+		$email		= stripslashes($_POST['reg_email']);
+		$businessname		= stripslashes($_POST['reg_businessname']);
+		$err_msg = '';
+
+		if($email == ''){
+			$err_msg['no_email'] = 'Please enter an email address';
+		} else {			
+			if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+				$err_msg['invalid_email'] = 'Please enter a valid email address';
+			}
+		}
+		global $db;
+		$check_email = $db->get_var("SELECT id FROM app_partners WHERE email = '$email'");
+		
+		if($check_email != ''){
+			$err_msg['email_exists'] = 'An account has already been registered with that email address';
+		}
+		
+		// Compare and encrypt the password - replace MD5 encryption
+		// Use Salted and Hashed password algorythms
+		// For Trevor
+		
+		if(stripslashes($_POST['reg_password']) == stripslashes($_POST['reg_password_confirm'])){
+			$password	= md5($_POST['reg_password']);
+		} else {
+			$err_msg['password_match'] = 'Passwords do not match';
+		}
+		
+		if($err_msg){
+			
+			foreach($err_msg as $error){ ?>
+				    <div class="alert">
+					    <button type="button" class="close" data-dismiss="alert">&times;</button>
+					    <?= $error;?>
+					</div>
+			<? }
+			
+		} else {
+			// If no errors add partner to database
+			$create_partner = $db->query("INSERT INTO app_partners (email, password, businessname ) VALUES ('$email','$password','$businessname')");
+			
+			// Get the new auto-incremented partner ID from the database
+			$partner_id = mysql_insert_id();
+
+			// Setup Partners assets folder
+			make_partner_dir($partner_id);
+
+			if($create_partner){ ?>
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					Partner successfully added
+				</div>
+			<? } else { ?>
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					Database error
+				</div>
+			<? };
+		}
+
+	} 
+	
+	?>
+		<form class="admin_form" role="form" id="registration_form" action="" method="post">
+			<fieldset id="essential_information">
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label>Business Name</label>
+							<input class="form-control" type="text" name="reg_businessname" >
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input class="form-control" type="text" name="reg_email" >
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input class="form-control" type="password" name="reg_password" >
+						</div>
+						<div class="form-group">
+							<label>Confirm Password</label>
+							<input class="form-control" type="password" name="reg_password_confirm" >
+						</div>
+						<!-- Submit -->
+						<div clas-"form-group">
+							<input class="btn btn-primary form-control" type="submit" name="add_partner_form_submit" value="Add Partner"/>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form> 
+	
+	<?
+}
+
+// Get all partners
+function get_all_partners(){
+	global $db;
+	$partners = $db->get_results("SELECT id, businessname, email FROM app_partners");
+
+
+?>
+
+<section id="list">
+	<header>
+		<div class="row">
+			<div class="col-1">
+				<strong>ID</strong>
+			</div>
+			<div class="col-3">
+				<strong>Name</strong>
+			</div>
+			<div class="col-4">
+				<strong>Email</strong>
+			</div>
+			<div class="col-1">
+				<strong>Customers</strong>
+			</div>
+		</div>
+	</header>
+
+			<? foreach ($partners as $partner) { 
+				?>
+					<div class="row">
+						<div class="col-1">
+							<?= $partner->id; ?>
+						</div>
+						<div class="col-3">
+							<?= $partner->businessname; ?>
+						</div>
+						<div class="col-4">
+							<?= $partner->email; ?>
+						</div>
+						<div class="col-1">
+							<?php 
+							$partner_customers = $db->get_var("SELECT COUNT(partner_id) FROM app_users WHERE partner_id = ". $partner->id .""); 
+							echo $partner_customers;
+							?>
+						</div>
+						<div class="col-2 pull-right">
+							<ul class="list-inline pull-right">
+								<li><a href="<?= URL ?>app/admin/edit-partner?id=<?= $partner->id; ?>" class="btn btn-default btn-sm" >Edit</a></li>
+							</ul>
+						</div>
+					</div>
+					<hr/>					
+			<? } ?>	
+</section>
+<? } 
+
+
