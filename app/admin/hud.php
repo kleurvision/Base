@@ -29,6 +29,7 @@ global $user;
 					<a data-toggle="dropdown" href="#"><i data-toggle="hud-tooltip" title="Add" class="icon-plus"></i></a>
 					<ul class="hud_sub_menu hud-dropdown-menu" role="menu" aria-labelledby="drop2">
 						<li><a class="hud_btn" href="#newpageModalAdmin" data-toggle="modal">Page</a></li>
+						<li><a class="hud_btn" href="#newblogModalAdmin" data-toggle="modal">Blog</a></li>
 						<li><a class="hud_btn" href="#newheroModalAdmin" data-toggle="modal">Slide</a></li>
 					</ul>
 				</li>
@@ -52,6 +53,9 @@ global $user;
 	</div>
 	<div class="hud_new_page">
 		<? admin_modal('newpage');?>
+	</div>
+	<div class="hud_new_blog">
+		<? admin_modal('newblog');?>
 	</div>
 	<div class="hud_edit_page">
 		<? admin_modal('editpage');?>

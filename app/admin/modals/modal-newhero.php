@@ -34,6 +34,6 @@ Save as modal-*modal-template-name*.php to extend
 				<input type="hidden" value="<?= SITE_ID;?>" name="site_id">
 				<input id="add-hero-element-4" class="btn btn-primary" type="submit" name="" value="Add Hero">
 			</div>
-		<div class="hud-form-group">
+		</div>
 	</form>
 </div>
