@@ -1540,7 +1540,7 @@ html {
 
 body {
   position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans";
   line-height: 1.5em;
   color: #666666; }
 
@@ -1621,29 +1621,29 @@ body {
     background: #68c5c0;
     color: white; }
 
-.hud_vail p {
+#hud_toolbar p, .hud_vail p {
   margin: 0 0 10px;
   font-family: "Open Sans"; }
-.hud_vail h1, .hud_vail h2, .hud_vail h3, .hud_vail h4, .hud_vail h5, .hud_vail h6 {
+#hud_toolbar h1, #hud_toolbar h2, #hud_toolbar h3, #hud_toolbar h4, #hud_toolbar h5, #hud_toolbar h6, .hud_vail h1, .hud_vail h2, .hud_vail h3, .hud_vail h4, .hud_vail h5, .hud_vail h6 {
   font-family: "Open Sans";
   font-weight: 300; }
-.hud_vail h1, .hud_vail .h1 {
+#hud_toolbar h1, #hud_toolbar .h1, .hud_vail h1, .hud_vail .h1 {
   font-size: 38px; }
-.hud_vail h2, .hud_vail .h2 {
+#hud_toolbar h2, #hud_toolbar .h2, .hud_vail h2, .hud_vail .h2 {
   font-size: 32px; }
-.hud_vail h3, .hud_vail .h3 {
+#hud_toolbar h3, #hud_toolbar .h3, .hud_vail h3, .hud_vail .h3 {
   font-size: 24px; }
-.hud_vail h4, .hud_vail .h4 {
+#hud_toolbar h4, #hud_toolbar .h4, .hud_vail h4, .hud_vail .h4 {
   font-size: 18px; }
-.hud_vail h5, .hud_vail .h5 {
+#hud_toolbar h5, #hud_toolbar .h5, .hud_vail h5, .hud_vail .h5 {
   font-size: 14px; }
-.hud_vail h6, .hud_vail .h6 {
+#hud_toolbar h6, #hud_toolbar .h6, .hud_vail h6, .hud_vail .h6 {
   font-size: 12px; }
-.hud_vail a {
+#hud_toolbar a, .hud_vail a {
   text-decoration: none; }
-  .hud_vail a:hover {
+  #hud_toolbar a:hover, .hud_vail a:hover {
     text-decoration: none; }
-.hud_vail i {
+#hud_toolbar i, .hud_vail i {
   font-size: 1.2em; }
 
 .hud_wrapper, #hud_stage_wrapper, #hud_stage {
