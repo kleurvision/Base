@@ -34,7 +34,7 @@ $(document).ready(function(){
 
     name: 'user',
     valueKey: 'email',
-    prefetch: 'http://local.webninja.me/admin/api/app.users'
+    prefetch: 'http://webninja.me/admin/api/app.users'
 
 	});
 	

@@ -38,6 +38,15 @@
       "fileType" : 2,
       "debugStyle" : 0
     },
+    "\/screen.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/screen.css",
+      "outputAbbreviatedPath" : "\/No Output Path",
+      "fileType" : 16
+    },
     "\/screen.sass" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -49,15 +58,6 @@
       "outputAbbreviatedPath" : "\/screen.css",
       "fileType" : 2,
       "debugStyle" : 0
-    },
-    "\/screen.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/screen.css",
-      "outputAbbreviatedPath" : "\/No Output Path",
-      "fileType" : 16
     }
   },
   "manualImportLinks" : [
