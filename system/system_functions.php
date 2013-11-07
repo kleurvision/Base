@@ -151,7 +151,7 @@ function app_nav($class = '', $div = '', $collapse = 'true', $startCap = '', $en
 				if($child_pages && $parentLinks == 'true'){
 					echo'<a href="'.NAV.$page->pagename.'">'.$page->pagetitle.'</a>';
 				} else if($child_pages && $parentLinks == 'false'){
-					echo'<a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$page->pagetitle.'</a>';
+					echo'<a class="dropdown-toggle" data-toggle="dropdown" href="'.NAV.$page->pagename.'">'.$page->pagetitle.'</a>';
 				} else {
 					echo'<a href="'.NAV.$page->pagename.'">'.$page->pagetitle.'</a>';
 				}

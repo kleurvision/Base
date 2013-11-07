@@ -27,6 +27,7 @@
 	<!-- Load Scripts -->
 	<script type="text/javascript" src="<? get_theme_path('js');?>/holder.js"></script>
 	<script type="text/javascript" src="<? get_theme_path('js');?>/modernizr.js"></script>
+	<script type="text/javascript" src="<? get_theme_path('js');?>/theme.js"></script>
 
 	<!-- Fav and touch icons -->
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/apple-touch-icon-144-precomposed.png">
