@@ -1,4 +1,4 @@
-jQuery(function($) {
+/*jQuery(function($) {
 	$('.navbar .dropdown').hover(function() {
 		$(this).find('.dropdown-menu').first().stop(true, true).delay(250).slideDown();
 	}, function() {
@@ -7,4 +7,4 @@ jQuery(function($) {
 	$('.navbar .dropdown > a').click(function(){
 		location.href = this.href;
 	});
-});
+});*/

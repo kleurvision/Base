@@ -26,18 +26,6 @@
       "fileType" : 2,
       "debugStyle" : 0
     },
-    "\/screen.sass" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/screen.sass",
-      "outputStyle" : 3,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/screen.css",
-      "fileType" : 2,
-      "debugStyle" : 0
-    },
     "\/screen.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -56,6 +44,18 @@
       "outputStyle" : 3,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/print.css",
+      "fileType" : 2,
+      "debugStyle" : 0
+    },
+    "\/screen.sass" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/screen.sass",
+      "outputStyle" : 3,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/screen.css",
       "fileType" : 2,
       "debugStyle" : 0
     }
