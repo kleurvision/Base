@@ -53,6 +53,7 @@ function update_vhosts($newhostdir){
 	
 		DocumentRoot ".ROOT."
 		ServerName ".$newhostdir."
+		ServerAlias www.".$newhostdir."
 			
 	</VirtualHost>
 	
