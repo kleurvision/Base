@@ -14,7 +14,7 @@
 					<div class="col-12 ">
 						<ul class="social-links list-unstyled list-inline">
 							<li>
-								<a href="http://www.facebook.com/FitMotto">
+								<a href="#">
 									<span class="icon-stack">
 										<i class="icon-circle icon-stack-base"></i>
 										<i class='icon-facebook icon-light'></i>
@@ -22,7 +22,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="http://www.twitter.com/FitMotto">
+								<a href="#">
 									<span class="icon-stack">
 										<i class="icon-circle icon-stack-base"></i>
 										<i class='icon-twitter icon-light'></i>
@@ -30,7 +30,7 @@
 								</a>
 							</li> 
 							<li>
-								<a href="https://plus.google.com/108352986588769841661/posts">
+								<a href="#">
 									<span class="icon-stack">
 										<i class="icon-circle icon-stack-base"></i>
 										<i class='icon-google-plus-sign icon-light'></i>
