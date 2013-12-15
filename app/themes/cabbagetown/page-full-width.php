@@ -13,7 +13,7 @@ echo $page->get_header();
                 <h2 class="page-title animated fadeInLeft"><?= $pagemap->pagetitle;?></h2>
             </div>
             <div class="col-12 col-lg-6">
-                <?= $page->breadcrumbs($pagemap->pagename);?>
+                <?= // $page->breadcrumbs($pagemap->pagename);?>
             </div>          
         </div>
     </div>
