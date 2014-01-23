@@ -237,8 +237,8 @@
   },
   "projectAttributes" : {
     "bourbonEnabled" : 0,
-    "displayValue" : "css",
-    "displayValueWasSetByUser" : 0,
+    "displayValue" : "rosedale",
+    "displayValueWasSetByUser" : 1,
     "compassEnabled" : 0
   }
 }
