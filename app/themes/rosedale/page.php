@@ -6,10 +6,7 @@ echo $page->get_header();
 		<div class="container">
 			<div class="col-12 col-lg-6">
 				<h2 class="page-title"><?= $pagemap->pagetitle;?></h2>
-			</div>
-			<div class="col-12 col-lg-6">
-				<?= $page->breadcrumbs($pagemap->pagename);?>
-			</div>			
+			</div>		
 		</div>
 	</div>
 	<div class="container">
